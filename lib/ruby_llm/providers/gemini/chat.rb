@@ -5,32 +5,24 @@ module RubyLLM
     module Gemini
       # Chat methods for the Gemini API implementation
       module Chat
+        module_function
+
         def completion_url
           "models/#{@model}:generateContent"
         end
 
-        def complete(messages, tools:, temperature:, model:, &block) # rubocop:disable Metrics/MethodLength
-          @model = model
+        def render_payload(messages, tools:, temperature:, model:, stream: false) # rubocop:disable Lint/UnusedMethodArgument
+          @model = model # Store model for completion_url/stream_url
           payload = {
             contents: format_messages(messages),
             generationConfig: {
               temperature: temperature
             }
           }
-
           payload[:tools] = format_tools(tools) if tools.any?
-
-          # Store tools for use in generate_completion
-          @tools = tools
-
-          if block_given?
-            stream_response payload, &block
-          else
-            sync_response payload
-          end
+          payload
         end
 
-        # Format methods can be private
         private
 
         def format_messages(messages)
@@ -50,9 +42,8 @@ module RubyLLM
           end
         end
 
-        def format_parts(msg) # rubocop:disable Metrics/AbcSize,Metrics/MethodLength
+        def format_parts(msg)
           if msg.tool_call?
-            # Handle function calls
             [{
               functionCall: {
                 name: msg.tool_calls.values.first.name,
@@ -60,7 +51,6 @@ module RubyLLM
               }
             }]
           elsif msg.tool_result?
-            # Handle function responses
             [{
               functionResponse: {
                 name: msg.tool_call_id,
@@ -70,27 +60,8 @@ module RubyLLM
                 }
               }
             }]
-          elsif msg.content.is_a?(Array)
-            # Handle multi-part content (text, images, etc.)
-            msg.content.map { |part| format_part(part) }
           else
-            # Simple text content
-            [{ text: msg.content.to_s }]
-          end
-        end
-
-        def format_part(part) # rubocop:disable Metrics/MethodLength
-          case part[:type]
-          when 'text'
-            { text: part[:text] }
-          when 'image'
-            Media.format_image(part)
-          when 'pdf'
-            Media.format_pdf(part)
-          when 'audio'
-            Media.format_audio(part)
-          else
-            { text: part.to_s }
+            Media.format_content(msg.content)
           end
         end
 
@@ -108,7 +79,7 @@ module RubyLLM
           )
         end
 
-        def extract_content(data) # rubocop:disable Metrics/CyclomaticComplexity
+        def extract_content(data)
           candidate = data.dig('candidates', 0)
           return '' unless candidate
 

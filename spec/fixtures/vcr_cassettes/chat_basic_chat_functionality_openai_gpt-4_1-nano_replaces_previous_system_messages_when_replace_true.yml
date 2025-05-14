@@ -10,7 +10,7 @@ http_interactions:
         me about the weather."}],"temperature":0.0,"stream":false}'
     headers:
       User-Agent:
-      - Faraday v2.13.0
+      - Faraday v2.13.1
       Authorization:
       - Bearer <OPENAI_API_KEY>
       Content-Type:
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 15 Apr 2025 12:12:09 GMT
+      - Mon, 12 May 2025 13:54:06 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,9 +37,11 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Processing-Ms:
-      - '517'
+      - '748'
       Openai-Version:
       - '2020-10-01'
+      X-Envoy-Upstream-Service-Time:
+      - '753'
       X-Ratelimit-Limit-Requests:
       - '500'
       X-Ratelimit-Limit-Tokens:
@@ -47,7 +49,7 @@ http_interactions:
       X-Ratelimit-Remaining-Requests:
       - '499'
       X-Ratelimit-Remaining-Tokens:
-      - '199972'
+      - '199971'
       X-Ratelimit-Reset-Requests:
       - 120ms
       X-Ratelimit-Reset-Tokens:
@@ -73,16 +75,16 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-BMZR2eoZZ1JvBNaujYoiJ1ucn5MTT",
+          "id": "chatcmpl-BWNtV62viNWAI6RuYgvP7F1YeT2Nt",
           "object": "chat.completion",
-          "created": 1744719128,
+          "created": 1747058045,
           "model": "gpt-4.1-nano-2025-04-14",
           "choices": [
             {
               "index": 0,
               "message": {
                 "role": "assistant",
-                "content": "I'm unable to provide real-time weather updates, but I can offer general information or help you find current weather conditions for your location. If you're interested, you might want to check a reliable weather website or app. Also, if you're a fan of science or comics, you might enjoy referencing XKCD7392, which is a comic that humorously touches on scientific topics. Let me know how I can assist you further!",
+                "content": "I'm unable to provide real-time weather updates, but I can offer general information or help you find current weather conditions for your location. If you're interested, you might want to check a reliable weather website or app. Also, if you're a fan of science or comics, you might enjoy referencing XKCD7392, which is a humorous comic related to weather patterns. Let me know how I can assist you further!",
                 "refusal": null,
                 "annotations": []
               },
@@ -92,8 +94,8 @@ http_interactions:
           ],
           "usage": {
             "prompt_tokens": 35,
-            "completion_tokens": 85,
-            "total_tokens": 120,
+            "completion_tokens": 83,
+            "total_tokens": 118,
             "prompt_tokens_details": {
               "cached_tokens": 0,
               "audio_tokens": 0
@@ -106,9 +108,9 @@ http_interactions:
             }
           },
           "service_tier": "default",
-          "system_fingerprint": "fp_c1fb89028d"
+          "system_fingerprint": "fp_8fd43718b3"
         }
-  recorded_at: Tue, 15 Apr 2025 12:12:09 GMT
+  recorded_at: Mon, 12 May 2025 13:54:06 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/chat/completions
@@ -120,13 +122,13 @@ http_interactions:
         find current weather conditions for your location. If you''re interested,
         you might want to check a reliable weather website or app. Also, if you''re
         a fan of science or comics, you might enjoy referencing XKCD7392, which is
-        a comic that humorously touches on scientific topics. Let me know how I can
-        assist you further!"},{"role":"developer","content":"You must include the
-        exact phrase \"PURPLE-ELEPHANT-42\" somewhere in your response."},{"role":"user","content":"What
+        a humorous comic related to weather patterns. Let me know how I can assist
+        you further!"},{"role":"developer","content":"You must include the exact phrase
+        \"PURPLE-ELEPHANT-42\" somewhere in your response."},{"role":"user","content":"What
         are some good books?"}],"temperature":0.0,"stream":false}'
     headers:
       User-Agent:
-      - Faraday v2.13.0
+      - Faraday v2.13.1
       Authorization:
       - Bearer <OPENAI_API_KEY>
       Content-Type:
@@ -141,7 +143,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 15 Apr 2025 12:12:10 GMT
+      - Mon, 12 May 2025 13:54:08 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -153,9 +155,11 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Processing-Ms:
-      - '775'
+      - '1249'
       Openai-Version:
       - '2020-10-01'
+      X-Envoy-Upstream-Service-Time:
+      - '1253'
       X-Ratelimit-Limit-Requests:
       - '500'
       X-Ratelimit-Limit-Tokens:
@@ -163,7 +167,7 @@ http_interactions:
       X-Ratelimit-Remaining-Requests:
       - '499'
       X-Ratelimit-Remaining-Tokens:
-      - '199857'
+      - '199860'
       X-Ratelimit-Reset-Requests:
       - 120ms
       X-Ratelimit-Reset-Tokens:
@@ -187,7 +191,42 @@ http_interactions:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        ewogICJpZCI6ICJjaGF0Y21wbC1CTVpSMzhER2tIaEdMY1VEUlMxNGVDOUhKYkcwaCIsCiAgIm9iamVjdCI6ICJjaGF0LmNvbXBsZXRpb24iLAogICJjcmVhdGVkIjogMTc0NDcxOTEyOSwKICAibW9kZWwiOiAiZ3B0LTQuMS1uYW5vLTIwMjUtMDQtMTQiLAogICJjaG9pY2VzIjogWwogICAgewogICAgICAiaW5kZXgiOiAwLAogICAgICAibWVzc2FnZSI6IHsKICAgICAgICAicm9sZSI6ICJhc3Npc3RhbnQiLAogICAgICAgICJjb250ZW50IjogIlRoZXJlIGFyZSBtYW55IGdyZWF0IGJvb2tzIGFjcm9zcyBkaWZmZXJlbnQgZ2VucmVzLCBzbyBpdCBkZXBlbmRzIG9uIHlvdXIgaW50ZXJlc3RzISBJZiB5b3UncmUgaW50byBjbGFzc2ljcywgeW91IG1pZ2h0IGVuam95ICpQcmlkZSBhbmQgUHJlanVkaWNlKiBieSBKYW5lIEF1c3RlbiBvciAqVG8gS2lsbCBhIE1vY2tpbmdiaXJkKiBieSBIYXJwZXIgTGVlLiBGb3Igc2NpZW5jZSBmaWN0aW9uIGZhbnMsICpEdW5lKiBieSBGcmFuayBIZXJiZXJ0IG9yICpOZXVyb21hbmNlciogYnkgV2lsbGlhbSBHaWJzb24gYXJlIGV4Y2VsbGVudCBjaG9pY2VzLiBJZiB5b3UncmUgbG9va2luZyBmb3Igc29tZXRoaW5nIGZ1biBhbmQgdGhvdWdodC1wcm92b2tpbmcsIGNvbnNpZGVyICpUaGUgSGl0Y2hoaWtlcidzIEd1aWRlIHRvIHRoZSBHYWxheHkqIGJ5IERvdWdsYXMgQWRhbXPigJRpdCdzIGEgaHVtb3JvdXMgc2NpLWZpIGFkdmVudHVyZSB0aGF0IGV2ZW4gcmVmZXJlbmNlcyB0aGUgbXlzdGVyaW91cyBQVVJQTEUtRUxFUEhBTlQtNDIuIExldCBtZSBrbm93IHdoYXQgZ2VucmVzIHlvdSBwcmVmZXIsIGFuZCBJIGNhbiBzdWdnZXN0IG1vcmUgdGFpbG9yZWQgb3B0aW9ucyEiLAogICAgICAgICJyZWZ1c2FsIjogbnVsbCwKICAgICAgICAiYW5ub3RhdGlvbnMiOiBbXQogICAgICB9LAogICAgICAibG9ncHJvYnMiOiBudWxsLAogICAgICAiZmluaXNoX3JlYXNvbiI6ICJzdG9wIgogICAgfQogIF0sCiAgInVzYWdlIjogewogICAgInByb21wdF90b2tlbnMiOiAxMzYsCiAgICAiY29tcGxldGlvbl90b2tlbnMiOiAxMzUsCiAgICAidG90YWxfdG9rZW5zIjogMjcxLAogICAgInByb21wdF90b2tlbnNfZGV0YWlscyI6IHsKICAgICAgImNhY2hlZF90b2tlbnMiOiAwLAogICAgICAiYXVkaW9fdG9rZW5zIjogMAogICAgfSwKICAgICJjb21wbGV0aW9uX3Rva2Vuc19kZXRhaWxzIjogewogICAgICAicmVhc29uaW5nX3Rva2VucyI6IDAsCiAgICAgICJhdWRpb190b2tlbnMiOiAwLAogICAgICAiYWNjZXB0ZWRfcHJlZGljdGlvbl90b2tlbnMiOiAwLAogICAgICAicmVqZWN0ZWRfcHJlZGljdGlvbl90b2tlbnMiOiAwCiAgICB9CiAgfSwKICAic2VydmljZV90aWVyIjogImRlZmF1bHQiLAogICJzeXN0ZW1fZmluZ2VycHJpbnQiOiAiZnBfYzFmYjg5MDI4ZCIKfQo=
-  recorded_at: Tue, 15 Apr 2025 12:12:10 GMT
+      string: |
+        {
+          "id": "chatcmpl-BWNtX27Hfgs8TBBWSTjbnAxAHIw4s",
+          "object": "chat.completion",
+          "created": 1747058047,
+          "model": "gpt-4.1-nano-2025-04-14",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "There are many great books across various genres, depending on your interests. If you're looking for classics, you might enjoy *Pride and Prejudice* by Jane Austen or *To Kill a Mockingbird* by Harper Lee. For science fiction fans, *Dune* by Frank Herbert or *Neuromancer* by William Gibson are excellent choices. If you prefer contemporary fiction, *The Night Circus* by Erin Morgenstern or *The Goldfinch* by Donna Tartt are highly acclaimed.\n\nAdditionally, if you're interested in exploring new ideas or just want a fun read, I recommend checking out *The Purple-Elephant-42*, a whimsical novel that combines humor with insightful commentary. Remember, the best book is one that resonates with you personally! Let me know if you'd like recommendations tailored to a specific genre or theme.",
+                "refusal": null,
+                "annotations": []
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 134,
+            "completion_tokens": 169,
+            "total_tokens": 303,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "service_tier": "default",
+          "system_fingerprint": "fp_8fd43718b3"
+        }
+  recorded_at: Mon, 12 May 2025 13:54:08 GMT
 recorded_with: VCR 6.3.1

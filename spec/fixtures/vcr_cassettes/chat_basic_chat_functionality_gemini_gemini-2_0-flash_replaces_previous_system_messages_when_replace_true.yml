@@ -10,7 +10,7 @@ http_interactions:
         me about the weather."}]}],"generationConfig":{"temperature":0.0}}'
     headers:
       User-Agent:
-      - Faraday v2.13.0
+      - Faraday v2.13.1
       X-Goog-Api-Key:
       - "<GEMINI_API_KEY>"
       Content-Type:
@@ -31,7 +31,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Fri, 11 Apr 2025 14:01:00 GMT
+      - Mon, 12 May 2025 13:38:33 GMT
       Server:
       - scaffolding on HTTPServer2
       X-Xss-Protection:
@@ -41,7 +41,7 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Server-Timing:
-      - gfet4t7; dur=1498
+      - gfet4t7; dur=1650
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Transfer-Encoding:
@@ -83,7 +83,7 @@ http_interactions:
           },
           "modelVersion": "gemini-2.0-flash"
         }
-  recorded_at: Fri, 11 Apr 2025 14:01:00 GMT
+  recorded_at: Mon, 12 May 2025 13:38:33 GMT
 - request:
     method: post
     uri: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent
@@ -106,7 +106,7 @@ http_interactions:
         are some good books?"}]}],"generationConfig":{"temperature":0.0}}'
     headers:
       User-Agent:
-      - Faraday v2.13.0
+      - Faraday v2.13.1
       X-Goog-Api-Key:
       - "<GEMINI_API_KEY>"
       Content-Type:
@@ -127,7 +127,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Fri, 11 Apr 2025 14:01:04 GMT
+      - Mon, 12 May 2025 13:38:37 GMT
       Server:
       - scaffolding on HTTPServer2
       X-Xss-Protection:
@@ -137,7 +137,7 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Server-Timing:
-      - gfet4t7; dur=3332
+      - gfet4t7; dur=3774
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Transfer-Encoding:
@@ -179,5 +179,5 @@ http_interactions:
           },
           "modelVersion": "gemini-2.0-flash"
         }
-  recorded_at: Fri, 11 Apr 2025 14:01:04 GMT
+  recorded_at: Mon, 12 May 2025 13:38:37 GMT
 recorded_with: VCR 6.3.1

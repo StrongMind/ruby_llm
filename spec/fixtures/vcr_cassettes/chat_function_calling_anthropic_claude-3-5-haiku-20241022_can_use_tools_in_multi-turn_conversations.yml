@@ -5,14 +5,14 @@ http_interactions:
     uri: https://api.anthropic.com/v1/messages
     body:
       encoding: UTF-8
-      string: '{"model":"claude-3-5-haiku-20241022","messages":[{"role":"user","content":"What''s
-        the weather in Berlin? (52.5200, 13.4050)"}],"temperature":0.7,"stream":false,"max_tokens":8192,"tools":[{"name":"weather","description":"Gets
+      string: '{"model":"claude-3-5-haiku-20241022","messages":[{"role":"user","content":[{"type":"text","text":"What''s
+        the weather in Berlin? (52.5200, 13.4050)"}]}],"temperature":0.7,"stream":false,"max_tokens":8192,"tools":[{"name":"weather","description":"Gets
         current weather for a location","input_schema":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude
         (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g.,
         13.4050)"}},"required":["latitude","longitude"]}}]}'
     headers:
       User-Agent:
-      - Faraday v2.13.0
+      - Faraday v2.13.1
       X-Api-Key:
       - "<ANTHROPIC_API_KEY>"
       Anthropic-Version:
@@ -29,39 +29,41 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Apr 2025 20:34:51 GMT
+      - Mon, 12 May 2025 13:41:47 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Anthropic-Ratelimit-Requests-Limit:
-      - '1000'
-      Anthropic-Ratelimit-Requests-Remaining:
-      - '999'
-      Anthropic-Ratelimit-Requests-Reset:
-      - '2025-04-17T20:34:46Z'
       Anthropic-Ratelimit-Input-Tokens-Limit:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Remaining:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-04-17T20:34:50Z'
+      - '2025-05-12T13:41:46Z'
       Anthropic-Ratelimit-Output-Tokens-Limit:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Remaining:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-04-17T20:34:51Z'
+      - '2025-05-12T13:41:47Z'
+      Anthropic-Ratelimit-Requests-Limit:
+      - '1000'
+      Anthropic-Ratelimit-Requests-Remaining:
+      - '999'
+      Anthropic-Ratelimit-Requests-Reset:
+      - '2025-05-12T13:41:46Z'
       Anthropic-Ratelimit-Tokens-Limit:
       - '120000'
       Anthropic-Ratelimit-Tokens-Remaining:
       - '120000'
       Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-04-17T20:34:50Z'
+      - '2025-05-12T13:41:46Z'
       Request-Id:
       - "<REQUEST_ID>"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Anthropic-Organization-Id:
       - 0137b15c-16bf-490d-9f90-8cfd7e325ec0
       Via:
@@ -76,24 +78,24 @@ http_interactions:
       - "<CF_RAY>"
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"msg_01PYXa3hXyqsoSo1ug4Wdiha","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"I''ll
-        help you check the current weather in Berlin using the provided coordinates."},{"type":"tool_use","id":"toolu_017RQ3avfcv7PjW3DRUA2MYC","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":389,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":90}}'
-  recorded_at: Thu, 17 Apr 2025 20:34:51 GMT
+      string: '{"id":"msg_01W3JFZoMCfUeBRxavvEyuCw","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"I''ll
+        help you get the current weather in Berlin using the provided coordinates."},{"type":"tool_use","id":"toolu_01GtzukGUazDy6mN6oENnQTQ","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":389,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":90}}'
+  recorded_at: Mon, 12 May 2025 13:41:47 GMT
 - request:
     method: post
     uri: https://api.anthropic.com/v1/messages
     body:
       encoding: UTF-8
-      string: '{"model":"claude-3-5-haiku-20241022","messages":[{"role":"user","content":"What''s
-        the weather in Berlin? (52.5200, 13.4050)"},{"role":"assistant","content":[{"type":"text","text":"I''ll
-        help you check the current weather in Berlin using the provided coordinates."},{"type":"tool_use","id":"toolu_017RQ3avfcv7PjW3DRUA2MYC","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_017RQ3avfcv7PjW3DRUA2MYC","content":"Current
+      string: '{"model":"claude-3-5-haiku-20241022","messages":[{"role":"user","content":[{"type":"text","text":"What''s
+        the weather in Berlin? (52.5200, 13.4050)"}]},{"role":"assistant","content":[{"type":"text","text":"I''ll
+        help you get the current weather in Berlin using the provided coordinates."},{"type":"tool_use","id":"toolu_01GtzukGUazDy6mN6oENnQTQ","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_01GtzukGUazDy6mN6oENnQTQ","content":"Current
         weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h"}]}],"temperature":0.7,"stream":false,"max_tokens":8192,"tools":[{"name":"weather","description":"Gets
         current weather for a location","input_schema":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude
         (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g.,
         13.4050)"}},"required":["latitude","longitude"]}}]}'
     headers:
       User-Agent:
-      - Faraday v2.13.0
+      - Faraday v2.13.1
       X-Api-Key:
       - "<ANTHROPIC_API_KEY>"
       Anthropic-Version:
@@ -110,39 +112,41 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Apr 2025 20:35:00 GMT
+      - Mon, 12 May 2025 13:41:50 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Anthropic-Ratelimit-Requests-Limit:
-      - '1000'
-      Anthropic-Ratelimit-Requests-Remaining:
-      - '999'
-      Anthropic-Ratelimit-Requests-Reset:
-      - '2025-04-17T20:34:52Z'
       Anthropic-Ratelimit-Input-Tokens-Limit:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Remaining:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-04-17T20:34:58Z'
+      - '2025-05-12T13:41:48Z'
       Anthropic-Ratelimit-Output-Tokens-Limit:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Remaining:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-04-17T20:34:59Z'
+      - '2025-05-12T13:41:50Z'
+      Anthropic-Ratelimit-Requests-Limit:
+      - '1000'
+      Anthropic-Ratelimit-Requests-Remaining:
+      - '999'
+      Anthropic-Ratelimit-Requests-Reset:
+      - '2025-05-12T13:41:48Z'
       Anthropic-Ratelimit-Tokens-Limit:
       - '120000'
       Anthropic-Ratelimit-Tokens-Remaining:
       - '120000'
       Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-04-17T20:34:58Z'
+      - '2025-05-12T13:41:48Z'
       Request-Id:
       - "<REQUEST_ID>"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Anthropic-Organization-Id:
       - 0137b15c-16bf-490d-9f90-8cfd7e325ec0
       Via:
@@ -158,28 +162,28 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6Im1zZ18wMUtqckYxcHE0clVQTU5tRXE5N05NZzgiLCJ0eXBlIjoibWVzc2FnZSIsInJvbGUiOiJhc3Npc3RhbnQiLCJtb2RlbCI6ImNsYXVkZS0zLTUtaGFpa3UtMjAyNDEwMjIiLCJjb250ZW50IjpbeyJ0eXBlIjoidGV4dCIsInRleHQiOiJCYXNlZCBvbiB0aGUgd2VhdGhlciBkYXRhLCBoZXJlJ3MgdGhlIGN1cnJlbnQgd2VhdGhlciBpbiBCZXJsaW46XG4tIFRlbXBlcmF0dXJlOiAxNcKwQyAoNTnCsEYpXG4tIFdpbmQgU3BlZWQ6IDEwIGttL2hcblxuSXQgc2VlbXMgbGlrZSBhIG1pbGQgZGF5IGluIEJlcmxpbiB3aXRoIGEgbW9kZXJhdGUgYnJlZXplLiBUaGUgdGVtcGVyYXR1cmUgaXMgY29tZm9ydGFibGUsIHBlcmZlY3QgZm9yIGxpZ2h0IG91dGRvb3IgYWN0aXZpdGllcyBvciB3YWxraW5nIGFyb3VuZCB0aGUgY2l0eS4ifV0sInN0b3BfcmVhc29uIjoiZW5kX3R1cm4iLCJzdG9wX3NlcXVlbmNlIjpudWxsLCJ1c2FnZSI6eyJpbnB1dF90b2tlbnMiOjUxOCwiY2FjaGVfY3JlYXRpb25faW5wdXRfdG9rZW5zIjowLCJjYWNoZV9yZWFkX2lucHV0X3Rva2VucyI6MCwib3V0cHV0X3Rva2VucyI6NzN9fQ==
-  recorded_at: Thu, 17 Apr 2025 20:35:00 GMT
+        eyJpZCI6Im1zZ18wMTlidm1xb3k5blB5YXFUZlR2dU5CNUIiLCJ0eXBlIjoibWVzc2FnZSIsInJvbGUiOiJhc3Npc3RhbnQiLCJtb2RlbCI6ImNsYXVkZS0zLTUtaGFpa3UtMjAyNDEwMjIiLCJjb250ZW50IjpbeyJ0eXBlIjoidGV4dCIsInRleHQiOiJCYXNlZCBvbiB0aGUgd2VhdGhlciB0b29sLCBoZXJlJ3MgdGhlIGN1cnJlbnQgd2VhdGhlciBpbiBCZXJsaW46XG4tIFRlbXBlcmF0dXJlOiAxNcKwQyAoNTnCsEYpXG4tIFdpbmQgU3BlZWQ6IDEwIGttL2hcblxuSXQgc2VlbXMgbGlrZSBhIG1pbGQgZGF5IGluIEJlcmxpbiB3aXRoIGEgbGlnaHQgYnJlZXplLiBUaGUgdGVtcGVyYXR1cmUgaXMgY29tZm9ydGFibGUsIG5laXRoZXIgdG9vIGNvbGQgbm9yIHRvbyB3YXJtLiBBIGxpZ2h0IGphY2tldCBtaWdodCBiZSBzdWl0YWJsZSBpZiB5b3UncmUgcGxhbm5pbmcgdG8gZ28gb3V0c2lkZS4ifV0sInN0b3BfcmVhc29uIjoiZW5kX3R1cm4iLCJzdG9wX3NlcXVlbmNlIjpudWxsLCJ1c2FnZSI6eyJpbnB1dF90b2tlbnMiOjUxOCwiY2FjaGVfY3JlYXRpb25faW5wdXRfdG9rZW5zIjowLCJjYWNoZV9yZWFkX2lucHV0X3Rva2VucyI6MCwib3V0cHV0X3Rva2VucyI6ODN9fQ==
+  recorded_at: Mon, 12 May 2025 13:41:50 GMT
 - request:
     method: post
     uri: https://api.anthropic.com/v1/messages
     body:
       encoding: UTF-8
-      string: '{"model":"claude-3-5-haiku-20241022","messages":[{"role":"user","content":"What''s
-        the weather in Berlin? (52.5200, 13.4050)"},{"role":"assistant","content":[{"type":"text","text":"I''ll
-        help you check the current weather in Berlin using the provided coordinates."},{"type":"tool_use","id":"toolu_017RQ3avfcv7PjW3DRUA2MYC","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_017RQ3avfcv7PjW3DRUA2MYC","content":"Current
-        weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h"}]},{"role":"assistant","content":"Based
-        on the weather data, here''s the current weather in Berlin:\n- Temperature:
+      string: '{"model":"claude-3-5-haiku-20241022","messages":[{"role":"user","content":[{"type":"text","text":"What''s
+        the weather in Berlin? (52.5200, 13.4050)"}]},{"role":"assistant","content":[{"type":"text","text":"I''ll
+        help you get the current weather in Berlin using the provided coordinates."},{"type":"tool_use","id":"toolu_01GtzukGUazDy6mN6oENnQTQ","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_01GtzukGUazDy6mN6oENnQTQ","content":"Current
+        weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h"}]},{"role":"assistant","content":[{"type":"text","text":"Based
+        on the weather tool, here''s the current weather in Berlin:\n- Temperature:
         15°C (59°F)\n- Wind Speed: 10 km/h\n\nIt seems like a mild day in Berlin with
-        a moderate breeze. The temperature is comfortable, perfect for light outdoor
-        activities or walking around the city."},{"role":"user","content":"What''s
-        the weather in Paris? (48.8575, 2.3514)"}],"temperature":0.7,"stream":false,"max_tokens":8192,"tools":[{"name":"weather","description":"Gets
+        a light breeze. The temperature is comfortable, neither too cold nor too warm.
+        A light jacket might be suitable if you''re planning to go outside."}]},{"role":"user","content":[{"type":"text","text":"What''s
+        the weather in Paris? (48.8575, 2.3514)"}]}],"temperature":0.7,"stream":false,"max_tokens":8192,"tools":[{"name":"weather","description":"Gets
         current weather for a location","input_schema":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude
         (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g.,
         13.4050)"}},"required":["latitude","longitude"]}}]}'
     headers:
       User-Agent:
-      - Faraday v2.13.0
+      - Faraday v2.13.1
       X-Api-Key:
       - "<ANTHROPIC_API_KEY>"
       Anthropic-Version:
@@ -196,39 +200,41 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Apr 2025 20:35:07 GMT
+      - Mon, 12 May 2025 13:41:52 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Anthropic-Ratelimit-Requests-Limit:
-      - '1000'
-      Anthropic-Ratelimit-Requests-Remaining:
-      - '999'
-      Anthropic-Ratelimit-Requests-Reset:
-      - '2025-04-17T20:35:00Z'
       Anthropic-Ratelimit-Input-Tokens-Limit:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Remaining:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-04-17T20:35:06Z'
+      - '2025-05-12T13:41:51Z'
       Anthropic-Ratelimit-Output-Tokens-Limit:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Remaining:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-04-17T20:35:07Z'
+      - '2025-05-12T13:41:52Z'
+      Anthropic-Ratelimit-Requests-Limit:
+      - '1000'
+      Anthropic-Ratelimit-Requests-Remaining:
+      - '999'
+      Anthropic-Ratelimit-Requests-Reset:
+      - '2025-05-12T13:41:50Z'
       Anthropic-Ratelimit-Tokens-Limit:
       - '120000'
       Anthropic-Ratelimit-Tokens-Remaining:
       - '120000'
       Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-04-17T20:35:06Z'
+      - '2025-05-12T13:41:51Z'
       Request-Id:
       - "<REQUEST_ID>"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Anthropic-Organization-Id:
       - 0137b15c-16bf-490d-9f90-8cfd7e325ec0
       Via:
@@ -243,33 +249,31 @@ http_interactions:
       - "<CF_RAY>"
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"msg_018sYrT1dMLPuUYtaiyBSLBs","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"I''ll
-        retrieve the current weather information for Paris using the coordinates you
-        provided."},{"type":"tool_use","id":"toolu_01TtT8GoSk86Md6NRs1dH6MF","name":"weather","input":{"latitude":"48.8575","longitude":"2.3514"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":613,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":90}}'
-  recorded_at: Thu, 17 Apr 2025 20:35:07 GMT
+      string: '{"id":"msg_01DyXZoMinEasGXDvt2SC2fJ","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"I''ll
+        retrieve the current weather information for Paris using the provided coordinates."},{"type":"tool_use","id":"toolu_01UELtL2yyng9sWj1jAQ3HKf","name":"weather","input":{"latitude":"48.8575","longitude":"2.3514"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":623,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":89}}'
+  recorded_at: Mon, 12 May 2025 13:41:52 GMT
 - request:
     method: post
     uri: https://api.anthropic.com/v1/messages
     body:
       encoding: UTF-8
-      string: '{"model":"claude-3-5-haiku-20241022","messages":[{"role":"user","content":"What''s
-        the weather in Berlin? (52.5200, 13.4050)"},{"role":"assistant","content":[{"type":"text","text":"I''ll
-        help you check the current weather in Berlin using the provided coordinates."},{"type":"tool_use","id":"toolu_017RQ3avfcv7PjW3DRUA2MYC","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_017RQ3avfcv7PjW3DRUA2MYC","content":"Current
-        weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h"}]},{"role":"assistant","content":"Based
-        on the weather data, here''s the current weather in Berlin:\n- Temperature:
+      string: '{"model":"claude-3-5-haiku-20241022","messages":[{"role":"user","content":[{"type":"text","text":"What''s
+        the weather in Berlin? (52.5200, 13.4050)"}]},{"role":"assistant","content":[{"type":"text","text":"I''ll
+        help you get the current weather in Berlin using the provided coordinates."},{"type":"tool_use","id":"toolu_01GtzukGUazDy6mN6oENnQTQ","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_01GtzukGUazDy6mN6oENnQTQ","content":"Current
+        weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h"}]},{"role":"assistant","content":[{"type":"text","text":"Based
+        on the weather tool, here''s the current weather in Berlin:\n- Temperature:
         15°C (59°F)\n- Wind Speed: 10 km/h\n\nIt seems like a mild day in Berlin with
-        a moderate breeze. The temperature is comfortable, perfect for light outdoor
-        activities or walking around the city."},{"role":"user","content":"What''s
-        the weather in Paris? (48.8575, 2.3514)"},{"role":"assistant","content":[{"type":"text","text":"I''ll
-        retrieve the current weather information for Paris using the coordinates you
-        provided."},{"type":"tool_use","id":"toolu_01TtT8GoSk86Md6NRs1dH6MF","name":"weather","input":{"latitude":"48.8575","longitude":"2.3514"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_01TtT8GoSk86Md6NRs1dH6MF","content":"Current
+        a light breeze. The temperature is comfortable, neither too cold nor too warm.
+        A light jacket might be suitable if you''re planning to go outside."}]},{"role":"user","content":[{"type":"text","text":"What''s
+        the weather in Paris? (48.8575, 2.3514)"}]},{"role":"assistant","content":[{"type":"text","text":"I''ll
+        retrieve the current weather information for Paris using the provided coordinates."},{"type":"tool_use","id":"toolu_01UELtL2yyng9sWj1jAQ3HKf","name":"weather","input":{"latitude":"48.8575","longitude":"2.3514"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_01UELtL2yyng9sWj1jAQ3HKf","content":"Current
         weather at 48.8575, 2.3514: 15°C, Wind: 10 km/h"}]}],"temperature":0.7,"stream":false,"max_tokens":8192,"tools":[{"name":"weather","description":"Gets
         current weather for a location","input_schema":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude
         (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g.,
         13.4050)"}},"required":["latitude","longitude"]}}]}'
     headers:
       User-Agent:
-      - Faraday v2.13.0
+      - Faraday v2.13.1
       X-Api-Key:
       - "<ANTHROPIC_API_KEY>"
       Anthropic-Version:
@@ -286,39 +290,41 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Apr 2025 20:35:16 GMT
+      - Mon, 12 May 2025 13:41:54 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Anthropic-Ratelimit-Requests-Limit:
-      - '1000'
-      Anthropic-Ratelimit-Requests-Remaining:
-      - '999'
-      Anthropic-Ratelimit-Requests-Reset:
-      - '2025-04-17T20:35:07Z'
       Anthropic-Ratelimit-Input-Tokens-Limit:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Remaining:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-04-17T20:35:15Z'
+      - '2025-05-12T13:41:53Z'
       Anthropic-Ratelimit-Output-Tokens-Limit:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Remaining:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-04-17T20:35:16Z'
+      - '2025-05-12T13:41:54Z'
+      Anthropic-Ratelimit-Requests-Limit:
+      - '1000'
+      Anthropic-Ratelimit-Requests-Remaining:
+      - '999'
+      Anthropic-Ratelimit-Requests-Reset:
+      - '2025-05-12T13:41:52Z'
       Anthropic-Ratelimit-Tokens-Limit:
       - '120000'
       Anthropic-Ratelimit-Tokens-Remaining:
       - '120000'
       Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-04-17T20:35:15Z'
+      - '2025-05-12T13:41:53Z'
       Request-Id:
       - "<REQUEST_ID>"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Anthropic-Organization-Id:
       - 0137b15c-16bf-490d-9f90-8cfd7e325ec0
       Via:
@@ -334,6 +340,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6Im1zZ18wMUhieVRudHJNYkZUTjVRVXF0ZFJzTkIiLCJ0eXBlIjoibWVzc2FnZSIsInJvbGUiOiJhc3Npc3RhbnQiLCJtb2RlbCI6ImNsYXVkZS0zLTUtaGFpa3UtMjAyNDEwMjIiLCJjb250ZW50IjpbeyJ0eXBlIjoidGV4dCIsInRleHQiOiJIZXJlJ3MgdGhlIGN1cnJlbnQgd2VhdGhlciBpbiBQYXJpczpcbi0gVGVtcGVyYXR1cmU6IDE1wrBDICg1OcKwRilcbi0gV2luZCBTcGVlZDogMTAga20vaFxuXG5JbnRlcmVzdGluZ2x5LCB0aGUgd2VhdGhlciBpbiBQYXJpcyBpcyBxdWl0ZSBzaW1pbGFyIHRvIHdoYXQgd2UganVzdCBzYXcgaW4gQmVybGluIC0gYSBtaWxkIHRlbXBlcmF0dXJlIHdpdGggYSBsaWdodCBicmVlemUuIEl0J3MgYSBwbGVhc2FudCBkYXkgdGhhdCB3b3VsZCBiZSBnb29kIGZvciBleHBsb3JpbmcgdGhlIGNpdHksIHZpc2l0aW5nIG11c2V1bXMsIG9yIGVuam95aW5nIGEgY2Fmw6kgdGVycmFjZS4ifV0sInN0b3BfcmVhc29uIjoiZW5kX3R1cm4iLCJzdG9wX3NlcXVlbmNlIjpudWxsLCJ1c2FnZSI6eyJpbnB1dF90b2tlbnMiOjc0MiwiY2FjaGVfY3JlYXRpb25faW5wdXRfdG9rZW5zIjowLCJjYWNoZV9yZWFkX2lucHV0X3Rva2VucyI6MCwib3V0cHV0X3Rva2VucyI6OTB9fQ==
-  recorded_at: Thu, 17 Apr 2025 20:35:16 GMT
+        eyJpZCI6Im1zZ18wMTdKNFFyZVplOXgzdXVETU5yeDJzREgiLCJ0eXBlIjoibWVzc2FnZSIsInJvbGUiOiJhc3Npc3RhbnQiLCJtb2RlbCI6ImNsYXVkZS0zLTUtaGFpa3UtMjAyNDEwMjIiLCJjb250ZW50IjpbeyJ0eXBlIjoidGV4dCIsInRleHQiOiJIZXJlJ3MgdGhlIGN1cnJlbnQgd2VhdGhlciBpbiBQYXJpczpcbi0gVGVtcGVyYXR1cmU6IDE1wrBDICg1OcKwRilcbi0gV2luZCBTcGVlZDogMTAga20vaFxuXG5JbnRlcmVzdGluZ2x5LCB0aGUgd2VhdGhlciBpbiBQYXJpcyBpcyBxdWl0ZSBzaW1pbGFyIHRvIHdoYXQgd2UganVzdCBzYXcgaW4gQmVybGluIC0gYSBtaWxkIHRlbXBlcmF0dXJlIHdpdGggYSBsaWdodCBicmVlemUuIEl0J3MgYSBwbGVhc2FudCBkYXksIHN1aXRhYmxlIGZvciB3YWxraW5nIGFyb3VuZCBhbmQgZXhwbG9yaW5nIHRoZSBjaXR5LiBZb3UgbWlnaHQgd2FudCB0byBicmluZyBhIGxpZ2h0IGxheWVyIGxpa2UgYSBzd2VhdGVyIG9yIGphY2tldCwganVzdCBpbiBjYXNlLiJ9XSwic3RvcF9yZWFzb24iOiJlbmRfdHVybiIsInN0b3Bfc2VxdWVuY2UiOm51bGwsInVzYWdlIjp7ImlucHV0X3Rva2VucyI6NzUxLCJjYWNoZV9jcmVhdGlvbl9pbnB1dF90b2tlbnMiOjAsImNhY2hlX3JlYWRfaW5wdXRfdG9rZW5zIjowLCJvdXRwdXRfdG9rZW5zIjoxMDB9fQ==
+  recorded_at: Mon, 12 May 2025 13:41:54 GMT
 recorded_with: VCR 6.3.1

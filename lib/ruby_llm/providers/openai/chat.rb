@@ -5,13 +5,13 @@ module RubyLLM
     module OpenAI
       # Chat methods of the OpenAI API integration
       module Chat
-        module_function
-
         def completion_url
           'chat/completions'
         end
 
-        def render_payload(messages, tools:, temperature:, model:, stream: false) # rubocop:disable Metrics/MethodLength
+        module_function
+
+        def render_payload(messages, tools:, temperature:, model:, stream: false)
           {
             model: model,
             messages: format_messages(messages),
@@ -26,9 +26,11 @@ module RubyLLM
           end
         end
 
-        def parse_completion_response(response) # rubocop:disable Metrics/MethodLength
+        def parse_completion_response(response)
           data = response.body
           return if data.empty?
+
+          raise Error.new(response, data.dig('error', 'message')) if data.dig('error', 'message')
 
           message_data = data.dig('choices', 0, 'message')
           return unless message_data

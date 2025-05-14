@@ -28,14 +28,16 @@ module RubyLLM
 
       module_function
 
-      def api_base
-        RubyLLM.config.openai_api_base || 'https://api.openai.com/v1'
+      def api_base(config)
+        config.openai_api_base || 'https://api.openai.com/v1'
       end
 
-      def headers
+      def headers(config)
         {
-          'Authorization' => "Bearer #{RubyLLM.config.openai_api_key}"
-        }
+          'Authorization' => "Bearer #{config.openai_api_key}",
+          'OpenAI-Organization' => config.openai_organization_id,
+          'OpenAI-Project' => config.openai_project_id
+        }.compact
       end
 
       def capabilities

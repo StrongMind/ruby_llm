@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'dotenv/load'
+
 # Helper functions at the top level
 def record_all_cassettes(cassette_dir)
   # Re-record all cassettes
@@ -11,7 +13,7 @@ def record_all_cassettes(cassette_dir)
   puts 'Done recording. Please review the new cassettes.'
 end
 
-def record_for_providers(providers, cassette_dir) # rubocop:disable Metrics/AbcSize,Metrics/MethodLength
+def record_for_providers(providers, cassette_dir)
   # Get the list of available providers from RubyLLM itself
   all_providers = RubyLLM::Provider.providers.keys.map(&:to_s)
 
@@ -46,7 +48,7 @@ def record_for_providers(providers, cassette_dir) # rubocop:disable Metrics/AbcS
   puts 'Please review the updated cassettes for sensitive information.'
 end
 
-def find_matching_cassettes(dir, providers) # rubocop:disable Metrics/MethodLength
+def find_matching_cassettes(dir, providers)
   cassettes = []
 
   Dir.glob("#{dir}/**/*.yml").each do |file|

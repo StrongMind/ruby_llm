@@ -36,12 +36,20 @@ module RubyLLM
       path
     end
 
-    def self.paint(prompt, model: nil, size: '1024x1024')
-      model_id = model || RubyLLM.config.default_image_model
-      Models.find(model_id) # Validate model exists
+    def self.paint(prompt, # rubocop:disable Metrics/ParameterLists
+                   model: nil,
+                   provider: nil,
+                   assume_model_exists: false,
+                   size: '1024x1024',
+                   context: nil)
+      config = context&.config || RubyLLM.config
+      model ||= config.default_image_model
+      model, provider = Models.resolve(model, provider: provider, assume_exists: assume_model_exists)
+      model_id = model.id
 
-      provider = Provider.for(model_id)
-      provider.paint(prompt, model: model_id, size: size)
+      provider = Provider.for(model_id) if provider.nil?
+      connection = context ? context.connection_for(provider) : provider.connection(config)
+      provider.paint(prompt, model: model_id, size:, connection:)
     end
   end
 end
