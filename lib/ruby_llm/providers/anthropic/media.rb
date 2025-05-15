@@ -19,6 +19,10 @@ module RubyLLM
               parts << format_image(attachment)
             when Attachments::PDF
               parts << format_pdf(attachment)
+            when Attachments::Text
+              parts << format_text_file(attachment)
+            else
+              raise UnsupportedAttachmentError, attachment.class
             end
           end
 
@@ -29,6 +33,55 @@ module RubyLLM
           {
             type: 'text',
             text: text
+          }
+        end
+
+        def format_image(image)
+          if image.url?
+            {
+              type: 'image',
+              source: {
+                type: 'url',
+                url: image.source
+              }
+            }
+          else
+            {
+              type: 'image',
+              source: {
+                type: 'base64',
+                media_type: image.mime_type,
+                data: image.encoded
+              }
+            }
+          end
+        end
+
+        def format_pdf(pdf)
+          if pdf.url?
+            {
+              type: 'document',
+              source: {
+                type: 'url',
+                url: pdf.source
+              }
+            }
+          else
+            {
+              type: 'document',
+              source: {
+                type: 'base64',
+                media_type: pdf.mime_type,
+                data: pdf.encoded
+              }
+            }
+          end
+        end
+
+        def format_text_file(text_file)
+          {
+            type: 'text',
+            text: Utils.format_text_file_for_llm(text_file)
           }
         end
 
