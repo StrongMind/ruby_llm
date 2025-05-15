@@ -84,48 +84,6 @@ module RubyLLM
             text: Utils.format_text_file_for_llm(text_file)
           }
         end
-
-        def format_image(image)
-          if image.url?
-            {
-              type: 'image',
-              source: {
-                type: 'url',
-                url: image.source
-              }
-            }
-          else
-            {
-              type: 'image',
-              source: {
-                type: 'base64',
-                media_type: image.mime_type,
-                data: image.encoded
-              }
-            }
-          end
-        end
-
-        def format_pdf(pdf)
-          if pdf.url?
-            {
-              type: 'document',
-              source: {
-                type: 'url',
-                url: pdf.source
-              }
-            }
-          else
-            {
-              type: 'document',
-              source: {
-                type: 'base64',
-                media_type: pdf.mime_type,
-                data: pdf.encoded
-              }
-            }
-          end
-        end
       end
     end
   end
