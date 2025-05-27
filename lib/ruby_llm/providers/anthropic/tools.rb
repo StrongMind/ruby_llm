@@ -59,6 +59,14 @@ module RubyLLM
           }
         end
 
+        def server_tool(tool)
+          {
+            type: tool.type,
+            name: tool.name,
+            max_uses: 10
+          }
+        end
+
         def extract_tool_calls(data)
           if json_delta?(data)
             { nil => ToolCall.new(id: nil, name: nil, arguments: data.dig('delta', 'partial_json')) }

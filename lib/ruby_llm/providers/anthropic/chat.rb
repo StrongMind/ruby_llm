@@ -46,7 +46,15 @@ module RubyLLM
         end
 
         def add_optional_fields(payload, system_content:, tools:)
-          payload[:tools] = tools.values.map { |t| Tools.function_for(t) } if tools.any?
+          if tools.any?
+            client_tools = tools.values.select(&:client_tool?)
+            server_tools = tools.values.select(&:server_tool?)
+            
+            payload[:tools] = []
+            payload[:tools] += client_tools.map { |t| Tools.function_for(t) } if client_tools.any?
+            payload[:tools] += server_tools.map { |t| Tools.server_tool(t) } if server_tools.any?
+          end
+          
           payload[:system] = system_content unless system_content.empty?
         end
 

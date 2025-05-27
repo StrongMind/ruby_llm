@@ -137,8 +137,22 @@ module RubyLLM
 
     def execute_tool(tool_call)
       tool = tools[tool_call.name.to_sym]
-      args = tool_call.arguments
-      tool.call(args)
+      
+      # Server tools are executed by the provider, not locally
+      # If we get a tool call for a server tool, it means the provider
+      # has already executed it and we should not try to execute it again
+      if tool&.server_tool?
+        raise "Unexpected server tool call: #{tool_call.name}. Server tools should be handled by the provider."
+      end
+      
+      # Only execute client tools locally
+      if tool&.client_tool?
+        args = tool_call.arguments
+        tool.call(args)
+      else
+        # Tool not found in our registry
+        raise "Unknown tool: #{tool_call.name}"
+      end
     end
 
     def add_tool_result(tool_use_id, result)

@@ -67,6 +67,14 @@ module RubyLLM
       self.class.parameters
     end
 
+    def client_tool?
+      true
+    end
+
+    def server_tool?
+      false
+    end
+
     def call(args)
       RubyLLM.logger.debug "Tool #{name} called with: #{args.inspect}"
       result = execute(**args.transform_keys(&:to_sym))
