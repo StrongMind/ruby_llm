@@ -25,6 +25,7 @@ module RubyLLM
           gpt4o_mini_tts: /^gpt-4o-mini-tts/,
           gpt4o_realtime: /^gpt-4o-realtime/,
           gpt4o_search: /^gpt-4o-search/,
+          gpt4o_search_preview: /^gpt-4o-search-preview/,
           gpt4o_mini_search: /^gpt-4o-mini-search/,
           gpt4o_transcribe: /^gpt-4o-transcribe/,
           o1: /^o1(?!-(?:mini|pro))/,
@@ -47,7 +48,7 @@ module RubyLLM
           when 'gpt41', 'gpt41_mini', 'gpt41_nano' then 1_047_576
           when 'chatgpt4o', 'gpt4_turbo', 'gpt4o', 'gpt4o_audio', 'gpt4o_mini',
                'gpt4o_mini_audio', 'gpt4o_mini_realtime', 'gpt4o_realtime',
-               'gpt4o_search', 'gpt4o_transcribe', 'gpt4o_mini_search', 'o1_mini' then 128_000
+               'gpt4o_search', 'gpt4o_transcribe', 'gpt4o_mini_search', 'o1_mini', 'gpt4o_search_preview' then 128_000
           when 'gpt4' then 8_192
           when 'gpt4o_mini_transcribe' then 16_000
           when 'o1', 'o1_pro', 'o3_mini' then 200_000
@@ -61,7 +62,7 @@ module RubyLLM
         def max_tokens_for(model_id)
           case model_family(model_id)
           when 'gpt41', 'gpt41_mini', 'gpt41_nano' then 32_768
-          when 'chatgpt4o', 'gpt4o', 'gpt4o_mini', 'gpt4o_mini_search' then 16_384
+          when 'chatgpt4o', 'gpt4o', 'gpt4o_mini', 'gpt4o_mini_search', 'gpt4o_search_preview' then 16_384
           when 'babbage', 'davinci' then 16_384 # rubocop:disable Lint/DuplicateBranch
           when 'gpt4' then 8_192
           when 'gpt35_turbo' then 4_096
@@ -86,7 +87,7 @@ module RubyLLM
         def supports_functions?(model_id)
           case model_family(model_id)
           when 'gpt41', 'gpt41_mini', 'gpt41_nano', 'gpt4', 'gpt4_turbo', 'gpt4o', 'gpt4o_mini', 'o1', 'o1_pro',
-               'o3_mini', 'gpt4o_search', 'gpt4o_mini_search' then true
+               'o3_mini', 'gpt4o_search', 'gpt4o_mini_search', 'gpt4o_search_preview', 'gpt-4o-search-preview' then true
           when 'chatgpt4o', 'gpt35_turbo', 'o1_mini', 'gpt4o_mini_tts',
                'gpt4o_transcribe' then false
           else false # rubocop:disable Lint/DuplicateBranch
@@ -96,7 +97,7 @@ module RubyLLM
         def supports_structured_output?(model_id)
           case model_family(model_id)
           when 'gpt41', 'gpt41_mini', 'gpt41_nano', 'chatgpt4o', 'gpt4o', 'gpt4o_mini', 'o1', 'o1_pro',
-               'o3_mini' then true
+               'o3_mini', 'gpt4o_search_preview' then true
           else false
           end
         end
@@ -107,7 +108,7 @@ module RubyLLM
 
         def supports_server_tools?(model_id)
           case model_family(model_id)
-          when 'gpt4o_search', 'gpt4o_mini_search' then true
+          when 'gpt4o_search', 'gpt4o_mini_search', 'gpt4o_search_preview', 'gpt-4o-search-preview' then true
           else false
           end
         end
