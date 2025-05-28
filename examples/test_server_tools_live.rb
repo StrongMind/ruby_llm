@@ -27,7 +27,7 @@ end.parse!
 RubyLLM.configure do |config|
   config.openai_api_key = ENV['OPENAI_ACCESS_TOKEN'] || 'dummy-key-for-testing'
   config.anthropic_api_key = ENV['ANTHROPIC_API_KEY'] || 'dummy-key-for-testing'
-  config.bedrock_api_key = ENV['AWS_ACCESS_KEY_ID']
+  config.bedrock_api_key = ENV['AWS_ACCESS_KEY_ID'] || 'dummy-key-for-testing'
   config.bedrock_secret_key = ENV['AWS_SECRET_ACCESS_KEY'] || 'dummy-key-for-testing'
   config.bedrock_region = ENV['AWS_REGION'] || 'us-east-1'
 end
