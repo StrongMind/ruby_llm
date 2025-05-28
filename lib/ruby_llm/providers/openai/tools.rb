@@ -25,12 +25,7 @@ module RubyLLM
         def param_schema(param)
           {
             type: param.type,
-            description: param.description,
-            items: param.items && {
-              type: 'object',
-              properties: param.items.transform_values { |p| param_schema(p) }
-            },
-            properties: param.properties&.transform_values { |p| param_schema(p) }
+            description: param.description
           }.compact
         end
 
@@ -70,20 +65,6 @@ module RubyLLM
                            end
               )
             ]
-          end
-        end
-
-        def server_tool_options(tool)
-          # Get the provider-specific type if the tool supports it
-          tool_type = tool.respond_to?(:type_for) ? tool.type_for(:openai) : tool.type
-          
-          case tool_type
-          when 'web_search', 'web_search_20250305'
-            # OpenAI web search doesn't need additional options
-            # The presence of web_search_options in the payload is enough
-            {}
-          else
-            raise "Unsupported server tool type: #{tool_type}"
           end
         end
       end
