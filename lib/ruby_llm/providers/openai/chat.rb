@@ -6,23 +6,23 @@ module RubyLLM
       # Chat methods of the OpenAI API integration
       module Chat
         def completion_url
-          'chat/completions'
+          '/responses'
         end
 
         module_function
 
-        def render_payload(messages, tools:, temperature:, model:, stream: false)
+        def render_payload(messages, tools:, temperature:, model:, stream: false, parallel_tool_calls: true)
           {
             model: model,
-            messages: format_messages(messages),
+            input: format_messages(messages),
             temperature: temperature,
+            parallel_tool_calls: parallel_tool_calls,
             stream: stream
           }.tap do |payload|
             if tools.any?
               payload[:tools] = tools.map { |_, tool| tool_for(tool) }
               payload[:tool_choice] = 'auto'
             end
-            payload[:stream_options] = { include_usage: true } if stream
           end
         end
 
