@@ -25,6 +25,7 @@ module RubyLLM
           gpt4o_mini_tts: /^gpt-4o-mini-tts/,
           gpt4o_realtime: /^gpt-4o-realtime/,
           gpt4o_search: /^gpt-4o-search/,
+          gpt4o_mini_search: /^gpt-4o-mini-search/,
           gpt4o_transcribe: /^gpt-4o-transcribe/,
           o1: /^o1(?!-(?:mini|pro))/,
           o1_mini: /^o1-mini/,
@@ -85,9 +86,9 @@ module RubyLLM
         def supports_functions?(model_id)
           case model_family(model_id)
           when 'gpt41', 'gpt41_mini', 'gpt41_nano', 'gpt4', 'gpt4_turbo', 'gpt4o', 'gpt4o_mini', 'o1', 'o1_pro',
-               'o3_mini' then true
+               'o3_mini', 'gpt4o_search', 'gpt4o_mini_search' then true
           when 'chatgpt4o', 'gpt35_turbo', 'o1_mini', 'gpt4o_mini_tts',
-               'gpt4o_transcribe', 'gpt4o_search', 'gpt4o_mini_search' then false
+               'gpt4o_transcribe' then false
           else false # rubocop:disable Lint/DuplicateBranch
           end
         end
@@ -102,6 +103,18 @@ module RubyLLM
 
         def supports_json_mode?(model_id)
           supports_structured_output?(model_id)
+        end
+
+        def supports_server_tools?(model_id)
+          case model_family(model_id)
+          when 'gpt4o_search', 'gpt4o_mini_search' then true
+          else false
+          end
+        end
+
+        def supports_web_search?(model_id)
+          # Web search is a specific server tool
+          supports_server_tools?(model_id) && model_id.match?(/search/)
         end
 
         PRICES = {
@@ -219,6 +232,9 @@ module RubyLLM
           if model_id.match?(/^o\d/)
             RubyLLM.logger.debug "Model #{model_id} requires temperature=1.0, ignoring provided value"
             1.0
+          elsif model_id.match?(/search/)
+            RubyLLM.logger.debug "Model #{model_id} does not support temperature parameter"
+            nil
           else
             temperature
           end
@@ -259,6 +275,10 @@ module RubyLLM
           capabilities << 'function_calling' if supports_functions?(model_id)
           capabilities << 'structured_output' if supports_json_mode?(model_id)
           capabilities << 'batch' if model_id.match?(/embedding|batch/)
+          
+          # Server tools capabilities
+          capabilities << 'server_tools' if supports_server_tools?(model_id)
+          capabilities << 'web_search' if supports_web_search?(model_id)
 
           # Advanced capabilities
           capabilities << 'reasoning' if model_id.match?(/o1/)

@@ -51,6 +51,12 @@ module RubyLLM
       end
 
       tool_instance = tool.is_a?(Class) ? tool.new : tool
+      
+      # Validate server tools are compatible with the model and provider
+      if tool_instance.server_tool?
+        tool_instance.validate_model_compatibility(@model, @provider)
+      end
+      
       @tools[tool_instance.name.to_sym] = tool_instance
       self
     end
@@ -128,8 +134,15 @@ module RubyLLM
       response.tool_calls.each_value do |tool_call|
         @on[:new_message]&.call
         result = execute_tool tool_call
-        message = add_tool_result tool_call.id, result
-        @on[:end_message]&.call(message)
+        
+        # Only add tool results for client tools that have actual results
+        if result
+          message = add_tool_result tool_call.id, result
+          @on[:end_message]&.call(message)
+        else
+          # For server tools, no local result to add
+          @on[:end_message]&.call(nil)
+        end
       end
 
       complete(&)
@@ -142,7 +155,10 @@ module RubyLLM
       # If we get a tool call for a server tool, it means the provider
       # has already executed it and we should not try to execute it again
       if tool&.server_tool?
-        raise "Unexpected server tool call: #{tool_call.name}. Server tools should be handled by the provider."
+        # For server tools, the result is already in the assistant's message
+        # We don't need to execute anything locally
+        RubyLLM.logger.debug "Server tool #{tool_call.name} was executed by the provider"
+        return nil
       end
       
       # Only execute client tools locally

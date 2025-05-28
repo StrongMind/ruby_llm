@@ -67,6 +67,20 @@ module RubyLLM
             ]
           end
         end
+
+        def server_tool_options(tool)
+          # Get the provider-specific type if the tool supports it
+          tool_type = tool.respond_to?(:type_for) ? tool.type_for(:openai) : tool.type
+          
+          case tool_type
+          when 'web_search', 'web_search_20250305'
+            # OpenAI web search doesn't need additional options
+            # The presence of web_search_options in the payload is enough
+            {}
+          else
+            raise "Unsupported server tool type: #{tool_type}"
+          end
+        end
       end
     end
   end
