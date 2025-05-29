@@ -17,13 +17,10 @@ module RubyLLM
             input: format_messages(messages),
             temperature: temperature,
             parallel_tool_calls: parallel_tool_calls,
-            stream: stream
-          }.tap do |payload|
-            if tools.any?
-              payload[:tools] = tools.map { |_, tool| tool_for(tool) }
-              payload[:tool_choice] = 'auto'
-            end
-          end
+            stream: stream,
+            tools: build_tools_array(tools),
+            tool_choice: 'auto'
+          }
         end
 
         def parse_completion_response(response)
@@ -32,15 +29,19 @@ module RubyLLM
 
           raise Error.new(response, data.dig('error', 'message')) if data.dig('error', 'message')
 
-          message_data = data.dig('choices', 0, 'message')
+          # In the new API, message data is in output[0] instead of choices[0].message
+          message_data = data.dig('output', 0)
           return unless message_data
+
+          # Extract content from the new nested structure
+          content = extract_content_from_output(message_data)
 
           Message.new(
             role: :assistant,
-            content: message_data['content'],
+            content: content,
             tool_calls: parse_tool_calls(message_data['tool_calls']),
-            input_tokens: data['usage']['prompt_tokens'],
-            output_tokens: data['usage']['completion_tokens'],
+            input_tokens: data.dig('usage', 'input_tokens'),
+            output_tokens: data.dig('usage', 'output_tokens'),
             model_id: data['model']
           )
         end
@@ -62,6 +63,31 @@ module RubyLLM
             'developer'
           else
             role.to_s
+          end
+        end
+
+        private
+
+        def extract_content_from_output(message_data)
+          # In the new API, content is an array of content blocks
+          content_blocks = message_data['content']
+          return nil unless content_blocks&.any?
+
+          # Find the first text content block
+          text_block = content_blocks.find { |block| block['type'] == 'output_text' }
+          text_block&.dig('text')
+        end
+
+        def build_tools_array(user_tools)
+          # Start with built-in tools
+          built_in_tools = [{ type: 'web_search_preview' }]
+          
+          # Add user-provided tools if any
+          if user_tools.any?
+            user_tool_definitions = user_tools.map { |_, tool| tool_for(tool) }
+            built_in_tools + user_tool_definitions
+          else
+            built_in_tools
           end
         end
       end

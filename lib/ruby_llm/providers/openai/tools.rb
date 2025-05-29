@@ -8,9 +8,6 @@ module RubyLLM
         module_function
 
         def tool_for(tool)
-          # Check if this is a user-created tool (has the name method)
-          if tool.respond_to?(:name)
-            # User-created tool
             {
               type: 'function',
               name: tool.name,
@@ -21,10 +18,6 @@ module RubyLLM
                 required: tool.parameters.select { |_, p| p.required }.keys
                 }
             }
-          else
-            # Built-in/native tool
-            { type: tool }
-          end
         end
 
         def param_schema(param)
