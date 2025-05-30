@@ -65,26 +65,13 @@ module RubyLLM
         end
 
         def format_messages(messages)
-          messages.each_with_object([]) do |msg, arr|
-            # --------------------------------------------------
-            # ❶  NEVER send a :tool message to the endpoint
-            # --------------------------------------------------
-            next if msg.role == :tool
-        
-            # --------------------------------------------------
-            # ❷  Skip the assistant message that TRIGGERED
-            #     a function-/tool-call (the model already
-            #     “remembers” it through tool_call_id)
-            # --------------------------------------------------
-            next if msg.role == :assistant && msg.tool_calls&.any?
-        
-            # --------------------------------------------------
-            # ❸  Normal developer / user / assistant message
-            # --------------------------------------------------
-            arr << {
-              role:    format_role(msg.role),        # ⇒ "developer", "user", "assistant"
-              content: Media.format_content(msg.content) || ""
-            }
+          messages.map do |msg|
+            {
+              role: format_role(msg.role),
+              content: Media.format_content(msg.content),
+              tool_calls: format_tool_calls(msg.tool_calls),
+              tool_call_id: msg.tool_call_id
+            }.compact
           end
         end        
 
