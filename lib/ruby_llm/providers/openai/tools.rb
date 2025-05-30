@@ -8,16 +8,16 @@ module RubyLLM
         module_function
 
         def tool_for(tool)
-            {
-              type: 'function',
-              name: tool.name,
-              description: tool.description,
-              parameters: {
-                type: 'object',
-                properties: tool.parameters.transform_values { |param| param_schema(param) },
-                required: tool.parameters.select { |_, p| p.required }.keys
-                }
+          {
+            type: 'function',
+            name: tool.name,
+            description: tool.description.to_s,
+            parameters: {
+              type: 'object',
+              properties: tool.parameters.transform_values { |p| param_schema(p) },
+              required: tool.parameters.select { |_, p| p.required }.keys.map(&:to_s)
             }
+          }
         end
 
         def param_schema(param)

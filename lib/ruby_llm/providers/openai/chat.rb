@@ -6,7 +6,7 @@ module RubyLLM
       # Chat methods of the OpenAI API integration
       module Chat
         def completion_url
-          '/responses'
+          'responses'
         end
 
         module_function
@@ -26,41 +26,72 @@ module RubyLLM
         def parse_completion_response(response)
           data = response.body
           return if data.empty?
-
           raise Error.new(response, data.dig('error', 'message')) if data.dig('error', 'message')
-
-          # In the new API, message data is in output[0] instead of choices[0].message
-          message_data = data.dig('output', 0)
-          return unless message_data
-
-          # Extract content from the new nested structure
-          content = extract_content_from_output(message_data)
-
+        
+          outputs = data['output']              # <-- correct key
+          Rails.logger.debug "poop outputs in parse completion response: #{outputs.inspect}"
+          return unless outputs&.any?
+        
+          assistant_text = nil
+          raw_calls      = []
+          Rails.logger.debug "poop assistant_text in parse completion response: #{assistant_text.inspect}"
+          Rails.logger.debug "poop raw_calls in parse completion response: #{raw_calls.inspect}"
+          
+          outputs.each do |block|
+            case block['type']
+            when 'text'
+              assistant_text ||= block['text']  # keep first text block (if any)
+            when 'function_call'
+              # adapt to the structure parse_tool_calls expects
+              raw_calls << {
+                'id'       => block['call_id'],
+                'type'     => 'function',
+                'function' => {
+                  'name'      => block['name'],
+                  'arguments' => block['arguments']
+                }
+              }
+            end
+          end
+        
           Message.new(
-            role: :assistant,
-            content: content,
-            tool_calls: parse_tool_calls(message_data['tool_calls']),
-            input_tokens: data.dig('usage', 'input_tokens'),
+            role:          :assistant,
+            content:       assistant_text,
+            tool_calls:    parse_tool_calls(raw_calls),
+            input_tokens:  data.dig('usage', 'input_tokens'),
             output_tokens: data.dig('usage', 'output_tokens'),
-            model_id: data['model']
+            model_id:      data['model']
           )
         end
 
         def format_messages(messages)
-          messages.map do |msg|
-            {
-              role: format_role(msg.role),
-              content: Media.format_content(msg.content),
-              tool_calls: format_tool_calls(msg.tool_calls),
-              tool_call_id: msg.tool_call_id
-            }.compact
+          messages.each_with_object([]) do |msg, arr|
+            # --------------------------------------------------
+            # ❶  NEVER send a :tool message to the endpoint
+            # --------------------------------------------------
+            next if msg.role == :tool
+        
+            # --------------------------------------------------
+            # ❷  Skip the assistant message that TRIGGERED
+            #     a function-/tool-call (the model already
+            #     “remembers” it through tool_call_id)
+            # --------------------------------------------------
+            next if msg.role == :assistant && msg.tool_calls&.any?
+        
+            # --------------------------------------------------
+            # ❸  Normal developer / user / assistant message
+            # --------------------------------------------------
+            arr << {
+              role:    format_role(msg.role),        # ⇒ "developer", "user", "assistant"
+              content: Media.format_content(msg.content) || ""
+            }
           end
-        end
+        end        
 
         def format_role(role)
           case role
-          when :system
-            'developer'
+                              when :system
+                                'developer'
           else
             role.to_s
           end
