@@ -40,7 +40,9 @@ module RubyLLM
           outputs.each do |block|
             case block['type']
             when 'text'
-              assistant_text ||= block['text']  # keep first text block (if any)
+              assistant_text ||= block['text']
+            when 'message'
+              assistant_text ||= extract_content_from_output(block)
             when 'function_call'
               raw_calls << block
             end
