@@ -52,19 +52,20 @@ module RubyLLM
 
           tool_calls.to_h do |tc|
             [
-              tc['id'],
+              tc['call_id'],
               ToolCall.new(
                 id: tc['id'],
-                name: tc.dig('function', 'name'),
+                name: tc['name'],
+                call_id: tc['call_id'],
+                status: tc['status'],
                 arguments: if parse_arguments
-                             if tc.dig('function', 'arguments').empty?
+                             if tc['arguments'].nil? || tc['arguments'].empty?
                                {}
                              else
-                               JSON.parse(tc.dig('function',
-                                                 'arguments'))
+                               JSON.parse(tc['arguments'])
                              end
                            else
-                             tc.dig('function', 'arguments')
+                             tc['arguments']
                            end
               )
             ]

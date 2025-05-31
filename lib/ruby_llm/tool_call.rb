@@ -12,19 +12,23 @@ module RubyLLM
   #     arguments: { expression: "2 + 2" }
   #   )
   class ToolCall
-    attr_reader :id, :name, :arguments
+    attr_reader :id, :name, :arguments, :call_id, :status
 
-    def initialize(id:, name:, arguments: {})
+    def initialize(id:, name:, arguments: {}, call_id: nil, status: nil)
       @id = id
       @name = name
       @arguments = arguments
+      @call_id = call_id
+      @status = status
     end
 
     def to_h
       {
         id: @id,
         name: @name,
-        arguments: @arguments
+        arguments: @arguments,
+        call_id: @call_id,
+        status: @status
       }
     end
   end

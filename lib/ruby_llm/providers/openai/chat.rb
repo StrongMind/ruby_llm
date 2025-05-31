@@ -27,64 +27,95 @@ module RubyLLM
           data = response.body
           return if data.empty?
           raise Error.new(response, data.dig('error', 'message')) if data.dig('error', 'message')
-        
+
           outputs = data['output']              # <-- correct key
           Rails.logger.debug "poop outputs in parse completion response: #{outputs.inspect}"
           return unless outputs&.any?
-        
+
           assistant_text = nil
           raw_calls      = []
           Rails.logger.debug "poop assistant_text in parse completion response: #{assistant_text.inspect}"
           Rails.logger.debug "poop raw_calls in parse completion response: #{raw_calls.inspect}"
-          
+
           outputs.each do |block|
             case block['type']
             when 'text'
               assistant_text ||= block['text']  # keep first text block (if any)
             when 'function_call'
-              # adapt to the structure parse_tool_calls expects
-              raw_calls << {
-                'id'       => block['call_id'],
-                'type'     => 'function',
-                'function' => {
-                  'name'      => block['name'],
-                  'arguments' => block['arguments']
-                }
-              }
+              raw_calls << block
             end
           end
-        
+
           Message.new(
-            role:          :assistant,
-            content:       assistant_text,
-            tool_calls:    parse_tool_calls(raw_calls),
-            input_tokens:  data.dig('usage', 'input_tokens'),
+            role: :assistant,
+            content: assistant_text,
+            tool_calls: parse_tool_calls(raw_calls),
+            input_tokens: data.dig('usage', 'input_tokens'),
             output_tokens: data.dig('usage', 'output_tokens'),
-            model_id:      data['model']
+            model_id: data['model']
           )
         end
 
         def format_messages(messages)
-          messages.map do |msg|
-            {
-              role: format_role(msg.role),
-              content: Media.format_content(msg.content),
-              tool_calls: format_tool_calls(msg.tool_calls),
-              tool_call_id: msg.tool_call_id
-            }.compact
+          formatted_messages = []
+
+          messages.each do |msg|
+            if msg.tool_call?
+              # Add the tool call message as it came back from the API
+              msg.tool_calls.each_value do |tool_call|
+                formatted_messages << {
+                  type: 'function_call',
+                  id: tool_call.id,
+                  call_id: tool_call.call_id,
+                  name: tool_call.name,
+                  arguments: JSON.generate(tool_call.arguments),
+                  status: tool_call.status
+                }
+              end
+            elsif msg.tool_result?
+              # Add the tool output message
+              formatted_messages << {
+                type: 'function_call_output',
+                call_id: msg.tool_call_id,
+                output: msg.content.to_s
+              }
+            else
+              # Regular message
+              formatted_messages << {
+                role: format_role(msg.role),
+                content: Media.format_content(msg.content)
+              }.compact
+            end
           end
-        end        
+
+          formatted_messages
+        end
 
         def format_role(role)
           case role
-                              when :system
-                                'developer'
+          when :system
+            'developer'
           else
             role.to_s
           end
         end
 
         private
+
+        def parse_tool_calls(raw_calls)
+          return nil unless raw_calls&.any?
+
+          raw_calls.to_h do |tc|
+            [
+              tc['call_id'] || tc['id'],
+              ToolCall.new(
+                id: tc['call_id'] || tc['id'],
+                name: tc['name'],
+                arguments: tc['arguments'].is_a?(String) ? JSON.parse(tc['arguments']) : tc['arguments']
+              )
+            ]
+          end
+        end
 
         def extract_content_from_output(message_data)
           # In the new API, content is an array of content blocks
@@ -99,7 +130,7 @@ module RubyLLM
         def build_tools_array(user_tools)
           # Start with built-in tools
           built_in_tools = [{ type: 'web_search_preview' }]
-          
+
           # Add user-provided tools if any
           if user_tools.any?
             user_tool_definitions = user_tools.map { |_, tool| tool_for(tool) }
