@@ -25,17 +25,15 @@ module RubyLLM
 
         def parse_completion_response(response)
           data = response.body
+
           return if data.empty?
           raise Error.new(response, data.dig('error', 'message')) if data.dig('error', 'message')
 
           outputs = data['output']              # <-- correct key
-          Rails.logger.debug "poop outputs in parse completion response: #{outputs.inspect}"
           return unless outputs&.any?
 
           assistant_text = nil
           raw_calls      = []
-          Rails.logger.debug "poop assistant_text in parse completion response: #{assistant_text.inspect}"
-          Rails.logger.debug "poop raw_calls in parse completion response: #{raw_calls.inspect}"
 
           outputs.each do |block|
             case block['type']
@@ -45,6 +43,8 @@ module RubyLLM
               assistant_text ||= extract_content_from_output(block)
             when 'function_call'
               raw_calls << block
+            when 'web_search_call'
+              puts "WEB SEARCH CALL: #{block.inspect}"
             end
           end
 
