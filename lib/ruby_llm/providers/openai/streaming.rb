@@ -80,7 +80,6 @@ module RubyLLM
         end
 
         def build_output_item_chunk(data)
-          # Handle output items (messages, function calls, etc.)
           item = data['item']
           return build_empty_chunk unless item
 
@@ -95,7 +94,6 @@ module RubyLLM
         end
 
         def build_content_part_chunk(data)
-          # Handle content parts within items
           part = data['part']
           return build_empty_chunk unless part
 
@@ -115,7 +113,6 @@ module RubyLLM
         end
 
         def build_message_output_chunk(item, data)
-          # Extract text content from message content array
           content = extract_text_from_content_array(item['content'])
           
           Chunk.new(
@@ -162,7 +159,6 @@ module RubyLLM
         end
 
         def build_legacy_chunk(data)
-          # Keep the old format support for backward compatibility
           Chunk.new(
             role: :assistant,
             model_id: data['model'],

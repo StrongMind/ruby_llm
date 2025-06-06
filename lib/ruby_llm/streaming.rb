@@ -31,11 +31,9 @@ module RubyLLM
     end
 
     def handle_stream(&block)
-      # Commenting out for now until I know streaming is working.
-      # to_json_stream do |data|
-      #   block.call(build_chunk(data)) if data
-      # end
-      Rails.logger.debug "poop handle stream is hit"
+      to_json_stream do |data|
+        block.call(build_chunk(data)) if data
+      end
     end
 
     private

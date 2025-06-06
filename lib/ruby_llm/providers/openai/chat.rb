@@ -29,7 +29,7 @@ module RubyLLM
           return if data.empty?
           raise Error.new(response, data.dig('error', 'message')) if data.dig('error', 'message')
 
-          outputs = data['output']              # <-- correct key
+          outputs = data['output']
           return unless outputs&.any?
 
           assistant_text = nil

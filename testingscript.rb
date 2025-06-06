@@ -97,7 +97,6 @@ def fetch_tool_calls(response)
   all_tool_calls_details
 end
 
-# Configure OpenAI credentials from environment variables
 RubyLLM.configure do |config|
   config.openai_api_key = ENV.fetch('OPENAI_ACCESS_TOKEN', nil)
 end
@@ -115,37 +114,9 @@ begin
   puts "Response: #{response.content}"
 
   puts "\n" + "="*50
-  # puts "Response tool calls: #{fetch_tool_calls(response)}"
-  puts "\n" + "="*50
 
-  puts "\n" + "="*50
-
-  # puts "Second Call"
-  # puts "\n" + "="*50
-  # second_prompt = 'Use the accuracy scorer tool to give the statement in first_prompt an accuracy score based on your web search results. Give a score of 0 if the statement is inaccurate. Give a score of 1 if the statement is accurate. first_prompt: #{first_prompt}; web_search_results: #{response.content}'
-  # puts "Generating response with OpenAI gpt-4o-mini: '#{second_prompt}'"
-
-  # second_response = chat.ask(second_prompt)
-
-  # puts "Response: #{second_response.content}"
-  # puts "\n" + "="*50
   puts "Response tool calls: #{fetch_tool_calls(chat.messages)}"
   puts "\n" + "="*50
-
-#   puts "Third Test"
-#   puts "\n" + "="*50
-
-#   third_prompt = 'Use web search to evaluate the factual accuracy of this statement: "The current pope is Francis."'
-#   puts "Generating response with OpenAI gpt-4o-mini: '#{third_prompt}'"
-
-#   response = chat.ask(third_prompt)
-
-#   puts "Response: #{response.content}"
-#   puts "\n" + "="*50
-#   # puts "Response tool calls: #{fetch_tool_calls(response)}"
-#   puts "\n" + "="*50
-
-#  puts "poop Messages: #{fetch_tool_calls(chat.messages)}"
   
 rescue RubyLLM::UnauthorizedError
   puts 'Error: Invalid OpenAI API key.'
