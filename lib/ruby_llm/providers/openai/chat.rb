@@ -12,15 +12,22 @@ module RubyLLM
         module_function
 
         def render_payload(messages, tools:, temperature:, model:, stream: false, parallel_tool_calls: true)
-          {
+          payload = {
             model: model,
             input: format_messages(messages),
-            temperature: temperature,
-            parallel_tool_calls: parallel_tool_calls,
-            stream: stream,
-            tools: build_tools_array(tools),
-            tool_choice: 'auto'
+            stream: stream
           }
+
+          # Only include temperature if it's not nil (some models don't accept it)
+          payload[:temperature] = temperature unless temperature.nil?
+
+          if tools.any?
+            payload[:tools] = build_tools_array(tools)
+            payload[:tool_choice] = 'auto'
+            payload[:parallel_tool_calls] = parallel_tool_calls if parallel_tool_calls
+          end
+
+          payload
         end
 
         def parse_completion_response(response)
