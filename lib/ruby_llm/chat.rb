@@ -128,7 +128,8 @@ module RubyLLM
       response.tool_calls.each_value do |tool_call|
         @on[:new_message]&.call
         result = execute_tool tool_call
-        message = add_tool_result tool_call.id, result
+        tool_call_id = tool_call.call_id || tool_call.id
+        message = add_tool_result tool_call_id, result
         @on[:end_message]&.call(message)
       end
 
