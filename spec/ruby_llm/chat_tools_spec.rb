@@ -97,6 +97,14 @@ RSpec.describe RubyLLM::Chat do
     end
   end
 
+  class DiceRoll < RubyLLM::Tool # rubocop:disable Lint/ConstantDefinitionInBlock,RSpec/LeakyConstantDeclaration
+    description 'Rolls a single six-sided die and returns the result'
+
+    def execute
+      { roll: rand(1..6) }
+    end
+  end
+
   describe 'function calling' do
     CHAT_MODELS.each do |model_info|
       model = model_info[:model]
@@ -193,56 +201,91 @@ RSpec.describe RubyLLM::Chat do
         expect(response.content).to include('10')
       end
     end
-  end
 
-  describe 'nested parameters' do
-    CHAT_MODELS.each do |model_info|
+    CHAT_MODELS.each do |model_info| # rubocop:disable Style/CombinableLoops
       model = model_info[:model]
       provider = model_info[:provider]
+      it "#{provider}/#{model} can handle multiple tool calls in a single response" do # rubocop:disable RSpec/ExampleLength,RSpec/MultipleExpectations
+        skip 'Ollama models do not reliably use tools' if provider == :ollama
+        chat = RubyLLM.chat(model: model, provider: provider)
+                      .with_tool(DiceRoll)
+                      .with_instructions(
+                        'You must call the dice_roll tool exactly 3 times when asked to roll dice 3 times.'
+                      )
 
-      context "with #{provider}/#{model}" do
-        let(:chat) { RubyLLM.chat(model: model, provider: provider).with_tool(AddressBook) }
+        # Track tool calls to ensure all 3 are executed
+        tool_call_count = 0
 
-        it 'handles nested object parameters', :aggregate_failures do
-          prompt = 'Add John Doe to the address book at 123 Main St, Springfield 12345'
-          response = chat.ask(prompt)
+        original_execute = DiceRoll.instance_method(:execute)
+        DiceRoll.define_method(:execute) do
+          tool_call_count += 1
+          # Return a fixed result for VCR consistency
+          { roll: tool_call_count }
+        end
 
-          expect(response.content).to include('John Doe', '123 Main St',
-                                              'Springfield', '12345')
+        response = chat.ask('Roll the dice 3 times')
+
+        # Restore original method
+        DiceRoll.define_method(:execute, original_execute)
+
+        # Verify all 3 tool calls were made
+        expect(tool_call_count).to eq(3)
+
+        # Verify the response contains some dice roll results
+        expect(response.content).to match(/\d+/) # Contains at least one number
+        expect(response.content.downcase).to match(/roll|dice|result/) # Mentions rolling or results
+      end
+    end
+
+    describe 'nested parameters' do
+      CHAT_MODELS.each do |model_info|
+        model = model_info[:model]
+        provider = model_info[:provider]
+
+        context "with #{provider}/#{model}" do
+          let(:chat) { RubyLLM.chat(model: model, provider: provider).with_tool(AddressBook) }
+
+          it 'handles nested object parameters', :aggregate_failures do
+            prompt = 'Add John Doe to the address book at 123 Main St, Springfield 12345'
+            response = chat.ask(prompt)
+
+            expect(response.content).to include('John Doe', '123 Main St',
+                                                'Springfield', '12345')
+          end
         end
       end
     end
-  end
 
-  describe 'array parameters' do
-    CHAT_MODELS.each do |model_info|
-      model = model_info[:model]
-      provider = model_info[:provider]
+    describe 'array parameters' do
+      CHAT_MODELS.each do |model_info|
+        model = model_info[:model]
+        provider = model_info[:provider]
 
-      context "with #{provider}/#{model}" do
-        let(:chat) { RubyLLM.chat(model: model, provider: provider).with_tool(StateManager) }
-        let(:prompt) do
-          'Add information about California (capital: Sacramento, ' \
-            'pop: 39538223) and Texas (capital: Austin, pop: 29145505). ' \
-            'Make sure to return all the information in the final output. '
-        end
+        context "with #{provider}/#{model}" do
+          let(:chat) { RubyLLM.chat(model: model, provider: provider).with_tool(StateManager) }
+          let(:prompt) do
+            'Add information about California (capital: Sacramento, ' \
+              'pop: 39538223) and Texas (capital: Austin, pop: 29145505). ' \
+              'Make sure to return all the information in the final output. '
+          end
 
-        it 'handles array parameters with object items', :aggregate_failures do
-          response = chat.ask(prompt)
+          it 'handles array parameters with object items', :aggregate_failures do
+            response = chat.ask(prompt)
 
-          expect(response.content).to include('Sacramento', 'Austin')
-          expect(response.content).to match(/39538223|39,538,223/).and(match(/29145505|29,145,505/))
+            expect(response.content).to include('Sacramento', 'Austin')
+            expect(response.content).to match(/39538223|39,538,223/).and(match(/29145505|29,145,505/))
+          end
         end
       end
     end
-  end
 
-  describe 'error handling' do
-    it 'raises an error when tool execution fails' do # rubocop:disable RSpec/MultipleExpectations
-      chat = RubyLLM.chat.with_tool(BrokenTool)
+    describe 'error handling' do
+      it 'raises an error when tool execution fails' do # rubocop:disable RSpec/MultipleExpectations
+        chat = RubyLLM.chat.with_tool(BrokenTool)
 
-      expect { chat.ask('What is the weather?') }.to raise_error(RuntimeError) do |error|
-        expect(error.message).to include('This tool is broken')
+        expect { chat.ask('What is the weather?') }.to raise_error(RuntimeError) do |error|
+          expect(error.message).to include('This tool is broken')
+        end
       end
     end
   end
