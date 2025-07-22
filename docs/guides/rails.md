@@ -60,7 +60,7 @@ This approach has one important consequence: **you cannot use `validates :conten
 
 ### Database Migrations
 
-First, generate migrations for your `Chat` and `Message` models. You'll also need a `ToolCall` model if you plan to use [Tools]({% link guides/tools.md %}).
+First, generate migrations for your `Chat`, `Message`, and `ToolCall` models.
 
 ```bash
 # Generate basic models and migrations
@@ -90,7 +90,6 @@ class CreateMessages < ActiveRecord::Migration[7.1]
       t.references :chat, null: false, foreign_key: true
       t.string :role
       t.text :content
-      # Optional fields for tracking usage/metadata
       t.string :model_id
       t.integer :input_tokens
       t.integer :output_tokens
@@ -101,7 +100,6 @@ class CreateMessages < ActiveRecord::Migration[7.1]
 end
 
 # db/migrate/YYYYMMDDHHMMSS_create_tool_calls.rb
-# (Only needed if using tools)
 class CreateToolCalls < ActiveRecord::Migration[7.1]
   def change
     create_table :tool_calls do |t|
@@ -165,7 +163,7 @@ Include the RubyLLM helpers in your ActiveRecord models:
 class Chat < ApplicationRecord
   # Includes methods like ask, with_tool, with_instructions, etc.
   # Automatically persists associated messages and tool calls.
-  acts_as_chat # Assumes Message and ToolCall model names
+  acts_as_chat # Defaults to Message and ToolCall model names
 
   # --- Add your standard Rails model logic below ---
   belongs_to :user, optional: true # Example
@@ -175,7 +173,7 @@ end
 # app/models/message.rb
 class Message < ApplicationRecord
   # Provides methods like tool_call?, tool_result?
-  acts_as_message # Assumes Chat and ToolCall model names
+  acts_as_message # Defaults to Chat and ToolCall model names
 
   # --- Add your standard Rails model logic below ---
   # Note: Do NOT add "validates :content, presence: true"
@@ -189,11 +187,34 @@ end
 # app/models/tool_call.rb (Only if using tools)
 class ToolCall < ApplicationRecord
   # Sets up associations to the calling message and the result message.
-  acts_as_tool_call # Assumes Message model name
+  acts_as_tool_call # Defaults to Message model name
 
   # --- Add your standard Rails model logic below ---
 end
 ```
+
+### Setup RubyLLM.chat yourself
+
+In some scenarios, you need to tap into the power and arguments of `RubyLLM.chat`. For example, if want to use model aliases with alternate providers. Here is a working example:
+
+```ruby
+ class Chat < ApplicationRecord
+    acts_as_chat
+
+    validates :model_id, presence: true
+    validates :provider, presence: true
+
+    after_initialize :set_chat
+
+    def set_chat
+      @chat = RubyLLM.chat(model: model_id, provider:)
+    end
+  end
+
+  # Then in your controller or background job:
+  Chat.new(model_id: 'alias', provider: 'provider_name')
+```
+
 
 ## Basic Usage
 
@@ -245,7 +266,7 @@ puts system_message.content # => "You are a concise Ruby expert."
 
 ### Tools Integration
 
-If you're using [Tools]({% link guides/tools.md %}), they're automatically persisted too:
+[Tools]({% link guides/tools.md %}) are automatically persisted too:
 
 ```ruby
 # Define a tool
@@ -474,6 +495,45 @@ This setup allows for:
 ## Customizing Models
 
 Your `Chat`, `Message`, and `ToolCall` models are standard ActiveRecord models. You can add any other associations, validations, scopes, callbacks, or methods as needed for your application logic. The `acts_as` helpers provide the core persistence bridge to RubyLLM without interfering with other model behavior.
+
+You can use custom model names by passing parameters to the `acts_as` helpers. For example, if you prefer `Conversation` over `Chat`, you could use `acts_as_chat` in your `Conversation` model and then specify `chat_class: 'Conversation'` in your `Message` model's `acts_as_message` call.
+
+### Using Custom Model Names
+
+If your application uses different model names, you can configure the `acts_as` helpers accordingly:
+
+```ruby
+# app/models/conversation.rb (instead of Chat)
+class Conversation < ApplicationRecord
+  # Specify custom model names if needed (not required if your models
+  # are called Message and ToolCall)
+  acts_as_chat message_class: 'ChatMessage', tool_call_class: 'AIToolCall'
+  
+  belongs_to :user, optional: true
+  # ... your custom logic
+end
+
+# app/models/chat_message.rb (instead of Message)
+class ChatMessage < ApplicationRecord
+  # Let RubyLLM know to use your Conversation model instead of the default Chat
+  acts_as_message chat_class: 'Conversation', tool_call_class: 'AIToolCall'
+  # You can also customize foreign keys if needed:
+  # chat_foreign_key: 'conversation_id'
+  
+  # ... your custom logic
+end
+
+# app/models/ai_tool_call.rb (instead of ToolCall)
+class AIToolCall < ApplicationRecord 
+  acts_as_tool_call message_class: 'ChatMessage'
+  # Optionally customize foreign keys:
+  # message_foreign_key: 'chat_message_id'
+  
+  # ... your custom logic
+end
+```
+
+This flexibility allows you to integrate RubyLLM with existing Rails applications that may already have naming conventions established.
 
 Some common customizations include:
 

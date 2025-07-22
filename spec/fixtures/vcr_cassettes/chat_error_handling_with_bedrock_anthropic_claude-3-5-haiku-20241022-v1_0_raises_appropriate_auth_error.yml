@@ -8,16 +8,16 @@ http_interactions:
       string: '{"anthropic_version":"bedrock-2023-05-31","messages":[{"role":"user","content":[{"type":"text","text":"Hello"}]}],"temperature":0.7,"max_tokens":4096}'
     headers:
       User-Agent:
-      - Faraday v2.13.1
+      - Faraday v2.13.2
       Host:
       - bedrock-runtime.<AWS_REGION>.amazonaws.com
       X-Amz-Date:
-      - 20250603T094040Z
+      - 20250717T095001Z
       X-Amz-Content-Sha256:
       - 9c512cbe0db46db91a9cd6a06019d86ea7ae159fb05375850b2231797ceaeb5d
       Authorization:
-      - AWS4-HMAC-SHA256 Credential=invalid-key/20250603/<AWS_REGION>/bedrock/aws4_request,
-        SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=a66ce84e4ffb9f2dd5992b6b5b5fb5e72a3d45844bfd4dc9bea3477eefa0808e
+      - AWS4-HMAC-SHA256 Credential=invalid-key/20250717/<AWS_REGION>/bedrock/aws4_request,
+        SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=c2f58aaa99e9dc259350e293738f2ebe359837fc2565f643b599377c8b64a2b6
       Content-Type:
       - application/json
       Accept:
@@ -30,7 +30,7 @@ http_interactions:
       message: Forbidden
     headers:
       Date:
-      - Tue, 03 Jun 2025 09:40:41 GMT
+      - Thu, 17 Jul 2025 09:50:02 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -38,11 +38,11 @@ http_interactions:
       Connection:
       - keep-alive
       X-Amzn-Requestid:
-      - 119a34ba-f3eb-4f91-92ae-88e6db3d5500
+      - 8d8a74ed-eb16-4bb6-9a38-64a435d7ce38
       X-Amzn-Errortype:
       - UnrecognizedClientException:http://internal.amazon.com/coral/com.amazon.coral.service/
     body:
       encoding: UTF-8
       string: '{"message":"The security token included in the request is invalid."}'
-  recorded_at: Tue, 03 Jun 2025 09:40:41 GMT
+  recorded_at: Thu, 17 Jul 2025 09:50:02 GMT
 recorded_with: VCR 6.3.1

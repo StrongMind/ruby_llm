@@ -6,10 +6,10 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"model":"anthropic/claude-3.5-haiku","messages":[{"role":"user","content":"Who
-        was Ruby''s creator?"}],"temperature":0.7,"stream":false}'
+        was Ruby''s creator?"}],"stream":false,"temperature":0.7}'
     headers:
       User-Agent:
-      - Faraday v2.13.1
+      - Faraday v2.13.2
       Authorization:
       - Bearer <OPENROUTER_API_KEY>
       Content-Type:
@@ -24,36 +24,37 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 03 Jun 2025 09:43:58 GMT
+      - Thu, 17 Jul 2025 09:53:05 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Cf-Ray:
-      - "<CF_RAY>"
-      Server:
-      - cloudflare
       Access-Control-Allow-Origin:
       - "*"
-      X-Clerk-Auth-Message:
-      - Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid,
-        token-carrier=header)
-      X-Clerk-Auth-Reason:
-      - token-invalid
-      X-Clerk-Auth-Status:
-      - signed-out
       Vary:
       - Accept-Encoding
+      Permissions-Policy:
+      - payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com"
+        "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")
+      Referrer-Policy:
+      - no-referrer, strict-origin-when-cross-origin
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - "<CF_RAY>"
     body:
       encoding: ASCII-8BIT
-      string: "\n         \n\n         \n\n         \n\n         \n{\"id\":\"gen-1748943838-iIXy5DR1aizmvINHPxSh\",\"provider\":\"Anthropic\",\"model\":\"anthropic/claude-3.5-haiku\",\"object\":\"chat.completion\",\"created\":1748943838,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"native_finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Ruby
-        was created by Yukihiro Matsumoto (often called \\\"Matz\\\") in Japan. He
-        first released Ruby in 1995 as a dynamic, object-oriented programming language
-        designed to be simple and productive, with a focus on programmer happiness
-        and developer efficiency.\",\"refusal\":null,\"reasoning\":null}}],\"usage\":{\"prompt_tokens\":13,\"completion_tokens\":61,\"total_tokens\":74}}"
-  recorded_at: Tue, 03 Jun 2025 09:44:00 GMT
+      string: "\n         \n\n         \n\n         \n\n         \n\n         \n{\"id\":\"gen-1752745985-szB890ivPMLedDOljLkx\",\"provider\":\"Google\",\"model\":\"anthropic/claude-3.5-haiku\",\"object\":\"chat.completion\",\"created\":1752745985,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"native_finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Ruby
+        was created by Yukihiro Matsumoto (often called \\\"Matz\\\") from Japan.
+        He first released Ruby in 1995, designing it to be a programming language
+        that was more human-friendly and productive, emphasizing the principle of
+        least surprise. Matz wanted to create a language that was enjoyable for programmers
+        to use and would increase their productivity.\",\"refusal\":null,\"reasoning\":null}}],\"usage\":{\"prompt_tokens\":13,\"completion_tokens\":82,\"total_tokens\":95}}"
+  recorded_at: Thu, 17 Jul 2025 09:53:07 GMT
 - request:
     method: post
     uri: https://openrouter.ai/api/v1/chat/completions
@@ -61,13 +62,14 @@ http_interactions:
       encoding: UTF-8
       string: '{"model":"anthropic/claude-3.5-haiku","messages":[{"role":"user","content":"Who
         was Ruby''s creator?"},{"role":"assistant","content":"Ruby was created by
-        Yukihiro Matsumoto (often called \"Matz\") in Japan. He first released Ruby
-        in 1995 as a dynamic, object-oriented programming language designed to be
-        simple and productive, with a focus on programmer happiness and developer
-        efficiency."},{"role":"user","content":"What year did he create Ruby?"}],"temperature":0.7,"stream":false}'
+        Yukihiro Matsumoto (often called \"Matz\") from Japan. He first released Ruby
+        in 1995, designing it to be a programming language that was more human-friendly
+        and productive, emphasizing the principle of least surprise. Matz wanted to
+        create a language that was enjoyable for programmers to use and would increase
+        their productivity."},{"role":"user","content":"What year did he create Ruby?"}],"stream":false,"temperature":0.7}'
     headers:
       User-Agent:
-      - Faraday v2.13.1
+      - Faraday v2.13.2
       Authorization:
       - Bearer <OPENROUTER_API_KEY>
       Content-Type:
@@ -82,31 +84,34 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 03 Jun 2025 09:44:01 GMT
+      - Thu, 17 Jul 2025 09:53:08 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Cf-Ray:
-      - "<CF_RAY>"
-      Server:
-      - cloudflare
       Access-Control-Allow-Origin:
       - "*"
-      X-Clerk-Auth-Message:
-      - Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid,
-        token-carrier=header)
-      X-Clerk-Auth-Reason:
-      - token-invalid
-      X-Clerk-Auth-Status:
-      - signed-out
       Vary:
       - Accept-Encoding
+      Permissions-Policy:
+      - payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com"
+        "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")
+      Referrer-Policy:
+      - no-referrer, strict-origin-when-cross-origin
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - "<CF_RAY>"
     body:
       encoding: ASCII-8BIT
-      string: "\n         \n\n         \n{\"id\":\"gen-1748943840-PDwnMxJmPlCDhPjkyPme\",\"provider\":\"Google\",\"model\":\"anthropic/claude-3.5-haiku\",\"object\":\"chat.completion\",\"created\":1748943840,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"native_finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Yukihiro
-        Matsumoto first released Ruby in 1995.\",\"refusal\":null,\"reasoning\":null}}],\"usage\":{\"prompt_tokens\":84,\"completion_tokens\":19,\"total_tokens\":103}}"
-  recorded_at: Tue, 03 Jun 2025 09:44:01 GMT
+      string: "\n         \n\n         \n\n         \n\n         \n{\"id\":\"gen-1752745987-EOY7JFUn0vAGsZ00Iijf\",\"provider\":\"Google\",\"model\":\"anthropic/claude-3.5-haiku\",\"object\":\"chat.completion\",\"created\":1752745987,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"native_finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Yukihiro
+        Matsumoto first released Ruby in 1995. The initial public release was version
+        0.95, and it was designed to be an object-oriented programming language that
+        was more intuitive and enjoyable to use compared to other languages of that
+        time.\",\"refusal\":null,\"reasoning\":null}}],\"usage\":{\"prompt_tokens\":105,\"completion_tokens\":60,\"total_tokens\":165}}"
+  recorded_at: Thu, 17 Jul 2025 09:53:09 GMT
 recorded_with: VCR 6.3.1

@@ -12,16 +12,16 @@ http_interactions:
         13.4050)"}},"required":["latitude","longitude"]}}]}'
     headers:
       User-Agent:
-      - Faraday v2.13.1
+      - Faraday v2.13.2
       Host:
       - bedrock-runtime.<AWS_REGION>.amazonaws.com
       X-Amz-Date:
-      - 20250603T094523Z
+      - 20250717T100007Z
       X-Amz-Content-Sha256:
       - 37fc3c4fb3b65d1625b2a2c7d8a3a4a1fd3cc3cdb5e20355093cbaa5097ca4fa
       Authorization:
-      - AWS4-HMAC-SHA256 Credential=<AWS_ACCESS_KEY_ID>/20250603/<AWS_REGION>/bedrock/aws4_request,
-        SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=14b57f303ffd332796581b9c4fb322c338febe40cfacc0c743673cded0848d86
+      - AWS4-HMAC-SHA256 Credential=<AWS_ACCESS_KEY_ID>/20250717/<AWS_REGION>/bedrock/aws4_request,
+        SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=60a499b0f128d5f5d1c2045f03fbfd4d4fb087689996d670a75b4fbd25eeb773
       Content-Type:
       - application/json
       Accept:
@@ -34,27 +34,26 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 03 Jun 2025 09:45:26 GMT
+      - Thu, 17 Jul 2025 10:00:09 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '516'
+      - '460'
       Connection:
       - keep-alive
       X-Amzn-Requestid:
-      - 523229ef-5c14-4506-8ec0-c4b7f94d1284
+      - 0b5e766f-7294-46f3-a345-ef0546bf5c57
       X-Amzn-Bedrock-Invocation-Latency:
-      - '1839'
+      - '1708'
       X-Amzn-Bedrock-Output-Token-Count:
-      - '101'
+      - '90'
       X-Amzn-Bedrock-Input-Token-Count:
       - '389'
     body:
       encoding: UTF-8
-      string: '{"id":"msg_bdrk_01QiotdsJw2QRjpL3vSigGNi","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"I''ll
-        help you check the current weather in Berlin using the provided coordinates.
-        I''ll use the weather tool to retrieve the information."},{"type":"tool_use","id":"toolu_bdrk_012pXbDiwZdc6Dya8T6yoekw","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":389,"output_tokens":101}}'
-  recorded_at: Tue, 03 Jun 2025 09:45:26 GMT
+      string: '{"id":"msg_bdrk_01KB8CMR4VNMYu3WreKpcrTq","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"I''ll
+        help you check the current weather in Berlin using the provided coordinates."},{"type":"tool_use","id":"toolu_bdrk_01NhwZ87tCjSjhV9SUBqV3ZF","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":389,"output_tokens":90}}'
+  recorded_at: Thu, 17 Jul 2025 10:00:09 GMT
 - request:
     method: post
     uri: https://bedrock-runtime.<AWS_REGION>.amazonaws.com/model/anthropic.claude-3-5-haiku-20241022-v1:0/invoke
@@ -62,24 +61,23 @@ http_interactions:
       encoding: UTF-8
       string: '{"anthropic_version":"bedrock-2023-05-31","messages":[{"role":"user","content":[{"type":"text","text":"What''s
         the weather in Berlin? (52.5200, 13.4050)"}]},{"role":"assistant","content":[{"type":"text","text":"I''ll
-        help you check the current weather in Berlin using the provided coordinates.
-        I''ll use the weather tool to retrieve the information."},{"type":"tool_use","id":"toolu_bdrk_012pXbDiwZdc6Dya8T6yoekw","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_bdrk_012pXbDiwZdc6Dya8T6yoekw","content":"Current
+        help you check the current weather in Berlin using the provided coordinates."},{"type":"tool_use","id":"toolu_bdrk_01NhwZ87tCjSjhV9SUBqV3ZF","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_bdrk_01NhwZ87tCjSjhV9SUBqV3ZF","content":"Current
         weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h"}]}],"temperature":0.7,"max_tokens":4096,"tools":[{"name":"weather","description":"Gets
         current weather for a location","input_schema":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude
         (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g.,
         13.4050)"}},"required":["latitude","longitude"]}}]}'
     headers:
       User-Agent:
-      - Faraday v2.13.1
+      - Faraday v2.13.2
       Host:
       - bedrock-runtime.<AWS_REGION>.amazonaws.com
       X-Amz-Date:
-      - 20250603T094526Z
+      - 20250717T100009Z
       X-Amz-Content-Sha256:
-      - f521d13a04fc75c51ca151bfc5a49083429a3437c3c1e55e5fff4a4bccd069e3
+      - e620572f4b7bc71f83812777c1f23f2bd656082cf1bb06b7dcd17dc0b43c6668
       Authorization:
-      - AWS4-HMAC-SHA256 Credential=<AWS_ACCESS_KEY_ID>/20250603/<AWS_REGION>/bedrock/aws4_request,
-        SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=b2f560e9020b03f46e6aa860774de68d1ccc01407a2e9d62a124c97a71b328c8
+      - AWS4-HMAC-SHA256 Credential=<AWS_ACCESS_KEY_ID>/20250717/<AWS_REGION>/bedrock/aws4_request,
+        SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=ede0a9d4ccd74b3d03184d6ea416a3a02ac7f16defae34dc5a6c1eed7eb261a4
       Content-Type:
       - application/json
       Accept:
@@ -92,26 +90,26 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 03 Jun 2025 09:45:28 GMT
+      - Thu, 17 Jul 2025 10:00:12 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '567'
+      - '526'
       Connection:
       - keep-alive
       X-Amzn-Requestid:
-      - 9ec48043-2dc4-4d20-bd56-1477b75c2166
+      - cef7a564-0745-43ac-8fa5-4d65471a763c
       X-Amzn-Bedrock-Invocation-Latency:
-      - '1856'
+      - '2551'
       X-Amzn-Bedrock-Output-Token-Count:
-      - '84'
+      - '77'
       X-Amzn-Bedrock-Input-Token-Count:
-      - '529'
+      - '518'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6Im1zZ19iZHJrXzAxVFJZYlNzdnZrU0ZzNmF1UFZWdVBEYyIsInR5cGUiOiJtZXNzYWdlIiwicm9sZSI6ImFzc2lzdGFudCIsIm1vZGVsIjoiY2xhdWRlLTMtNS1oYWlrdS0yMDI0MTAyMiIsImNvbnRlbnQiOlt7InR5cGUiOiJ0ZXh0IiwidGV4dCI6IkJhc2VkIG9uIHRoZSBjdXJyZW50IHdlYXRoZXIgZGF0YSwgaGVyZSdzIHRoZSBpbmZvcm1hdGlvbiBmb3IgQmVybGluOlxuLSBUZW1wZXJhdHVyZTogMTXCsEMgKDU5wrBGKVxuLSBXaW5kIFNwZWVkOiAxMCBrbS9oXG5cbkl0IHNlZW1zIGxpa2UgYSBtaWxkIGRheSBpbiBCZXJsaW4gd2l0aCBhIG1vZGVyYXRlIGJyZWV6ZS4gVGhlIHRlbXBlcmF0dXJlIGlzIGNvbWZvcnRhYmxlLCBwZXJmZWN0IGZvciBsaWdodCBvdXRkb29yIGFjdGl2aXRpZXMuIERvbid0IGZvcmdldCB0byBicmluZyBhIGxpZ2h0IGphY2tldCBpZiB5b3UncmUgcGxhbm5pbmcgdG8gZ28gb3V0LiJ9XSwic3RvcF9yZWFzb24iOiJlbmRfdHVybiIsInN0b3Bfc2VxdWVuY2UiOm51bGwsInVzYWdlIjp7ImlucHV0X3Rva2VucyI6NTI5LCJvdXRwdXRfdG9rZW5zIjo4NH19
-  recorded_at: Tue, 03 Jun 2025 09:45:28 GMT
+        eyJpZCI6Im1zZ19iZHJrXzAxTGlWanhhTENVU253MU0xM3g1TkFRTSIsInR5cGUiOiJtZXNzYWdlIiwicm9sZSI6ImFzc2lzdGFudCIsIm1vZGVsIjoiY2xhdWRlLTMtNS1oYWlrdS0yMDI0MTAyMiIsImNvbnRlbnQiOlt7InR5cGUiOiJ0ZXh0IiwidGV4dCI6IkJhc2VkIG9uIHRoZSBjdXJyZW50IHdlYXRoZXIgZGF0YSwgaW4gQmVybGluOlxuLSBUZW1wZXJhdHVyZTogMTXCsEMgKDU5wrBGKVxuLSBXaW5kIFNwZWVkOiAxMCBrbS9oXG5cbkl0IHNlZW1zIGxpa2UgYSBtaWxkIGRheSBpbiBCZXJsaW4gd2l0aCBhIG1vZGVyYXRlIGJyZWV6ZS4gVGhlIHRlbXBlcmF0dXJlIGlzIGNvbWZvcnRhYmxlLCBuZWl0aGVyIHRvbyBob3Qgbm9yIHRvbyBjb2xkLiBBIGxpZ2h0IGphY2tldCBtaWdodCBiZSBzdWl0YWJsZSBpZiB5b3UncmUgZ29pbmcgb3V0c2lkZS4ifV0sInN0b3BfcmVhc29uIjoiZW5kX3R1cm4iLCJzdG9wX3NlcXVlbmNlIjpudWxsLCJ1c2FnZSI6eyJpbnB1dF90b2tlbnMiOjUxOCwib3V0cHV0X3Rva2VucyI6Nzd9fQ==
+  recorded_at: Thu, 17 Jul 2025 10:00:12 GMT
 - request:
     method: post
     uri: https://bedrock-runtime.<AWS_REGION>.amazonaws.com/model/anthropic.claude-3-5-haiku-20241022-v1:0/invoke
@@ -119,30 +117,28 @@ http_interactions:
       encoding: UTF-8
       string: '{"anthropic_version":"bedrock-2023-05-31","messages":[{"role":"user","content":[{"type":"text","text":"What''s
         the weather in Berlin? (52.5200, 13.4050)"}]},{"role":"assistant","content":[{"type":"text","text":"I''ll
-        help you check the current weather in Berlin using the provided coordinates.
-        I''ll use the weather tool to retrieve the information."},{"type":"tool_use","id":"toolu_bdrk_012pXbDiwZdc6Dya8T6yoekw","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_bdrk_012pXbDiwZdc6Dya8T6yoekw","content":"Current
+        help you check the current weather in Berlin using the provided coordinates."},{"type":"tool_use","id":"toolu_bdrk_01NhwZ87tCjSjhV9SUBqV3ZF","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_bdrk_01NhwZ87tCjSjhV9SUBqV3ZF","content":"Current
         weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h"}]},{"role":"assistant","content":[{"type":"text","text":"Based
-        on the current weather data, here''s the information for Berlin:\n- Temperature:
-        15°C (59°F)\n- Wind Speed: 10 km/h\n\nIt seems like a mild day in Berlin with
-        a moderate breeze. The temperature is comfortable, perfect for light outdoor
-        activities. Don''t forget to bring a light jacket if you''re planning to go
-        out."}]},{"role":"user","content":[{"type":"text","text":"What''s the weather
-        in Paris? (48.8575, 2.3514)"}]}],"temperature":0.7,"max_tokens":4096,"tools":[{"name":"weather","description":"Gets
+        on the current weather data, in Berlin:\n- Temperature: 15°C (59°F)\n- Wind
+        Speed: 10 km/h\n\nIt seems like a mild day in Berlin with a moderate breeze.
+        The temperature is comfortable, neither too hot nor too cold. A light jacket
+        might be suitable if you''re going outside."}]},{"role":"user","content":[{"type":"text","text":"What''s
+        the weather in Paris? (48.8575, 2.3514)"}]}],"temperature":0.7,"max_tokens":4096,"tools":[{"name":"weather","description":"Gets
         current weather for a location","input_schema":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude
         (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g.,
         13.4050)"}},"required":["latitude","longitude"]}}]}'
     headers:
       User-Agent:
-      - Faraday v2.13.1
+      - Faraday v2.13.2
       Host:
       - bedrock-runtime.<AWS_REGION>.amazonaws.com
       X-Amz-Date:
-      - 20250603T094528Z
+      - 20250717T100012Z
       X-Amz-Content-Sha256:
-      - 3792361ab6de43eb55cdc94010f8a030da1cb46cb60236ded2fd896ad8760460
+      - 0f9ce203a29f50d9894cee71161c6cf7e5e2b866aa858761ba7494a59605b984
       Authorization:
-      - AWS4-HMAC-SHA256 Credential=<AWS_ACCESS_KEY_ID>/20250603/<AWS_REGION>/bedrock/aws4_request,
-        SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=b988bbd3e0ba53eb9e9eb73df783a6200f1807eac6f90bb90941f231345c8bee
+      - AWS4-HMAC-SHA256 Credential=<AWS_ACCESS_KEY_ID>/20250717/<AWS_REGION>/bedrock/aws4_request,
+        SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=745daba5521ad8bc6cf030f0d1daf488b97f0ca4e2986bd77229e5d0c8127913
       Content-Type:
       - application/json
       Accept:
@@ -155,26 +151,26 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 03 Jun 2025 09:45:30 GMT
+      - Thu, 17 Jul 2025 10:00:14 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '525'
+      - '465'
       Connection:
       - keep-alive
       X-Amzn-Requestid:
-      - b48649ba-b42a-4d12-8b29-73db5f362aa2
+      - a3497d9e-29f3-41d3-8086-ae2b74c775cc
       X-Amzn-Bedrock-Invocation-Latency:
-      - '1213'
+      - '1377'
       X-Amzn-Bedrock-Output-Token-Count:
       - '89'
       X-Amzn-Bedrock-Input-Token-Count:
-      - '635'
+      - '617'
     body:
       encoding: UTF-8
-      string: '{"id":"msg_bdrk_01E7KXVjSaDdYRKrpWa2SuLC","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"I''ll
-        retrieve the current weather information for Paris using the provided coordinates."},{"type":"tool_use","id":"toolu_bdrk_01FZMBzMd38fAyxMGG16ZqPz","name":"weather","input":{"latitude":"48.8575","longitude":"2.3514"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":635,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":89}}'
-  recorded_at: Tue, 03 Jun 2025 09:45:30 GMT
+      string: '{"id":"msg_bdrk_013zycUcyQaAgwanSXCma14n","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"I''ll
+        retrieve the current weather information for Paris using the provided coordinates."},{"type":"tool_use","id":"toolu_bdrk_01Mu77u5gBoDqCaWeMGUqxFu","name":"weather","input":{"latitude":"48.8575","longitude":"2.3514"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":617,"output_tokens":89}}'
+  recorded_at: Thu, 17 Jul 2025 10:00:14 GMT
 - request:
     method: post
     uri: https://bedrock-runtime.<AWS_REGION>.amazonaws.com/model/anthropic.claude-3-5-haiku-20241022-v1:0/invoke
@@ -182,32 +178,30 @@ http_interactions:
       encoding: UTF-8
       string: '{"anthropic_version":"bedrock-2023-05-31","messages":[{"role":"user","content":[{"type":"text","text":"What''s
         the weather in Berlin? (52.5200, 13.4050)"}]},{"role":"assistant","content":[{"type":"text","text":"I''ll
-        help you check the current weather in Berlin using the provided coordinates.
-        I''ll use the weather tool to retrieve the information."},{"type":"tool_use","id":"toolu_bdrk_012pXbDiwZdc6Dya8T6yoekw","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_bdrk_012pXbDiwZdc6Dya8T6yoekw","content":"Current
+        help you check the current weather in Berlin using the provided coordinates."},{"type":"tool_use","id":"toolu_bdrk_01NhwZ87tCjSjhV9SUBqV3ZF","name":"weather","input":{"latitude":"52.5200","longitude":"13.4050"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_bdrk_01NhwZ87tCjSjhV9SUBqV3ZF","content":"Current
         weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h"}]},{"role":"assistant","content":[{"type":"text","text":"Based
-        on the current weather data, here''s the information for Berlin:\n- Temperature:
-        15°C (59°F)\n- Wind Speed: 10 km/h\n\nIt seems like a mild day in Berlin with
-        a moderate breeze. The temperature is comfortable, perfect for light outdoor
-        activities. Don''t forget to bring a light jacket if you''re planning to go
-        out."}]},{"role":"user","content":[{"type":"text","text":"What''s the weather
-        in Paris? (48.8575, 2.3514)"}]},{"role":"assistant","content":[{"type":"text","text":"I''ll
-        retrieve the current weather information for Paris using the provided coordinates."},{"type":"tool_use","id":"toolu_bdrk_01FZMBzMd38fAyxMGG16ZqPz","name":"weather","input":{"latitude":"48.8575","longitude":"2.3514"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_bdrk_01FZMBzMd38fAyxMGG16ZqPz","content":"Current
+        on the current weather data, in Berlin:\n- Temperature: 15°C (59°F)\n- Wind
+        Speed: 10 km/h\n\nIt seems like a mild day in Berlin with a moderate breeze.
+        The temperature is comfortable, neither too hot nor too cold. A light jacket
+        might be suitable if you''re going outside."}]},{"role":"user","content":[{"type":"text","text":"What''s
+        the weather in Paris? (48.8575, 2.3514)"}]},{"role":"assistant","content":[{"type":"text","text":"I''ll
+        retrieve the current weather information for Paris using the provided coordinates."},{"type":"tool_use","id":"toolu_bdrk_01Mu77u5gBoDqCaWeMGUqxFu","name":"weather","input":{"latitude":"48.8575","longitude":"2.3514"}}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_bdrk_01Mu77u5gBoDqCaWeMGUqxFu","content":"Current
         weather at 48.8575, 2.3514: 15°C, Wind: 10 km/h"}]}],"temperature":0.7,"max_tokens":4096,"tools":[{"name":"weather","description":"Gets
         current weather for a location","input_schema":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude
         (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g.,
         13.4050)"}},"required":["latitude","longitude"]}}]}'
     headers:
       User-Agent:
-      - Faraday v2.13.1
+      - Faraday v2.13.2
       Host:
       - bedrock-runtime.<AWS_REGION>.amazonaws.com
       X-Amz-Date:
-      - 20250603T094530Z
+      - 20250717T100014Z
       X-Amz-Content-Sha256:
-      - e3520e4df1d1e8bb782e4e4ee251c63f5724141c6355fd6f86c3f9002c14f8ad
+      - bf20d21be4f24d5bdad0d07dbb87077fd7f24c2c1fa74367c8fa42b34b930b81
       Authorization:
-      - AWS4-HMAC-SHA256 Credential=<AWS_ACCESS_KEY_ID>/20250603/<AWS_REGION>/bedrock/aws4_request,
-        SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=585c3614e08a3af3f08b0926acc53a588858094ce83e84dd1c4ee375cf17393c
+      - AWS4-HMAC-SHA256 Credential=<AWS_ACCESS_KEY_ID>/20250717/<AWS_REGION>/bedrock/aws4_request,
+        SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=5735d7a0a60a82a760aec58b390cce13bfc72528617d50f8cc115b372e8018b4
       Content-Type:
       - application/json
       Accept:
@@ -220,24 +214,24 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 03 Jun 2025 09:45:32 GMT
+      - Thu, 17 Jul 2025 10:00:16 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '686'
+      - '621'
       Connection:
       - keep-alive
       X-Amzn-Requestid:
-      - b2e39109-7b0f-4257-b062-1f91fb97907a
+      - c2abde36-a4b2-4eff-a2df-ccf17631822b
       X-Amzn-Bedrock-Invocation-Latency:
-      - '1726'
+      - '1698'
       X-Amzn-Bedrock-Output-Token-Count:
-      - '98'
+      - '84'
       X-Amzn-Bedrock-Input-Token-Count:
-      - '763'
+      - '745'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6Im1zZ19iZHJrXzAxSEhvTlZhU1g4R2dwdW1WYlNITmQ4USIsInR5cGUiOiJtZXNzYWdlIiwicm9sZSI6ImFzc2lzdGFudCIsIm1vZGVsIjoiY2xhdWRlLTMtNS1oYWlrdS0yMDI0MTAyMiIsImNvbnRlbnQiOlt7InR5cGUiOiJ0ZXh0IiwidGV4dCI6IkhlcmUncyB0aGUgY3VycmVudCB3ZWF0aGVyIGluIFBhcmlzOlxuLSBUZW1wZXJhdHVyZTogMTXCsEMgKDU5wrBGKVxuLSBXaW5kIFNwZWVkOiAxMCBrbS9oXG5cbkludGVyZXN0aW5nbHksIHRoZSB3ZWF0aGVyIGluIFBhcmlzIGlzIHF1aXRlIHNpbWlsYXIgdG8gQmVybGluIGF0IHRoZSBtb21lbnQgLSBhIG1pbGQgdGVtcGVyYXR1cmUgd2l0aCBhIGxpZ2h0IGJyZWV6ZS4gSXQncyBhIHBsZWFzYW50IGRheSB0aGF0IHdvdWxkIGJlIGNvbWZvcnRhYmxlIGZvciB3YWxraW5nIGFyb3VuZCBhbmQgZXhwbG9yaW5nIHRoZSBjaXR5LiBBIGxpZ2h0IGphY2tldCBtaWdodCBiZSBhIGdvb2QgaWRlYSBpZiB5b3UncmUgc2Vuc2l0aXZlIHRvIGNvb2xlciB0ZW1wZXJhdHVyZXMuIn1dLCJzdG9wX3JlYXNvbiI6ImVuZF90dXJuIiwic3RvcF9zZXF1ZW5jZSI6bnVsbCwidXNhZ2UiOnsiaW5wdXRfdG9rZW5zIjo3NjMsImNhY2hlX2NyZWF0aW9uX2lucHV0X3Rva2VucyI6MCwiY2FjaGVfcmVhZF9pbnB1dF90b2tlbnMiOjAsIm91dHB1dF90b2tlbnMiOjk4fX0=
-  recorded_at: Tue, 03 Jun 2025 09:45:32 GMT
+        eyJpZCI6Im1zZ19iZHJrXzAxVmVmM2hvY3BnR2szb0tvS2hHZWhHdyIsInR5cGUiOiJtZXNzYWdlIiwicm9sZSI6ImFzc2lzdGFudCIsIm1vZGVsIjoiY2xhdWRlLTMtNS1oYWlrdS0yMDI0MTAyMiIsImNvbnRlbnQiOlt7InR5cGUiOiJ0ZXh0IiwidGV4dCI6IkhlcmUncyB0aGUgY3VycmVudCB3ZWF0aGVyIGluIFBhcmlzOlxuLSBUZW1wZXJhdHVyZTogMTXCsEMgKDU5wrBGKVxuLSBXaW5kIFNwZWVkOiAxMCBrbS9oXG5cbkludGVyZXN0aW5nbHksIHRoZSB3ZWF0aGVyIGluIFBhcmlzIGlzIHF1aXRlIHNpbWlsYXIgdG8gQmVybGluIGF0IHRoZSBtb21lbnQgLSBhIG1pbGQgdGVtcGVyYXR1cmUgd2l0aCBhIGxpZ2h0IGJyZWV6ZS4gSXQgc2VlbXMgbGlrZSBhIHBsZWFzYW50IGRheSBpbiB0aGUgRnJlbmNoIGNhcGl0YWwsIHN1aXRhYmxlIGZvciB3YWxraW5nIGFyb3VuZCBhbmQgZXhwbG9yaW5nIHRoZSBjaXR5LiJ9XSwic3RvcF9yZWFzb24iOiJlbmRfdHVybiIsInN0b3Bfc2VxdWVuY2UiOm51bGwsInVzYWdlIjp7ImlucHV0X3Rva2VucyI6NzQ1LCJjYWNoZV9jcmVhdGlvbl9pbnB1dF90b2tlbnMiOjAsImNhY2hlX3JlYWRfaW5wdXRfdG9rZW5zIjowLCJvdXRwdXRfdG9rZW5zIjo4NH19
+  recorded_at: Thu, 17 Jul 2025 10:00:16 GMT
 recorded_with: VCR 6.3.1

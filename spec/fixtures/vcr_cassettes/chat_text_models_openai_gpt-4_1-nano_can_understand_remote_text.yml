@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.13.1
+      - Faraday v2.13.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -26,40 +26,42 @@ http_interactions:
       - GitHub.com
       Content-Type:
       - text/plain; charset=utf-8
+      X-Origin-Cache:
+      - HIT
       Last-Modified:
-      - Wed, 28 May 2025 09:09:09 GMT
+      - Wed, 16 Jul 2025 15:35:29 GMT
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - W/"6836d2b5-9c6"
+      - W/"6877c6c1-9c6"
       Expires:
-      - Tue, 03 Jun 2025 09:40:49 GMT
+      - Thu, 17 Jul 2025 07:25:20 GMT
       Cache-Control:
       - max-age=600
       X-Proxy-Cache:
       - MISS
       X-Github-Request-Id:
-      - B55A:1CA3CF:6E38775:6F2D4D9:683EC0C9
+      - A671:3B165:AFAA75:B103CB:6878A307
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 03 Jun 2025 09:38:28 GMT
+      - Thu, 17 Jul 2025 09:43:39 GMT
       Via:
       - 1.1 varnish
       Age:
-      - '56'
+      - '49'
       X-Served-By:
-      - cache-fra-etou8220175-FRA
+      - cache-fra-etou8220173-FRA
       X-Cache:
       - HIT
       X-Cache-Hits:
       - '1'
       X-Timer:
-      - S1748943508.071812,VS0,VE2
+      - S1752745419.220630,VS0,VE2
       Vary:
       - Accept-Encoding
       X-Fastly-Request-Id:
-      - 95fb4f1b55bbf863b0ee9d375e4e291aadc5b0c0
+      - 0142c139699a6ec0e2f7e342ede2f8d60d853225
     body:
       encoding: ASCII-8BIT
       string: "Ruby is copyrighted free software by Yukihiro Matsumoto <matz@netlab.jp>.\nYou
@@ -95,7 +97,7 @@ http_interactions:
         \"AS IS\" AND WITHOUT ANY EXPRESS OR\n     IMPLIED WARRANTIES, INCLUDING,
         WITHOUT LIMITATION, THE IMPLIED\n     WARRANTIES OF MERCHANTABILITY AND FITNESS
         FOR A PARTICULAR\n     PURPOSE.\n"
-  recorded_at: Tue, 03 Jun 2025 09:38:28 GMT
+  recorded_at: Thu, 17 Jul 2025 09:43:39 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/chat/completions
@@ -135,10 +137,10 @@ http_interactions:
         aggregated with this\n     software.\n\n  6. THIS SOFTWARE IS PROVIDED \"AS
         IS\" AND WITHOUT ANY EXPRESS OR\n     IMPLIED WARRANTIES, INCLUDING, WITHOUT
         LIMITATION, THE IMPLIED\n     WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-        A PARTICULAR\n     PURPOSE.\n</file>"}]}],"temperature":0.7,"stream":false}'
+        A PARTICULAR\n     PURPOSE.\n</file>"}]}],"stream":false,"temperature":0.7}'
     headers:
       User-Agent:
-      - Faraday v2.13.1
+      - Faraday v2.13.2
       Authorization:
       - Bearer <OPENAI_API_KEY>
       Content-Type:
@@ -153,7 +155,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 03 Jun 2025 09:38:30 GMT
+      - Thu, 17 Jul 2025 09:43:41 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -165,11 +167,13 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Processing-Ms:
-      - '2448'
+      - '1612'
+      Openai-Project:
+      - proj_KyS64Yhsc9qhhwjNcgkOa88E
       Openai-Version:
       - '2020-10-01'
       X-Envoy-Upstream-Service-Time:
-      - '2450'
+      - '1615'
       X-Ratelimit-Limit-Requests:
       - '500'
       X-Ratelimit-Limit-Tokens:
@@ -201,7 +205,42 @@ http_interactions:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        ewogICJpZCI6ICJjaGF0Y21wbC1CZUlPQ2hzTlhKODRaaU9DTmd2Vktkbno0QVZpQyIsCiAgIm9iamVjdCI6ICJjaGF0LmNvbXBsZXRpb24iLAogICJjcmVhdGVkIjogMTc0ODk0MzUwOCwKICAibW9kZWwiOiAiZ3B0LTQuMS1uYW5vLTIwMjUtMDQtMTQiLAogICJjaG9pY2VzIjogWwogICAgewogICAgICAiaW5kZXgiOiAwLAogICAgICAibWVzc2FnZSI6IHsKICAgICAgICAicm9sZSI6ICJhc3Npc3RhbnQiLAogICAgICAgICJjb250ZW50IjogIlRoZSBmaWxlICdsaWNlbnNlLnR4dCcgY29udGFpbnMgdGhlIGxpY2Vuc2luZyBpbmZvcm1hdGlvbiBmb3IgdGhlIFJ1YnkgcHJvZ3JhbW1pbmcgbGFuZ3VhZ2UuIEl0IHN0YXRlcyB0aGF0IFJ1YnkgaXMgZnJlZSBzb2Z0d2FyZSBjcmVhdGVkIGJ5IFl1a2loaXJvIE1hdHN1bW90byBhbmQgY2FuIGJlIHJlZGlzdHJpYnV0ZWQgb3IgbW9kaWZpZWQgdW5kZXIgY2VydGFpbiBjb25kaXRpb25zLiBUaGUgbGljZW5zZSBvZmZlcnMgdHdvIG1haW4gb3B0aW9uczogdGhlIDItY2xhdXNlIEJlcmtlbGV5IFNvZnR3YXJlIERpc3RyaWJ1dGlvbiBMaWNlbnNlIChCU0RMKSBvciB0aGUgY29uZGl0aW9ucyBvdXRsaW5lZCBpbiB0aGUgZG9jdW1lbnQgaXRzZWxmLiBcblxuVGhlIGtleSBwb2ludHMgaW5jbHVkZTpcbi0gUGVybWlzc2lvbiB0byBjb3B5IGFuZCBkaXN0cmlidXRlIHZlcmJhdGltIGNvcGllcy5cbi0gQ29uZGl0aW9ucyBmb3IgbW9kaWZ5aW5nIHRoZSBzb2Z0d2FyZSwgaW5jbHVkaW5nIG1ha2luZyBtb2RpZmljYXRpb25zIHB1YmxpY2x5IGF2YWlsYWJsZSBvciByZXN0cmljdGVkIHRvIGludGVybmFsIHVzZS5cbi0gQ29uZGl0aW9ucyBmb3IgZGlzdHJpYnV0aW5nIHRoZSBzb2Z0d2FyZSBpbiBiaW5hcnkgb3Igb2JqZWN0IGNvZGUgZm9ybS5cbi0gUGVybWlzc2lvbnMgcmVsYXRlZCB0byBpbmNvcnBvcmF0aW5nIHBhcnRzIG9mIHRoZSBzb2Z0d2FyZSBpbnRvIG90aGVyIHNvZnR3YXJlLlxuLSBDbGFyaWZpY2F0aW9uIHRoYXQgaW5wdXQvb3V0cHV0IHNjcmlwdHMgYW5kIGxpYnJhcmllcyBhcmUgbm90IGF1dG9tYXRpY2FsbHkgY292ZXJlZCBieSB0aGUgbGljZW5zZS5cbi0gVGhlIHNvZnR3YXJlIGlzIHByb3ZpZGVkIFwiYXMgaXNcIiB3aXRob3V0IHdhcnJhbnRpZXMuXG5cbk92ZXJhbGwsIGl04oCZcyBhIHBlcm1pc3NpdmUgb3Blbi1zb3VyY2UgbGljZW5zZSBhbGxvd2luZyBicm9hZCB1c2UgYW5kIG1vZGlmaWNhdGlvbiB3aXRoIG1pbmltYWwgcmVzdHJpY3Rpb25zLiIsCiAgICAgICAgInJlZnVzYWwiOiBudWxsLAogICAgICAgICJhbm5vdGF0aW9ucyI6IFtdCiAgICAgIH0sCiAgICAgICJsb2dwcm9icyI6IG51bGwsCiAgICAgICJmaW5pc2hfcmVhc29uIjogInN0b3AiCiAgICB9CiAgXSwKICAidXNhZ2UiOiB7CiAgICAicHJvbXB0X3Rva2VucyI6IDU0MCwKICAgICJjb21wbGV0aW9uX3Rva2VucyI6IDE3OCwKICAgICJ0b3RhbF90b2tlbnMiOiA3MTgsCiAgICAicHJvbXB0X3Rva2Vuc19kZXRhaWxzIjogewogICAgICAiY2FjaGVkX3Rva2VucyI6IDAsCiAgICAgICJhdWRpb190b2tlbnMiOiAwCiAgICB9LAogICAgImNvbXBsZXRpb25fdG9rZW5zX2RldGFpbHMiOiB7CiAgICAgICJyZWFzb25pbmdfdG9rZW5zIjogMCwKICAgICAgImF1ZGlvX3Rva2VucyI6IDAsCiAgICAgICJhY2NlcHRlZF9wcmVkaWN0aW9uX3Rva2VucyI6IDAsCiAgICAgICJyZWplY3RlZF9wcmVkaWN0aW9uX3Rva2VucyI6IDAKICAgIH0KICB9LAogICJzZXJ2aWNlX3RpZXIiOiAiZGVmYXVsdCIsCiAgInN5c3RlbV9maW5nZXJwcmludCI6ICJmcF8zODM0M2EyZjhmIgp9Cg==
-  recorded_at: Tue, 03 Jun 2025 09:38:30 GMT
+      string: |
+        {
+          "id": "chatcmpl-BuFRLqfX49YkipLJah13gH3IlMUBm",
+          "object": "chat.completion",
+          "created": 1752745419,
+          "model": "gpt-4.1-nano-2025-04-14",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "The file 'license.txt' contains the licensing information for the Ruby programming language. It states that Ruby is free software copyrighted by Yukihiro Matsumoto. You are permitted to redistribute and modify Ruby under either the 2-clause Berkeley Software Distribution License (BSDL) or the conditions outlined in the document.\n\nThe license details various permissions and conditions, including:\n\n- Making and distributing verbatim copies of the source code.\n- Modifying the software, with options such as placing modifications in the public domain, internal organizational use, or giving binaries non-standard names.\n- Distributing the software in object or binary form, with options for including source code or providing instructions.\n- Incorporating parts of the software into other software, with the note that some files may not be under these terms.\n- Clarification that scripts and generated files are not automatically covered by the license.\n- A disclaimer of warranties, emphasizing that the software is provided \"as is\" without guarantees.\n\nOverall, this is a permissive license allowing broad use and modification, provided certain conditions are met.",
+                "refusal": null,
+                "annotations": []
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 540,
+            "completion_tokens": 213,
+            "total_tokens": 753,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "service_tier": "default",
+          "system_fingerprint": null
+        }
+  recorded_at: Thu, 17 Jul 2025 09:43:41 GMT
 recorded_with: VCR 6.3.1

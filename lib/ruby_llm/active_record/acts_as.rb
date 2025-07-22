@@ -18,6 +18,7 @@ module RubyLLM
           has_many :messages,
                    -> { order(created_at: :asc) },
                    class_name: @message_class,
+                   inverse_of: :chat,
                    dependent: :destroy
 
           delegate :add_message, to: :to_llm
@@ -126,6 +127,11 @@ module RubyLLM
 
       def with_context(...)
         to_llm.with_context(...)
+        self
+      end
+
+      def with_params(...)
+        to_llm.with_params(...)
         self
       end
 

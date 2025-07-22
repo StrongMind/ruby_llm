@@ -24,6 +24,8 @@ module RubyLLM
                   :bedrock_session_token,
                   :openrouter_api_key,
                   :ollama_api_base,
+                  :gpustack_api_base,
+                  :gpustack_api_key,
                   # Default models
                   :default_model,
                   :default_embedding_model,
@@ -36,6 +38,7 @@ module RubyLLM
                   :retry_interval_randomness,
                   :http_proxy,
                   # Logging configuration
+                  :logger,
                   :log_file,
                   :log_level,
                   :log_assume_model_exists
