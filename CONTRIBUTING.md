@@ -70,7 +70,7 @@ bundle exec rake vcr:record[all]               # everything
 
 ## Support the Project
 
-Consider [sponsoring RubyLLM](https://github.com/sponsors/crmne) to help with ongoing costs. Sponsorship supports general maintenance - for priority features, use paid development above.
+Consider [sponsoring RubyLLM](https://github.com/sponsors/crmne) to help with ongoing costs. Sponsorship supports general maintenance.
 
 ---
 
