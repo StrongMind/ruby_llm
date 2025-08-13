@@ -26,12 +26,6 @@ RubyLLM does one thing well: **LLM communication in Ruby**.
 
 **The rule:** If you can solve it in application code, you should.
 
-## Response Times & Paid Work
-
-This is unpaid work I do between other priorities. I respond when I can.
-
-**Need something fast?** Email **carmine@paolino.work** for paid development. $200/hour, 10-hour minimum ($2000).
-
 ## Quick Start
 
 ```bash
