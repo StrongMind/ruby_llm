@@ -3,25 +3,26 @@
 require_relative 'lib/ruby_llm/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'ruby_llm'
+  spec.name          = 'ruby_llm_community'
   spec.version       = RubyLLM::VERSION
-  spec.authors       = ['Carmine Paolino']
-  spec.email         = ['carmine@paolino.me']
+  spec.authors       = ['Paul Shippy']
+  spec.email         = ['pshippy@gmail.com']
 
-  spec.summary       = 'One beautiful Ruby API for GPT, Claude, Gemini, and more.'
+  spec.summary       = 'One beautiful Ruby API for GPT, Claude, Gemini, and more with community additions.'
   spec.description   = 'One beautiful Ruby API for GPT, Claude, Gemini, and more. Easily build chatbots, ' \
                        'AI agents, RAG applications, and content generators. Features chat (text, images, audio, ' \
                        'PDFs), image generation, embeddings, tools (function calling), structured output, Rails ' \
                        'integration, and streaming. Works with OpenAI, Anthropic, Google Gemini, AWS Bedrock, ' \
                        'DeepSeek, Mistral, Ollama (local models), OpenRouter, Perplexity, GPUStack, and any ' \
-                       'OpenAI-compatible API. Minimal dependencies - just Faraday, Zeitwerk, and Marcel.'
+                       'OpenAI-compatible API. Minimal dependencies - just Faraday, Zeitwerk, and Marcel. ' \
+                       'With additional features from the community.'
 
   spec.homepage      = 'https://rubyllm.com'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 3.1.3')
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/crmne/ruby_llm'
+  spec.metadata['source_code_uri'] = 'https://github.com/tpaulshippy/ruby_llm_community'
   spec.metadata['changelog_uri'] = "#{spec.metadata['source_code_uri']}/commits/main"
   spec.metadata['documentation_uri'] = spec.homepage
   spec.metadata['bug_tracker_uri'] = "#{spec.metadata['source_code_uri']}/issues"
