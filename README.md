@@ -6,7 +6,7 @@
 **One *beautiful* Ruby API for GPT, Claude, Gemini, and more.** Easily build chatbots, AI agents, RAG applications, and content generators. Features chat (text, images, audio, PDFs), image generation, embeddings, tools (function calling), structured output, Rails integration, and streaming. Works with OpenAI, Anthropic, Google Gemini, AWS Bedrock, DeepSeek, Mistral, Ollama (local models), OpenRouter, Perplexity, GPUStack, and any OpenAI-compatible API.
 
 <div class="badge-container">
-  <a href="https://badge.fury.io/rb/ruby_llm"><img src="https://badge.fury.io/rb/ruby_llm.svg?a=4" alt="Gem Version" /></a>
+  <a href="https://badge.fury.io/rb/ruby_llm"><img src="https://badge.fury.io/rb/ruby_llm.svg?a=5" alt="Gem Version" /></a>
   <a href="https://github.com/testdouble/standard"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Ruby Style Guide" /></a>
   <a href="https://rubygems.org/gems/ruby_llm"><img alt="Gem Downloads" src="https://img.shields.io/gem/dt/ruby_llm"></a>
   <a href="https://codecov.io/gh/crmne/ruby_llm"><img src="https://codecov.io/gh/crmne/ruby_llm/branch/main/graph/badge.svg" alt="codecov" /></a>
@@ -99,7 +99,7 @@ response = chat.with_schema(ProductSchema)
 
 Add to your Gemfile:
 ```ruby
-gem 'ruby_llm'
+gem 'ruby_llm_community'
 ```
 Then `bundle install`.
 

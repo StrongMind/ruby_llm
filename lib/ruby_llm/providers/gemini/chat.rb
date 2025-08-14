@@ -11,7 +11,7 @@ module RubyLLM
           "models/#{@model}:generateContent"
         end
 
-        def render_payload(messages, tools:, temperature:, model:, stream: false, schema: nil) # rubocop:disable Metrics/ParameterLists,Lint/UnusedMethodArgument
+        def render_payload(messages, tools:, temperature:, model:, stream: false, schema: nil, cache_prompts: {}) # rubocop:disable Metrics/ParameterLists,Lint/UnusedMethodArgument
           @model = model # Store model for completion_url/stream_url
           payload = {
             contents: format_messages(messages),
@@ -80,7 +80,8 @@ module RubyLLM
             content: extract_content(data),
             tool_calls: tool_calls,
             input_tokens: data.dig('usageMetadata', 'promptTokenCount'),
-            output_tokens: data.dig('usageMetadata', 'candidatesTokenCount'),
+            output_tokens: calculate_output_tokens(data),
+            cached_tokens: data.dig('usageMetadata', 'cacheTokensDetails', 0, 'tokenCount') || 0,
             model_id: data['modelVersion'] || response.env.url.path.split('/')[3].split(':')[0],
             raw: response
           )
@@ -132,6 +133,12 @@ module RubyLLM
         def function_call?(candidate)
           parts = candidate.dig('content', 'parts')
           parts&.any? { |p| p['functionCall'] }
+        end
+
+        def calculate_output_tokens(data)
+          candidates = data.dig('usageMetadata', 'candidatesTokenCount') || 0
+          thoughts = data.dig('usageMetadata', 'thoughtsTokenCount') || 0
+          candidates + thoughts
         end
       end
     end
