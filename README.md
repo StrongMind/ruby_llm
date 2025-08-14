@@ -99,7 +99,7 @@ response = chat.with_schema(ProductSchema)
 
 Add to your Gemfile:
 ```ruby
-gem 'ruby_llm'
+gem 'ruby_llm_community'
 ```
 Then `bundle install`.
 
