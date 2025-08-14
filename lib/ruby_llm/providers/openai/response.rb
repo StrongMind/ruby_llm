@@ -11,7 +11,7 @@ module RubyLLM
 
         module_function
 
-        def render_response_payload(messages, tools:, temperature:, model:, stream: false, schema: nil) # rubocop:disable Metrics/ParameterLists
+        def render_response_payload(messages, tools:, temperature:, model:, cache_prompts:, stream: false, schema: nil) # rubocop:disable Metrics/ParameterLists,Lint/UnusedMethodArgument
           payload = {
             model: model,
             input: format_input(messages),
@@ -97,6 +97,7 @@ module RubyLLM
             tool_calls: parse_response_tool_calls(outputs),
             input_tokens: data['usage']['input_tokens'],
             output_tokens: data['usage']['output_tokens'],
+            cached_tokens: data.dig('usage', 'input_tokens_details', 'cached_tokens'),
             model_id: data['model'],
             raw: response
           )
