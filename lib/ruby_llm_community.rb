@@ -9,7 +9,7 @@ require 'logger'
 require 'securerandom'
 require 'zeitwerk'
 
-loader = Zeitwerk::Loader.for_gem
+loader = Zeitwerk::Loader.for_gem(warn_on_extra_files: false)
 loader.inflector.inflect(
   'ruby_llm' => 'RubyLLM',
   'llm' => 'LLM',
@@ -24,11 +24,16 @@ loader.inflector.inflect(
   'mistral' => 'Mistral',
   'pdf' => 'PDF'
 )
+loader.ignore("#{__dir__}/shims")
 loader.ignore("#{__dir__}/tasks")
 loader.ignore("#{__dir__}/ruby_llm/railtie")
 loader.ignore("#{__dir__}/ruby_llm/active_record")
 loader.ignore("#{__dir__}/generators")
 loader.setup
+
+# This is a shim for the RubyLLM gem.
+module RubyLlmCommunity
+end
 
 # A delightful Ruby interface to modern AI language models.
 # Provides a unified way to interact with models from OpenAI, Anthropic and others

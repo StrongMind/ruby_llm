@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
 
   # Use Dir.glob to list all files within the lib directory
   spec.files = Dir.glob('lib/**/*') + ['README.md', 'LICENSE']
-  spec.require_paths = ['lib']
+  spec.require_paths = ['lib', 'lib/shims']
 
   # Runtime dependencies
   spec.add_dependency 'base64'
