@@ -22,7 +22,8 @@ loader.inflector.inflect(
   'openrouter' => 'OpenRouter',
   'gpustack' => 'GPUStack',
   'mistral' => 'Mistral',
-  'pdf' => 'PDF'
+  'pdf' => 'PDF',
+  'version' => 'VERSION'
 )
 loader.ignore("#{__dir__}/shims")
 loader.ignore("#{__dir__}/tasks")
