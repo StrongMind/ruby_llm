@@ -37,8 +37,6 @@ module RubyLlmCommunity
 end
 
 # A delightful Ruby interface to modern AI language models.
-# Provides a unified way to interact with models from OpenAI, Anthropic and others
-# with a focus on developer happiness and convention over configuration.
 module RubyLLM
   class Error < StandardError; end
 
