@@ -41,7 +41,7 @@ http_interactions:
       Openai-Processing-Ms:
       - '517'
       Openai-Project:
-      - proj_KyS64Yhsc9qhhwjNcgkOa88E
+      - "<OPENAI_PROJECT>"
       Openai-Version:
       - '2020-10-01'
       X-Envoy-Upstream-Service-Time:
@@ -161,7 +161,7 @@ http_interactions:
       Openai-Processing-Ms:
       - '548'
       Openai-Project:
-      - proj_KyS64Yhsc9qhhwjNcgkOa88E
+      - "<OPENAI_PROJECT>"
       Openai-Version:
       - '2020-10-01'
       X-Envoy-Upstream-Service-Time:
@@ -246,7 +246,7 @@ http_interactions:
       Openai-Processing-Ms:
       - '319'
       Openai-Project:
-      - proj_KyS64Yhsc9qhhwjNcgkOa88E
+      - "<OPENAI_PROJECT>"
       Openai-Version:
       - '2020-10-01'
       X-Envoy-Upstream-Service-Time:
@@ -369,7 +369,7 @@ http_interactions:
       Openai-Processing-Ms:
       - '242'
       Openai-Project:
-      - proj_KyS64Yhsc9qhhwjNcgkOa88E
+      - "<OPENAI_PROJECT>"
       Openai-Version:
       - '2020-10-01'
       X-Envoy-Upstream-Service-Time:
@@ -410,5 +410,561 @@ http_interactions:
       string: !binary |-
         ZGF0YTogeyJpZCI6ImNoYXRjbXBsLUM2ZlBUQ2VDa0JqOVM4VzYyY0JkMjE2QzFvSnd0Iiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc1NTcwNTE4MywibW9kZWwiOiJncHQtNC4xLW5hbm8tMjAyNS0wNC0xNCIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9jNGMxNTU5NTFlIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50IjoiIiwicmVmdXNhbCI6bnVsbH0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6IlBVb21NZHhNIn0KCmRhdGE6IHsiaWQiOiJjaGF0Y21wbC1DNmZQVENlQ2tCajlTOFc2MmNCZDIxNkMxb0p3dCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NTU3MDUxODMsIm1vZGVsIjoiZ3B0LTQuMS1uYW5vLTIwMjUtMDQtMTQiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfYzRjMTU1OTUxZSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiVGhlIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6IkVsQ3hidUYifQoKZGF0YTogeyJpZCI6ImNoYXRjbXBsLUM2ZlBUQ2VDa0JqOVM4VzYyY0JkMjE2QzFvSnd0Iiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc1NTcwNTE4MywibW9kZWwiOiJncHQtNC4xLW5hbm8tMjAyNS0wNC0xNCIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9jNGMxNTU5NTFlIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiIgY3VycmVudCJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiIzNSJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQzZmUFRDZUNrQmo5UzhXNjJjQmQyMTZDMW9Kd3QiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzU1NzA1MTgzLCJtb2RlbCI6ImdwdC00LjEtbmFuby0yMDI1LTA0LTE0Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2M0YzE1NTk1MWUiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IiB3ZWF0aGVyIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6IngzIn0KCmRhdGE6IHsiaWQiOiJjaGF0Y21wbC1DNmZQVENlQ2tCajlTOFc2MmNCZDIxNkMxb0p3dCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NTU3MDUxODMsIm1vZGVsIjoiZ3B0LTQuMS1uYW5vLTIwMjUtMDQtMTQiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfYzRjMTU1OTUxZSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiIGluIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6IkIyY3dPZ0UifQoKZGF0YTogeyJpZCI6ImNoYXRjbXBsLUM2ZlBUQ2VDa0JqOVM4VzYyY0JkMjE2QzFvSnd0Iiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc1NTcwNTE4MywibW9kZWwiOiJncHQtNC4xLW5hbm8tMjAyNS0wNC0xNCIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9jNGMxNTU5NTFlIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiIgUGFyaXMifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoid0ZDSiJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQzZmUFRDZUNrQmo5UzhXNjJjQmQyMTZDMW9Kd3QiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzU1NzA1MTgzLCJtb2RlbCI6ImdwdC00LjEtbmFuby0yMDI1LTA0LTE0Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2M0YzE1NTk1MWUiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IiBpcyJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJDN1NWYk5TIn0KCmRhdGE6IHsiaWQiOiJjaGF0Y21wbC1DNmZQVENlQ2tCajlTOFc2MmNCZDIxNkMxb0p3dCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NTU3MDUxODMsIm1vZGVsIjoiZ3B0LTQuMS1uYW5vLTIwMjUtMDQtMTQiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfYzRjMTU1OTUxZSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiICJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJDSTdPSjlhVjUifQoKZGF0YTogeyJpZCI6ImNoYXRjbXBsLUM2ZlBUQ2VDa0JqOVM4VzYyY0JkMjE2QzFvSnd0Iiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc1NTcwNTE4MywibW9kZWwiOiJncHQtNC4xLW5hbm8tMjAyNS0wNC0xNCIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9jNGMxNTU5NTFlIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiIxNSJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJENGN6V1lxNyJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQzZmUFRDZUNrQmo5UzhXNjJjQmQyMTZDMW9Kd3QiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzU1NzA1MTgzLCJtb2RlbCI6ImdwdC00LjEtbmFuby0yMDI1LTA0LTE0Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2M0YzE1NTk1MWUiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IsKwQyJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJXVGNsNk15diJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQzZmUFRDZUNrQmo5UzhXNjJjQmQyMTZDMW9Kd3QiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzU1NzA1MTgzLCJtb2RlbCI6ImdwdC00LjEtbmFuby0yMDI1LTA0LTE0Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2M0YzE1NTk1MWUiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IiB3aXRoIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6IlRwa2hsIn0KCmRhdGE6IHsiaWQiOiJjaGF0Y21wbC1DNmZQVENlQ2tCajlTOFc2MmNCZDIxNkMxb0p3dCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NTU3MDUxODMsIm1vZGVsIjoiZ3B0LTQuMS1uYW5vLTIwMjUtMDQtMTQiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfYzRjMTU1OTUxZSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiIGEifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoicURkVU9qMnAifQoKZGF0YTogeyJpZCI6ImNoYXRjbXBsLUM2ZlBUQ2VDa0JqOVM4VzYyY0JkMjE2QzFvSnd0Iiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc1NTcwNTE4MywibW9kZWwiOiJncHQtNC4xLW5hbm8tMjAyNS0wNC0xNCIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9jNGMxNTU5NTFlIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiIgd2luZCJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJnWThtRCJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQzZmUFRDZUNrQmo5UzhXNjJjQmQyMTZDMW9Kd3QiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzU1NzA1MTgzLCJtb2RlbCI6ImdwdC00LjEtbmFuby0yMDI1LTA0LTE0Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2M0YzE1NTk1MWUiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IiBzcGVlZCJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJQMWtIIn0KCmRhdGE6IHsiaWQiOiJjaGF0Y21wbC1DNmZQVENlQ2tCajlTOFc2MmNCZDIxNkMxb0p3dCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NTU3MDUxODMsIm1vZGVsIjoiZ3B0LTQuMS1uYW5vLTIwMjUtMDQtMTQiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfYzRjMTU1OTUxZSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiIG9mIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6InZwVmFZbFcifQoKZGF0YTogeyJpZCI6ImNoYXRjbXBsLUM2ZlBUQ2VDa0JqOVM4VzYyY0JkMjE2QzFvSnd0Iiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc1NTcwNTE4MywibW9kZWwiOiJncHQtNC4xLW5hbm8tMjAyNS0wNC0xNCIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9jNGMxNTU5NTFlIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiIgIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6IjZVczJrempqbyJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQzZmUFRDZUNrQmo5UzhXNjJjQmQyMTZDMW9Kd3QiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzU1NzA1MTgzLCJtb2RlbCI6ImdwdC00LjEtbmFuby0yMDI1LTA0LTE0Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2M0YzE1NTk1MWUiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IjEwIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6IlVTdUpzakFTIn0KCmRhdGE6IHsiaWQiOiJjaGF0Y21wbC1DNmZQVENlQ2tCajlTOFc2MmNCZDIxNkMxb0p3dCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NTU3MDUxODMsIm1vZGVsIjoiZ3B0LTQuMS1uYW5vLTIwMjUtMDQtMTQiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfYzRjMTU1OTUxZSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiIGttIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV0sInVzYWdlIjpudWxsLCJvYmZ1c2NhdGlvbiI6ImVyYmQ2U2QifQoKZGF0YTogeyJpZCI6ImNoYXRjbXBsLUM2ZlBUQ2VDa0JqOVM4VzYyY0JkMjE2QzFvSnd0Iiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc1NTcwNTE4MywibW9kZWwiOiJncHQtNC4xLW5hbm8tMjAyNS0wNC0xNCIsInNlcnZpY2VfdGllciI6ImRlZmF1bHQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9jNGMxNTU5NTFlIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiIvaCJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dLCJ1c2FnZSI6bnVsbCwib2JmdXNjYXRpb24iOiJNRllpdjNOdyJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQzZmUFRDZUNrQmo5UzhXNjJjQmQyMTZDMW9Kd3QiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzU1NzA1MTgzLCJtb2RlbCI6ImdwdC00LjEtbmFuby0yMDI1LTA0LTE0Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2M0YzE1NTk1MWUiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6Ii4ifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoiMElhY1o3dDBaIn0KCmRhdGE6IHsiaWQiOiJjaGF0Y21wbC1DNmZQVENlQ2tCajlTOFc2MmNCZDIxNkMxb0p3dCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NTU3MDUxODMsIm1vZGVsIjoiZ3B0LTQuMS1uYW5vLTIwMjUtMDQtMTQiLCJzZXJ2aWNlX3RpZXIiOiJkZWZhdWx0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfYzRjMTU1OTUxZSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6e30sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjoic3RvcCJ9XSwidXNhZ2UiOm51bGwsIm9iZnVzY2F0aW9uIjoiY3hSWSJ9CgpkYXRhOiB7ImlkIjoiY2hhdGNtcGwtQzZmUFRDZUNrQmo5UzhXNjJjQmQyMTZDMW9Kd3QiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzU1NzA1MTgzLCJtb2RlbCI6ImdwdC00LjEtbmFuby0yMDI1LTA0LTE0Iiwic2VydmljZV90aWVyIjoiZGVmYXVsdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2M0YzE1NTk1MWUiLCJjaG9pY2VzIjpbXSwidXNhZ2UiOnsicHJvbXB0X3Rva2VucyI6MjQzLCJjb21wbGV0aW9uX3Rva2VucyI6MjAsInRvdGFsX3Rva2VucyI6MjYzLCJwcm9tcHRfdG9rZW5zX2RldGFpbHMiOnsiY2FjaGVkX3Rva2VucyI6MCwiYXVkaW9fdG9rZW5zIjowfSwiY29tcGxldGlvbl90b2tlbnNfZGV0YWlscyI6eyJyZWFzb25pbmdfdG9rZW5zIjowLCJhdWRpb190b2tlbnMiOjAsImFjY2VwdGVkX3ByZWRpY3Rpb25fdG9rZW5zIjowLCJyZWplY3RlZF9wcmVkaWN0aW9uX3Rva2VucyI6MH19LCJvYmZ1c2NhdGlvbiI6IjNNMUVybzMifQoKZGF0YTogW0RPTkVdCgo=
   recorded_at: Wed, 20 Aug 2025 15:53:04 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/responses
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"What''s
+        the weather in Berlin? (52.5200, 13.4050)","status":"completed"}],"stream":true,"tools":[{"type":"function","name":"weather","description":"Gets
+        current weather for a location","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude
+        (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g.,
+        13.4050)"}},"required":["latitude","longitude"]}}]}'
+    headers:
+      User-Agent:
+      - Faraday v2.13.4
+      Authorization:
+      - Bearer <OPENAI_API_KEY>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 25 Aug 2025 04:27:47 GMT
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - "<OPENAI_ORGANIZATION>"
+      Openai-Project:
+      - "<OPENAI_PROJECT>"
+      X-Request-Id:
+      - "<X_REQUEST_ID>"
+      Openai-Processing-Ms:
+      - '72'
+      X-Envoy-Upstream-Service-Time:
+      - '79'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - "<COOKIE>"
+      - "<COOKIE>"
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - "<CF_RAY>"
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |+
+        event: response.created
+        data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_68abe6434e7c819eade1f7807dff21f10597d6d51b6ea8ab","object":"response","created_at":1756096067,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets current weather for a location","name":"weather","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g., 13.4050)"}},"required":["latitude","longitude"],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+
+        event: response.in_progress
+        data: {"type":"response.in_progress","sequence_number":1,"response":{"id":"resp_68abe6434e7c819eade1f7807dff21f10597d6d51b6ea8ab","object":"response","created_at":1756096067,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets current weather for a location","name":"weather","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g., 13.4050)"}},"required":["latitude","longitude"],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+
+        event: response.output_item.added
+        data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","type":"function_call","status":"in_progress","arguments":"","call_id":"call_biJ37Worq3gedfK3uZ97AOkU","name":"weather"}}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":3,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":"{","obfuscation":"Tyrmbut7mU0KtJC"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":4,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":"\"latitude","obfuscation":"3QXGoiD"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":5,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":"\":","obfuscation":"Iz4Tk8dkjbRet8"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":6,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":"\"52","obfuscation":"zRj2yNgd8aMzx"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":7,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":".","obfuscation":"ViTiASLR3BZixBf"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":8,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":"520","obfuscation":"f9B2ONUzVXpd6"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":9,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":"0","obfuscation":"i89rOvt4Ody0amZ"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":10,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":"\",","obfuscation":"AK4MhZM6DIBNJZ"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":11,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":"\"longitude","obfuscation":"cBFkZV"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":12,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":"\":","obfuscation":"d81iDJ0ZOBzkvM"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":13,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":"\"13","obfuscation":"koIVIcgYH4VCH"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":14,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":".","obfuscation":"Ebo6AcP33b0vhs6"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":15,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":"405","obfuscation":"jq4oaQaJLpthZ"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":16,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":"0","obfuscation":"ZRvnlc3HTAgIKMK"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":17,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"delta":"\"}","obfuscation":"Dbdts3s9MAWHK6"}
+
+        event: response.function_call_arguments.done
+        data: {"type":"response.function_call_arguments.done","sequence_number":18,"item_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output_index":0,"arguments":"{\"latitude\":\"52.5200\",\"longitude\":\"13.4050\"}"}
+
+        event: response.output_item.done
+        data: {"type":"response.output_item.done","sequence_number":19,"output_index":0,"item":{"id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","type":"function_call","status":"completed","arguments":"{\"latitude\":\"52.5200\",\"longitude\":\"13.4050\"}","call_id":"call_biJ37Worq3gedfK3uZ97AOkU","name":"weather"}}
+
+        event: response.completed
+        data: {"type":"response.completed","sequence_number":20,"response":{"id":"resp_68abe6434e7c819eade1f7807dff21f10597d6d51b6ea8ab","object":"response","created_at":1756096067,"status":"completed","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[{"id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","type":"function_call","status":"completed","arguments":"{\"latitude\":\"52.5200\",\"longitude\":\"13.4050\"}","call_id":"call_biJ37Worq3gedfK3uZ97AOkU","name":"weather"}],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"default","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets current weather for a location","name":"weather","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g., 13.4050)"}},"required":["latitude","longitude"],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":{"input_tokens":82,"input_tokens_details":{"cached_tokens":0},"output_tokens":40,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":122},"user":null,"metadata":{}}}
+
+  recorded_at: Mon, 25 Aug 2025 04:27:48 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/responses
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"What''s
+        the weather in Berlin? (52.5200, 13.4050)","status":"completed"},{"type":"function_call","call_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","name":"weather","arguments":"{\"latitude\":\"52.5200\",\"longitude\":\"13.4050\"}","status":"completed"},{"type":"function_call_output","call_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output":"Current
+        weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h","status":"completed"}],"stream":true,"tools":[{"type":"function","name":"weather","description":"Gets
+        current weather for a location","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude
+        (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g.,
+        13.4050)"}},"required":["latitude","longitude"]}}]}'
+    headers:
+      User-Agent:
+      - Faraday v2.13.4
+      Authorization:
+      - Bearer <OPENAI_API_KEY>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 25 Aug 2025 04:27:48 GMT
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - "<OPENAI_ORGANIZATION>"
+      Openai-Project:
+      - "<OPENAI_PROJECT>"
+      X-Request-Id:
+      - "<X_REQUEST_ID>"
+      Openai-Processing-Ms:
+      - '56'
+      X-Envoy-Upstream-Service-Time:
+      - '61'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - "<COOKIE>"
+      - "<COOKIE>"
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - "<CF_RAY>"
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |+
+        event: response.created
+        data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_68abe6445cc88191aac1b71e572ef3f2001be1f03e38c4f4","object":"response","created_at":1756096068,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets current weather for a location","name":"weather","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g., 13.4050)"}},"required":["latitude","longitude"],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+
+        event: response.in_progress
+        data: {"type":"response.in_progress","sequence_number":1,"response":{"id":"resp_68abe6445cc88191aac1b71e572ef3f2001be1f03e38c4f4","object":"response","created_at":1756096068,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets current weather for a location","name":"weather","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g., 13.4050)"}},"required":["latitude","longitude"],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+
+        event: response.output_item.added
+        data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","type":"message","status":"in_progress","content":[],"role":"assistant"}}
+
+        event: response.content_part.added
+        data: {"type":"response.content_part.added","sequence_number":3,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"part":{"type":"output_text","annotations":[],"logprobs":[],"text":""}}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":4,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":"The","logprobs":[],"obfuscation":"HuI9xAf3r6Rpy"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":5,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":" current","logprobs":[],"obfuscation":"Uvd4m71U"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":6,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":" weather","logprobs":[],"obfuscation":"9c8vHtuk"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":7,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":" in","logprobs":[],"obfuscation":"uSR4g8yz8Fb6B"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":8,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":" Berlin","logprobs":[],"obfuscation":"4T7N08vtq"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":9,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":" is","logprobs":[],"obfuscation":"VghlrhmjnkA4o"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":10,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":" ","logprobs":[],"obfuscation":"SZIiuXVoOp2Rs0P"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":11,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":"15","logprobs":[],"obfuscation":"u4QtXO4yDaoCAJ"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":12,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":"°C","logprobs":[],"obfuscation":"lFrSFOaUdSLbQo"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":13,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":" with","logprobs":[],"obfuscation":"q2uJaWRYkMX"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":14,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":" a","logprobs":[],"obfuscation":"e5XfMNGGOKdnqU"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":15,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":" wind","logprobs":[],"obfuscation":"icLcIlOQ2Is"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":16,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":" speed","logprobs":[],"obfuscation":"p8VT3IsO5j"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":17,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":" of","logprobs":[],"obfuscation":"6kiAB6lfF3a0P"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":18,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":" ","logprobs":[],"obfuscation":"OLc8K3pT1U2qmYO"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":19,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":"10","logprobs":[],"obfuscation":"QFTlXbmZNvGcx5"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":20,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":" km","logprobs":[],"obfuscation":"svZG5s4XPpixA"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":21,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":"/h","logprobs":[],"obfuscation":"IBsOYYUQmNiKst"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":22,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"delta":".","logprobs":[],"obfuscation":"PhXBQUxou1vb8qV"}
+
+        event: response.output_text.done
+        data: {"type":"response.output_text.done","sequence_number":23,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"text":"The current weather in Berlin is 15°C with a wind speed of 10 km/h.","logprobs":[]}
+
+        event: response.content_part.done
+        data: {"type":"response.content_part.done","sequence_number":24,"item_id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","output_index":0,"content_index":0,"part":{"type":"output_text","annotations":[],"logprobs":[],"text":"The current weather in Berlin is 15°C with a wind speed of 10 km/h."}}
+
+        event: response.output_item.done
+        data: {"type":"response.output_item.done","sequence_number":25,"output_index":0,"item":{"id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","type":"message","status":"completed","content":[{"type":"output_text","annotations":[],"logprobs":[],"text":"The current weather in Berlin is 15°C with a wind speed of 10 km/h."}],"role":"assistant"}}
+
+        event: response.completed
+        data: {"type":"response.completed","sequence_number":26,"response":{"id":"resp_68abe6445cc88191aac1b71e572ef3f2001be1f03e38c4f4","object":"response","created_at":1756096068,"status":"completed","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[{"id":"msg_68abe6449d4c8191b9a7968112a82fad001be1f03e38c4f4","type":"message","status":"completed","content":[{"type":"output_text","annotations":[],"logprobs":[],"text":"The current weather in Berlin is 15°C with a wind speed of 10 km/h."}],"role":"assistant"}],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"default","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets current weather for a location","name":"weather","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g., 13.4050)"}},"required":["latitude","longitude"],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":{"input_tokens":135,"input_tokens_details":{"cached_tokens":0},"output_tokens":21,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":156},"user":null,"metadata":{}}}
+
+  recorded_at: Mon, 25 Aug 2025 04:27:48 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/responses
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"What''s
+        the weather in Berlin? (52.5200, 13.4050)","status":"completed"},{"type":"function_call","call_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","name":"weather","arguments":"{\"latitude\":\"52.5200\",\"longitude\":\"13.4050\"}","status":"completed"},{"type":"function_call_output","call_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output":"Current
+        weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h","status":"completed"},{"type":"message","role":"assistant","content":"The
+        current weather in Berlin is 15°C with a wind speed of 10 km/h.","status":"completed"},{"type":"message","role":"user","content":"What''s
+        the weather in Paris? (48.8575, 2.3514)","status":"completed"}],"stream":true,"tools":[{"type":"function","name":"weather","description":"Gets
+        current weather for a location","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude
+        (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g.,
+        13.4050)"}},"required":["latitude","longitude"]}}]}'
+    headers:
+      User-Agent:
+      - Faraday v2.13.4
+      Authorization:
+      - Bearer <OPENAI_API_KEY>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 25 Aug 2025 04:27:49 GMT
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - "<OPENAI_ORGANIZATION>"
+      Openai-Project:
+      - "<OPENAI_PROJECT>"
+      X-Request-Id:
+      - "<X_REQUEST_ID>"
+      Openai-Processing-Ms:
+      - '144'
+      X-Envoy-Upstream-Service-Time:
+      - '148'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - "<COOKIE>"
+      - "<COOKIE>"
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - "<CF_RAY>"
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |+
+        event: response.created
+        data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_68abe645021c8194b83dead95f70a5ab0f5857f8c0ca4156","object":"response","created_at":1756096069,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets current weather for a location","name":"weather","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g., 13.4050)"}},"required":["latitude","longitude"],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+
+        event: response.in_progress
+        data: {"type":"response.in_progress","sequence_number":1,"response":{"id":"resp_68abe645021c8194b83dead95f70a5ab0f5857f8c0ca4156","object":"response","created_at":1756096069,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets current weather for a location","name":"weather","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g., 13.4050)"}},"required":["latitude","longitude"],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+
+        event: response.output_item.added
+        data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","type":"function_call","status":"in_progress","arguments":"","call_id":"call_UJ9kqqEQs1OWVRYctpQj4201","name":"weather"}}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":3,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":"{","obfuscation":"hl2OMebCq4tM4Mw"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":4,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":"\"latitude","obfuscation":"f91482j"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":5,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":"\":","obfuscation":"bXg9C2n0tx3Crx"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":6,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":"\"48","obfuscation":"2YaijxhnwJtpZ"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":7,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":".","obfuscation":"twOHt2wdrQJ3TwF"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":8,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":"857","obfuscation":"C102pv2Ycqncd"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":9,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":"5","obfuscation":"NsBiiGiFD0709dW"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":10,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":"\",","obfuscation":"Ro4qzEnf6YrN3e"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":11,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":"\"longitude","obfuscation":"IIqk2Z"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":12,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":"\":","obfuscation":"yDsbUD0AVIzZeo"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":13,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":"\"2","obfuscation":"d7tVJ4tW8nFLrE"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":14,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":".","obfuscation":"fx5o267i166g9aJ"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":15,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":"351","obfuscation":"zuasuJxxB91rF"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":16,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":"4","obfuscation":"CBcvCbkqWTHmtOx"}
+
+        event: response.function_call_arguments.delta
+        data: {"type":"response.function_call_arguments.delta","sequence_number":17,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"delta":"\"}","obfuscation":"EEWOW82yoOlGZn"}
+
+        event: response.function_call_arguments.done
+        data: {"type":"response.function_call_arguments.done","sequence_number":18,"item_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output_index":0,"arguments":"{\"latitude\":\"48.8575\",\"longitude\":\"2.3514\"}"}
+
+        event: response.output_item.done
+        data: {"type":"response.output_item.done","sequence_number":19,"output_index":0,"item":{"id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","type":"function_call","status":"completed","arguments":"{\"latitude\":\"48.8575\",\"longitude\":\"2.3514\"}","call_id":"call_UJ9kqqEQs1OWVRYctpQj4201","name":"weather"}}
+
+        event: response.completed
+        data: {"type":"response.completed","sequence_number":20,"response":{"id":"resp_68abe645021c8194b83dead95f70a5ab0f5857f8c0ca4156","object":"response","created_at":1756096069,"status":"completed","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[{"id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","type":"function_call","status":"completed","arguments":"{\"latitude\":\"48.8575\",\"longitude\":\"2.3514\"}","call_id":"call_UJ9kqqEQs1OWVRYctpQj4201","name":"weather"}],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"default","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets current weather for a location","name":"weather","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g., 13.4050)"}},"required":["latitude","longitude"],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":{"input_tokens":180,"input_tokens_details":{"cached_tokens":0},"output_tokens":40,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":220},"user":null,"metadata":{}}}
+
+  recorded_at: Mon, 25 Aug 2025 04:27:49 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/responses
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"What''s
+        the weather in Berlin? (52.5200, 13.4050)","status":"completed"},{"type":"function_call","call_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","name":"weather","arguments":"{\"latitude\":\"52.5200\",\"longitude\":\"13.4050\"}","status":"completed"},{"type":"function_call_output","call_id":"fc_68abe643b784819e8274b5ce2caa151c0597d6d51b6ea8ab","output":"Current
+        weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h","status":"completed"},{"type":"message","role":"assistant","content":"The
+        current weather in Berlin is 15°C with a wind speed of 10 km/h.","status":"completed"},{"type":"message","role":"user","content":"What''s
+        the weather in Paris? (48.8575, 2.3514)","status":"completed"},{"type":"function_call","call_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","name":"weather","arguments":"{\"latitude\":\"48.8575\",\"longitude\":\"2.3514\"}","status":"completed"},{"type":"function_call_output","call_id":"fc_68abe6457b78819490bbde515627c16c0f5857f8c0ca4156","output":"Current
+        weather at 48.8575, 2.3514: 15°C, Wind: 10 km/h","status":"completed"}],"stream":true,"tools":[{"type":"function","name":"weather","description":"Gets
+        current weather for a location","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude
+        (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g.,
+        13.4050)"}},"required":["latitude","longitude"]}}]}'
+    headers:
+      User-Agent:
+      - Faraday v2.13.4
+      Authorization:
+      - Bearer <OPENAI_API_KEY>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 25 Aug 2025 04:27:50 GMT
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - "<OPENAI_ORGANIZATION>"
+      Openai-Project:
+      - "<OPENAI_PROJECT>"
+      X-Request-Id:
+      - "<X_REQUEST_ID>"
+      Openai-Processing-Ms:
+      - '70'
+      X-Envoy-Upstream-Service-Time:
+      - '76'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - "<COOKIE>"
+      - "<COOKIE>"
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - "<CF_RAY>"
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |+
+        event: response.created
+        data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_68abe645ea008191a325a4afc4da571602fb872548732495","object":"response","created_at":1756096069,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets current weather for a location","name":"weather","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g., 13.4050)"}},"required":["latitude","longitude"],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+
+        event: response.in_progress
+        data: {"type":"response.in_progress","sequence_number":1,"response":{"id":"resp_68abe645ea008191a325a4afc4da571602fb872548732495","object":"response","created_at":1756096069,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets current weather for a location","name":"weather","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g., 13.4050)"}},"required":["latitude","longitude"],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+
+        event: response.output_item.added
+        data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","type":"message","status":"in_progress","content":[],"role":"assistant"}}
+
+        event: response.content_part.added
+        data: {"type":"response.content_part.added","sequence_number":3,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"part":{"type":"output_text","annotations":[],"logprobs":[],"text":""}}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":4,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":"The","logprobs":[],"obfuscation":"ChKrRAp73yCON"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":5,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":" current","logprobs":[],"obfuscation":"tNQajfsN"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":6,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":" weather","logprobs":[],"obfuscation":"wU3mSdjt"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":7,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":" in","logprobs":[],"obfuscation":"SpHZ47a5FNrV6"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":8,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":" Paris","logprobs":[],"obfuscation":"mcuVSguHKZ"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":9,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":" is","logprobs":[],"obfuscation":"YTpucYXRFevbN"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":10,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":" ","logprobs":[],"obfuscation":"5BOw7jldXe1d3uh"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":11,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":"15","logprobs":[],"obfuscation":"1D13G5CR32l3My"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":12,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":"°C","logprobs":[],"obfuscation":"ZK4QNRFhoL6jgV"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":13,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":" with","logprobs":[],"obfuscation":"ungWWbUfxGd"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":14,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":" a","logprobs":[],"obfuscation":"4zUqTAUgyJdp7w"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":15,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":" wind","logprobs":[],"obfuscation":"MXKklgHhUlv"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":16,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":" speed","logprobs":[],"obfuscation":"gadITw9Zxp"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":17,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":" of","logprobs":[],"obfuscation":"Ulztdc4ZjQcOA"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":18,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":" ","logprobs":[],"obfuscation":"vZwcLN2euDTloBs"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":19,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":"10","logprobs":[],"obfuscation":"c3QNjzOyusd3YN"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":20,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":" km","logprobs":[],"obfuscation":"T3OYNZN0vqGOm"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":21,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":"/h","logprobs":[],"obfuscation":"yV3RestI8b3jh4"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":22,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"delta":".","logprobs":[],"obfuscation":"3gaGvfjaF5zKMKM"}
+
+        event: response.output_text.done
+        data: {"type":"response.output_text.done","sequence_number":23,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"text":"The current weather in Paris is 15°C with a wind speed of 10 km/h.","logprobs":[]}
+
+        event: response.content_part.done
+        data: {"type":"response.content_part.done","sequence_number":24,"item_id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","output_index":0,"content_index":0,"part":{"type":"output_text","annotations":[],"logprobs":[],"text":"The current weather in Paris is 15°C with a wind speed of 10 km/h."}}
+
+        event: response.output_item.done
+        data: {"type":"response.output_item.done","sequence_number":25,"output_index":0,"item":{"id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","type":"message","status":"completed","content":[{"type":"output_text","annotations":[],"logprobs":[],"text":"The current weather in Paris is 15°C with a wind speed of 10 km/h."}],"role":"assistant"}}
+
+        event: response.completed
+        data: {"type":"response.completed","sequence_number":26,"response":{"id":"resp_68abe645ea008191a325a4afc4da571602fb872548732495","object":"response","created_at":1756096069,"status":"completed","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[{"id":"msg_68abe646319481919b84bb79fa6ef11a02fb872548732495","type":"message","status":"completed","content":[{"type":"output_text","annotations":[],"logprobs":[],"text":"The current weather in Paris is 15°C with a wind speed of 10 km/h."}],"role":"assistant"}],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"default","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets current weather for a location","name":"weather","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g., 13.4050)"}},"required":["latitude","longitude"],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":{"input_tokens":233,"input_tokens_details":{"cached_tokens":0},"output_tokens":21,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":254},"user":null,"metadata":{}}}
+
+  recorded_at: Mon, 25 Aug 2025 04:27:50 GMT
 recorded_with: VCR 6.3.1
 ...
