@@ -109,7 +109,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:27:12 GMT
+      - Mon, 25 Aug 2025 05:05:17 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -137,9 +137,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '1269'
+      - '1592'
       X-Envoy-Upstream-Service-Time:
-      - '1271'
+      - '1595'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -159,9 +159,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe61f525c81a1981ca55d6d0902510cf1dcdb19dd054b",
+          "id": "resp_68abef0c1f3c819c9c14622d9e24bd22028c3663b34c4864",
           "object": "response",
-          "created_at": 1756096031,
+          "created_at": 1756098316,
           "status": "completed",
           "background": false,
           "error": null,
@@ -172,7 +172,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_68abe61fa90481a1992d18e6a1865c870cf1dcdb19dd054b",
+              "id": "msg_68abef0caf18819c81ac46ec6b12f4c1028c3663b34c4864",
               "type": "message",
               "status": "completed",
               "content": [
@@ -180,7 +180,7 @@ http_interactions:
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "The provided document is a simple PDF with placeholder text. Here\u2019s a summary of its contents and key details:\n\n- **Title/Heading:** \"Sample PDF\"\n- **Main Content:** The document contains a repetitive, verbose text primarily composed of lorem ipsum and similar filler text (standard dummy text used in publishing and web design). The text mentions various themes related to general concepts such as facilisis, luctus, auctor, varius, and others, but it does not contain specific or meaningful information.\n- **Purpose:** Appears to be a sample or demonstration document, likely used for testing or illustrating PDF formatting.\n\nIf you need a specific analysis, such as extracting text, metadata, or structure, please specify!"
+                  "text": "The provided text includes a description of a simple PDF file titled \"Sample PDF\" with the content \"Fun fun fun.\" Following that, there's a lengthy sample text that appears to be Lorem Ipsum, a commonly used placeholder text in the publishing and web design industry.\n\n**Key observations:**\n\n- **Title & Description:** \"Sample PDF\" and description \"This is a simple PDF file. Fun fun fun.\"\n- **Content:** Extensive Lorem Ipsum placeholder text, used to demonstrate layout or content structure.\n- **Purpose:** Likely intended as a template or mockup for PDF layout, testing, or demonstration.\n\nIf you need specific analysis, such as extracting text, summarizing, or analyzing the structure, please let me know!"
                 }
               ],
               "role": "assistant"
@@ -213,14 +213,14 @@ http_interactions:
             "input_tokens_details": {
               "cached_tokens": 0
             },
-            "output_tokens": 143,
+            "output_tokens": 146,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 935
+            "total_tokens": 938
           },
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:27:12 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:17 GMT
 recorded_with: VCR 6.3.1

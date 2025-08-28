@@ -269,7 +269,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:26:43 GMT
+      - Mon, 25 Aug 2025 05:04:53 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -297,9 +297,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '670'
+      - '989'
       X-Envoy-Upstream-Service-Time:
-      - '672'
+      - '991'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -319,9 +319,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe602d8c88190ac9fa93e87c7c37a02203fefc9cda552",
+          "id": "resp_68abeef47a80819ebdbcfd72e1cbf03c0be7752ba17bd94c",
           "object": "response",
-          "created_at": 1756096002,
+          "created_at": 1756098292,
           "status": "completed",
           "background": false,
           "error": null,
@@ -332,11 +332,11 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "fc_68abe60354048190822595a37b8aeeaa02203fefc9cda552",
+              "id": "fc_68abeef4d180819e90b571e950b65f030be7752ba17bd94c",
               "type": "function_call",
               "status": "completed",
               "arguments": "{\"expression\":\"123 * 456\"}",
-              "call_id": "call_76pk0PrkjZkJAbcGqFLLFl1d",
+              "call_id": "call_XCSv4Nwrr5jfYgrKezu6GthW",
               "name": "calculator"
             }
           ],
@@ -396,15 +396,15 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:26:43 GMT
+  recorded_at: Mon, 25 Aug 2025 05:04:53 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
     body:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"What''s
-        123 * 456?","status":"completed"},{"type":"function_call","call_id":"call_76pk0PrkjZkJAbcGqFLLFl1d","name":"calculator","arguments":"{\"expression\":\"123
-        * 456\"}","status":"completed"},{"type":"function_call_output","call_id":"call_76pk0PrkjZkJAbcGqFLLFl1d","output":"56088","status":"completed"}],"stream":false,"tools":[{"type":"function","name":"calculator","description":"Performs
+        123 * 456?","status":"completed"},{"type":"function_call","call_id":"call_XCSv4Nwrr5jfYgrKezu6GthW","name":"calculator","arguments":"{\"expression\":\"123
+        * 456\"}","status":"completed"},{"type":"function_call_output","call_id":"call_XCSv4Nwrr5jfYgrKezu6GthW","output":"56088","status":"completed"}],"stream":false,"tools":[{"type":"function","name":"calculator","description":"Performs
         basic arithmetic","parameters":{"type":"object","properties":{"expression":{"type":"string","description":"Math
         expression to evaluate"}},"required":["expression"]}}]}'
     headers:
@@ -424,7 +424,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:26:44 GMT
+      - Mon, 25 Aug 2025 05:04:54 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -452,9 +452,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '405'
+      - '693'
       X-Envoy-Upstream-Service-Time:
-      - '407'
+      - '697'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -474,9 +474,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe603f9e4819f9b5a2a64700fc6130415ae13394b487d",
+          "id": "resp_68abeef5d4288196b485c84eaf3c182e0415850bd20f477b",
           "object": "response",
-          "created_at": 1756096003,
+          "created_at": 1756098293,
           "status": "completed",
           "background": false,
           "error": null,
@@ -487,7 +487,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_68abe60437c4819f973e6f39fa5b160e0415ae13394b487d",
+              "id": "msg_68abeef63dcc8196b6989d58ffdf059b0415850bd20f477b",
               "type": "message",
               "status": "completed",
               "content": [
@@ -557,5 +557,5 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:26:44 GMT
+  recorded_at: Mon, 25 Aug 2025 05:04:54 GMT
 recorded_with: VCR 6.3.1

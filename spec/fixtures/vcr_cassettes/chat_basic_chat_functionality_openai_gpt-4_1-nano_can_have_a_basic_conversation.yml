@@ -138,7 +138,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:27:24 GMT
+      - Mon, 25 Aug 2025 05:05:30 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -152,7 +152,7 @@ http_interactions:
       X-Ratelimit-Remaining-Requests:
       - '29999'
       X-Ratelimit-Remaining-Tokens:
-      - '149999967'
+      - '149999965'
       X-Ratelimit-Reset-Requests:
       - 2ms
       X-Ratelimit-Reset-Tokens:
@@ -166,9 +166,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '411'
+      - '521'
       X-Envoy-Upstream-Service-Time:
-      - '415'
+      - '523'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -188,9 +188,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe62c6278819f99515cb9898111d403314145049d564f",
+          "id": "resp_68abef19a3348197b4fc7af82d6f594f06d73655022191b9",
           "object": "response",
-          "created_at": 1756096044,
+          "created_at": 1756098329,
           "status": "completed",
           "background": false,
           "error": null,
@@ -201,7 +201,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_68abe62c9d6c819f99afed218b7dc81003314145049d564f",
+              "id": "msg_68abef19f6748197bba7bc4ecab52cc306d73655022191b9",
               "type": "message",
               "status": "completed",
               "content": [
@@ -251,5 +251,5 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:27:24 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:30 GMT
 recorded_with: VCR 6.3.1

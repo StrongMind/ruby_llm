@@ -138,7 +138,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:26:49 GMT
+      - Mon, 25 Aug 2025 05:04:58 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -166,9 +166,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '596'
+      - '396'
       X-Envoy-Upstream-Service-Time:
-      - '599'
+      - '399'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -188,9 +188,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe60911d481a2ad1a27f2f1f0010901234559c8a53907",
+          "id": "resp_68abeef99f0481a3a57fa083c3766f6b0fee728ac60da215",
           "object": "response",
-          "created_at": 1756096009,
+          "created_at": 1756098297,
           "status": "completed",
           "background": false,
           "error": null,
@@ -201,7 +201,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_68abe609797881a29c9a7e5ac04c317e01234559c8a53907",
+              "id": "msg_68abeef9dfc881a3a6e72d3a4bc543980fee728ac60da215",
               "type": "message",
               "status": "completed",
               "content": [
@@ -251,5 +251,5 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:26:49 GMT
+  recorded_at: Mon, 25 Aug 2025 05:04:57 GMT
 recorded_with: VCR 6.3.1

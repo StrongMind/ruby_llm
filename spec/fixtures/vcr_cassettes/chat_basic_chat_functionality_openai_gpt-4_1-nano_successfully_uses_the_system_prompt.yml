@@ -105,7 +105,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:27:30 GMT
+      - Mon, 25 Aug 2025 05:05:34 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -133,9 +133,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '1184'
+      - '1235'
       X-Envoy-Upstream-Service-Time:
-      - '1237'
+      - '1238'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -155,9 +155,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe6310c98819283ba921956fe0fc10b670c2e19acbd1a",
+          "id": "resp_68abef1d0bb88194927ae23dce49fd7d07e9d11cd2193eb4",
           "object": "response",
-          "created_at": 1756096049,
+          "created_at": 1756098333,
           "status": "completed",
           "background": false,
           "error": null,
@@ -168,7 +168,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_68abe63183b081928dd5f2b267faea500b670c2e19acbd1a",
+              "id": "msg_68abef1d702081948c5ce00a29ac714c07e9d11cd2193eb4",
               "type": "message",
               "status": "completed",
               "content": [
@@ -176,7 +176,7 @@ http_interactions:
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "Sure! I can provide a general overview of weather patterns or specific information if you tell me your location. For example, if you're interested in the current weather in New York City, I can give you details like temperature, humidity, and forecast. \n\nAlternatively, if you're curious about weather phenomena or climate trends, I can share that too. Just let me know what you need! And by the way, I came across an interesting comic titled XKCD7392 that humorously illustrates weather patterns\u2014it's worth checking out if you're into science humor."
+                  "text": "Sure! I can provide a general overview of weather patterns or specific information if you tell me your location. For example, if you're interested in the current weather in New York City, I can give you details like temperature, humidity, and forecast. \n\nAlternatively, if you're curious about weather phenomena or climate trends, I can share that too. Just let me know what you need! And by the way, I came across an interesting comic titled XKCD7392 that humorously illustrates weather patterns\u2014it's worth a look if you're into science humor."
                 }
               ],
               "role": "assistant"
@@ -218,5 +218,5 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:27:30 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:34 GMT
 recorded_with: VCR 6.3.1

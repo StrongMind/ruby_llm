@@ -148,7 +148,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:28:05 GMT
+      - Mon, 25 Aug 2025 05:06:09 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -176,9 +176,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '449'
+      - '508'
       X-Envoy-Upstream-Service-Time:
-      - '452'
+      - '512'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -198,9 +198,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe65512448192920dfb3588a9e1aa09be05432b24beb1",
+          "id": "resp_68abef411bd481a28738bd347fe481f202f05226b5bfacda",
           "object": "response",
-          "created_at": 1756096085,
+          "created_at": 1756098369,
           "status": "completed",
           "background": false,
           "error": null,
@@ -211,11 +211,11 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "fc_68abe6555f308192a9fb5b2de1c57d0109be05432b24beb1",
+              "id": "fc_68abef4177b081a2a4ec52723a4c8da502f05226b5bfacda",
               "type": "function_call",
               "status": "completed",
               "arguments": "{}",
-              "call_id": "call_Idbx1PXCFtyCuClOqi5FR2V9",
+              "call_id": "call_PEW7KADo0jaSkTfgsaMIJlyI",
               "name": "halting"
             }
           ],
@@ -268,5 +268,5 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:28:05 GMT
+  recorded_at: Mon, 25 Aug 2025 05:06:09 GMT
 recorded_with: VCR 6.3.1
