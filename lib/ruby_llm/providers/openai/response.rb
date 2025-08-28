@@ -13,7 +13,7 @@ module RubyLLM
 
         def render_response_payload(messages, tools:, temperature:, model:, cache_prompts:, stream: false, schema: nil) # rubocop:disable Metrics/ParameterLists,Lint/UnusedMethodArgument
           payload = {
-            model: model,
+            model: model.id,
             input: format_input(messages),
             stream: stream
           }
