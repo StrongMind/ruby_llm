@@ -25,7 +25,8 @@ loader.inflector.inflect(
   'gpustack' => 'GPUStack',
   'mistral' => 'Mistral',
   'pdf' => 'PDF',
-  'version' => 'VERSION'
+  'version' => 'VERSION',
+  'vertexai' => 'VertexAI'
 )
 loader.ignore("#{__dir__}/shims")
 loader.ignore("#{__dir__}/tasks")
@@ -97,6 +98,7 @@ RubyLLM::Provider.register :ollama, RubyLLM::Providers::Ollama
 RubyLLM::Provider.register :openai, RubyLLM::Providers::OpenAI
 RubyLLM::Provider.register :openrouter, RubyLLM::Providers::OpenRouter
 RubyLLM::Provider.register :perplexity, RubyLLM::Providers::Perplexity
+RubyLLM::Provider.register :vertexai, RubyLLM::Providers::VertexAI
 
 if defined?(Rails::Railtie)
   require 'ruby_llm/railtie'

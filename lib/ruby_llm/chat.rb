@@ -132,8 +132,8 @@ module RubyLLM
         messages,
         tools: @tools,
         temperature: @temperature,
-        model: @model.id,
         cache_prompts: @cache_prompts.dup,
+        model: @model,
         params: @params,
         headers: @headers,
         schema: @schema,
@@ -168,6 +168,10 @@ module RubyLLM
 
     def reset_messages!
       @messages.clear
+    end
+
+    def instance_variables
+      super - %i[@connection @config]
     end
 
     private
@@ -210,10 +214,6 @@ module RubyLLM
       tool = tools[tool_call.name.to_sym]
       args = tool_call.arguments
       tool.call(args)
-    end
-
-    def instance_variables
-      super - %i[@connection @config]
     end
   end
 end
