@@ -150,7 +150,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:28:09 GMT
+      - Mon, 25 Aug 2025 05:06:13 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -178,9 +178,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '638'
+      - '752'
       X-Envoy-Upstream-Service-Time:
-      - '641'
+      - '756'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -200,9 +200,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe658ee08819cbdee358c7827270308aa7fa383004014",
+          "id": "resp_68abef4491808194bd84e5451d6942480682db7bbe458e54",
           "object": "response",
-          "created_at": 1756096088,
+          "created_at": 1756098372,
           "status": "completed",
           "background": false,
           "error": null,
@@ -213,19 +213,11 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "fc_68abe65953d8819cbec545d4e937704608aa7fa383004014",
+              "id": "fc_68abef4511e88194867c1eac8b3fafa80682db7bbe458e54",
               "type": "function_call",
               "status": "completed",
               "arguments": "{}",
-              "call_id": "call_Yy06i8yN43LvaPV5RWCowGND",
-              "name": "broken"
-            },
-            {
-              "id": "fc_68abe65960b4819c9b4bc5ee0daa695208aa7fa383004014",
-              "type": "function_call",
-              "status": "completed",
-              "arguments": "{}",
-              "call_id": "call_JvM1mFbZlKwt7HqOqWmGfkDM",
+              "call_id": "call_IcED5A47shIZ7nriecAw46gv",
               "name": "broken"
             }
           ],
@@ -278,5 +270,5 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:28:09 GMT
+  recorded_at: Mon, 25 Aug 2025 05:06:13 GMT
 recorded_with: VCR 6.3.1

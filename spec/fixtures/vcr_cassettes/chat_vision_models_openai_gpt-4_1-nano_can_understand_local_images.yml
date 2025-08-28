@@ -144,7 +144,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:27:05 GMT
+      - Mon, 25 Aug 2025 05:05:11 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -172,9 +172,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '761'
+      - '1474'
       X-Envoy-Upstream-Service-Time:
-      - '765'
+      - '1489'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -194,9 +194,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe618ff2c8190abe92c54e097ac6f0a15c99ea96ea650",
+          "id": "resp_68abef05c25c81a099fcd8693e02a8dc094457a9a875ddbe",
           "object": "response",
-          "created_at": 1756096025,
+          "created_at": 1756098309,
           "status": "completed",
           "background": false,
           "error": null,
@@ -207,7 +207,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_68abe61973788190967300fd5ec18c250a15c99ea96ea650",
+              "id": "msg_68abef067c3081a0aa5e52f0ed3e2a04094457a9a875ddbe",
               "type": "message",
               "status": "completed",
               "content": [
@@ -215,7 +215,7 @@ http_interactions:
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "The image appears to be a stylized or low-polygon illustration of a red gemstone or ruby."
+                  "text": "The image depicts a large, red, faceted gemstone or gem-like object. It appears to be a stylized, digital rendering of a gemstone with a shiny, reflective surface and multiple facets."
                 }
               ],
               "role": "assistant"
@@ -248,14 +248,14 @@ http_interactions:
             "input_tokens_details": {
               "cached_tokens": 0
             },
-            "output_tokens": 21,
+            "output_tokens": 40,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 77
+            "total_tokens": 96
           },
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:27:05 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:11 GMT
 recorded_with: VCR 6.3.1

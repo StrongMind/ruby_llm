@@ -253,7 +253,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:27:27 GMT
+      - Mon, 25 Aug 2025 05:05:31 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -281,9 +281,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '343'
+      - '439'
       X-Envoy-Upstream-Service-Time:
-      - '345'
+      - '441'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -303,9 +303,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe62ee450819cae7750dff0c5c4e10d308b54eef3d484",
+          "id": "resp_68abef1b352481918f81fe2dfd21cf5307f5cb856a34037d",
           "object": "response",
-          "created_at": 1756096046,
+          "created_at": 1756098331,
           "status": "completed",
           "background": false,
           "error": null,
@@ -316,7 +316,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_68abe62f11fc819cb57e206bf3dff65b0d308b54eef3d484",
+              "id": "msg_68abef1b6f388191b4879699ecfe6d9407f5cb856a34037d",
               "type": "message",
               "status": "completed",
               "content": [
@@ -324,7 +324,7 @@ http_interactions:
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "Ruby was created by Yukihiro \"Matz\" Matsumoto."
+                  "text": "Ruby was created by Yukihiro \"Matz\" Matsumoto, a Japanese computer scientist and software programmer."
                 }
               ],
               "role": "assistant"
@@ -357,16 +357,16 @@ http_interactions:
             "input_tokens_details": {
               "cached_tokens": 0
             },
-            "output_tokens": 16,
+            "output_tokens": 24,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 29
+            "total_tokens": 37
           },
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:27:27 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:31 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
@@ -374,7 +374,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"Who
         was Ruby''s creator?","status":"completed"},{"type":"message","role":"assistant","content":"Ruby
-        was created by Yukihiro \"Matz\" Matsumoto.","status":"completed"},{"type":"message","role":"user","content":"What
+        was created by Yukihiro \"Matz\" Matsumoto, a Japanese computer scientist
+        and software programmer.","status":"completed"},{"type":"message","role":"user","content":"What
         year did he create Ruby?","status":"completed"}],"stream":false}'
     headers:
       User-Agent:
@@ -393,7 +394,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:27:28 GMT
+      - Mon, 25 Aug 2025 05:05:32 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -407,7 +408,7 @@ http_interactions:
       X-Ratelimit-Remaining-Requests:
       - '29999'
       X-Ratelimit-Remaining-Tokens:
-      - '149999937'
+      - '149999930'
       X-Ratelimit-Reset-Requests:
       - 2ms
       X-Ratelimit-Reset-Tokens:
@@ -421,9 +422,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '466'
+      - '783'
       X-Envoy-Upstream-Service-Time:
-      - '469'
+      - '785'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -443,9 +444,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe62fa41c8191bb0dd671f6f10d850bf1d3c9962ce68d",
+          "id": "resp_68abef1be4b4819caaeb071369d80dd0053d636cf4720199",
           "object": "response",
-          "created_at": 1756096047,
+          "created_at": 1756098331,
           "status": "completed",
           "background": false,
           "error": null,
@@ -456,7 +457,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_68abe62fe2008191bdf7ee1332983dab0bf1d3c9962ce68d",
+              "id": "msg_68abef1c77e4819cad996e8dc2f4ab17053d636cf4720199",
               "type": "message",
               "status": "completed",
               "content": [
@@ -493,7 +494,7 @@ http_interactions:
           "top_p": 1.0,
           "truncation": "disabled",
           "usage": {
-            "input_tokens": 43,
+            "input_tokens": 51,
             "input_tokens_details": {
               "cached_tokens": 0
             },
@@ -501,10 +502,10 @@ http_interactions:
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 62
+            "total_tokens": 70
           },
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:27:28 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:32 GMT
 recorded_with: VCR 6.3.1

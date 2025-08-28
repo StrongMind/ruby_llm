@@ -272,7 +272,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:28:03 GMT
+      - Mon, 25 Aug 2025 05:06:07 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -286,7 +286,7 @@ http_interactions:
       X-Ratelimit-Remaining-Requests:
       - '29999'
       X-Ratelimit-Remaining-Tokens:
-      - '149999732'
+      - '149999730'
       X-Ratelimit-Reset-Requests:
       - 2ms
       X-Ratelimit-Reset-Tokens:
@@ -300,9 +300,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '493'
+      - '588'
       X-Envoy-Upstream-Service-Time:
-      - '495'
+      - '590'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -322,9 +322,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe6530fc0819db7e37570cc9b7e730341207d3923675d",
+          "id": "resp_68abef3eb0f08196a2c670bedbfb4ec605acc47852b4a345",
           "object": "response",
-          "created_at": 1756096083,
+          "created_at": 1756098366,
           "status": "completed",
           "background": false,
           "error": null,
@@ -335,11 +335,11 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "fc_68abe6536c00819dbbfdb76481dd6d580341207d3923675d",
+              "id": "fc_68abef3f17ec8196b33050f2d8c5b17305acc47852b4a345",
               "type": "function_call",
               "status": "completed",
               "arguments": "{\"query\":\"test data\"}",
-              "call_id": "call_3jbcX7ysIxN6XecgmRLIN9nm",
+              "call_id": "call_XM7v43a4WnEqymFANXHyXRlP",
               "name": "content_returning"
             }
           ],
@@ -390,24 +390,24 @@ http_interactions:
             "input_tokens_details": {
               "cached_tokens": 0
             },
-            "output_tokens": 33,
+            "output_tokens": 17,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 85
+            "total_tokens": 69
           },
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:28:03 GMT
+  recorded_at: Mon, 25 Aug 2025 05:06:07 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
     body:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"Process
-        this query: test data","status":"completed"},{"type":"function_call","call_id":"call_3jbcX7ysIxN6XecgmRLIN9nm","name":"content_returning","arguments":"{\"query\":\"test
-        data\"}","status":"completed"},{"type":"function_call_output","call_id":"call_3jbcX7ysIxN6XecgmRLIN9nm","output":"#<RubyLLM::Content:0x000000010d25df60>","status":"completed"}],"stream":false,"tools":[{"type":"function","name":"content_returning","description":"Returns
+        this query: test data","status":"completed"},{"type":"function_call","call_id":"call_XM7v43a4WnEqymFANXHyXRlP","name":"content_returning","arguments":"{\"query\":\"test
+        data\"}","status":"completed"},{"type":"function_call_output","call_id":"call_XM7v43a4WnEqymFANXHyXRlP","output":"#<RubyLLM::Content:0x0000000112cfc2c8>","status":"completed"}],"stream":false,"tools":[{"type":"function","name":"content_returning","description":"Returns
         a Content object with text and attachments","parameters":{"type":"object","properties":{"query":{"type":"string","description":"Query
         to process"}},"required":["query"]}}]}'
     headers:
@@ -427,7 +427,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:28:04 GMT
+      - Mon, 25 Aug 2025 05:06:08 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -455,9 +455,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '437'
+      - '943'
       X-Envoy-Upstream-Service-Time:
-      - '439'
+      - '947'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -477,9 +477,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe65433188192b16af324da1f97b30fcc1061d6e2068b",
+          "id": "resp_68abef3fae5081958d84286b055dfaf104b23fa4215140c9",
           "object": "response",
-          "created_at": 1756096084,
+          "created_at": 1756098367,
           "status": "completed",
           "background": false,
           "error": null,
@@ -490,7 +490,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_68abe65470808192872b5bdb10ffb45a0fcc1061d6e2068b",
+              "id": "msg_68abef40423881958cdd3857753000f904b23fa4215140c9",
               "type": "message",
               "status": "completed",
               "content": [
@@ -498,7 +498,7 @@ http_interactions:
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "I have processed the query \"test data.\" How would you like to proceed or what specific information are you seeking?"
+                  "text": "I have processed your query \"test data.\" How can I assist you further with this?"
                 }
               ],
               "role": "assistant"
@@ -547,18 +547,18 @@ http_interactions:
           "top_p": 1.0,
           "truncation": "disabled",
           "usage": {
-            "input_tokens": 93,
+            "input_tokens": 95,
             "input_tokens_details": {
               "cached_tokens": 0
             },
-            "output_tokens": 25,
+            "output_tokens": 20,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 118
+            "total_tokens": 115
           },
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:28:04 GMT
+  recorded_at: Mon, 25 Aug 2025 05:06:08 GMT
 recorded_with: VCR 6.3.1

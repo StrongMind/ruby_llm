@@ -326,7 +326,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:27:44 GMT
+      - Mon, 25 Aug 2025 05:05:48 GMT
       Content-Type:
       - text/event-stream; charset=utf-8
       Transfer-Encoding:
@@ -342,9 +342,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '53'
+      - '426'
       X-Envoy-Upstream-Service-Time:
-      - '59'
+      - '454'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -364,27 +364,27 @@ http_interactions:
       encoding: UTF-8
       string: |+
         event: response.created
-        data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_68abe6407c548192be8e7b6830e6d02101374ef4c4a4b83d","object":"response","created_at":1756096064,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+        data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_68abef2c808c8196b7d31438e656239a087e5ba4ac78125d","object":"response","created_at":1756098348,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
 
         event: response.in_progress
-        data: {"type":"response.in_progress","sequence_number":1,"response":{"id":"resp_68abe6407c548192be8e7b6830e6d02101374ef4c4a4b83d","object":"response","created_at":1756096064,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+        data: {"type":"response.in_progress","sequence_number":1,"response":{"id":"resp_68abef2c808c8196b7d31438e656239a087e5ba4ac78125d","object":"response","created_at":1756098348,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
 
         event: response.output_item.added
-        data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"id":"fc_68abe640d4b481929c13e23dd9e4283801374ef4c4a4b83d","type":"function_call","status":"in_progress","arguments":"","call_id":"call_EjrUvpab7HbXQClXlUOrGwUy","name":"best_language_to_learn"}}
+        data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"id":"fc_68abef2d5f0c8196a730553050771c29087e5ba4ac78125d","type":"function_call","status":"in_progress","arguments":"","call_id":"call_wYjfMYT9L7fHWOAkJNgcBevG","name":"best_language_to_learn"}}
 
         event: response.function_call_arguments.delta
-        data: {"type":"response.function_call_arguments.delta","sequence_number":3,"item_id":"fc_68abe640d4b481929c13e23dd9e4283801374ef4c4a4b83d","output_index":0,"delta":"{}","obfuscation":"DzBtzgoEPeaX7f"}
+        data: {"type":"response.function_call_arguments.delta","sequence_number":3,"item_id":"fc_68abef2d5f0c8196a730553050771c29087e5ba4ac78125d","output_index":0,"delta":"{}","obfuscation":"nkXX4ZquTubURI"}
 
         event: response.function_call_arguments.done
-        data: {"type":"response.function_call_arguments.done","sequence_number":4,"item_id":"fc_68abe640d4b481929c13e23dd9e4283801374ef4c4a4b83d","output_index":0,"arguments":"{}"}
+        data: {"type":"response.function_call_arguments.done","sequence_number":4,"item_id":"fc_68abef2d5f0c8196a730553050771c29087e5ba4ac78125d","output_index":0,"arguments":"{}"}
 
         event: response.output_item.done
-        data: {"type":"response.output_item.done","sequence_number":5,"output_index":0,"item":{"id":"fc_68abe640d4b481929c13e23dd9e4283801374ef4c4a4b83d","type":"function_call","status":"completed","arguments":"{}","call_id":"call_EjrUvpab7HbXQClXlUOrGwUy","name":"best_language_to_learn"}}
+        data: {"type":"response.output_item.done","sequence_number":5,"output_index":0,"item":{"id":"fc_68abef2d5f0c8196a730553050771c29087e5ba4ac78125d","type":"function_call","status":"completed","arguments":"{}","call_id":"call_wYjfMYT9L7fHWOAkJNgcBevG","name":"best_language_to_learn"}}
 
         event: response.completed
-        data: {"type":"response.completed","sequence_number":6,"response":{"id":"resp_68abe6407c548192be8e7b6830e6d02101374ef4c4a4b83d","object":"response","created_at":1756096064,"status":"completed","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[{"id":"fc_68abe640d4b481929c13e23dd9e4283801374ef4c4a4b83d","type":"function_call","status":"completed","arguments":"{}","call_id":"call_EjrUvpab7HbXQClXlUOrGwUy","name":"best_language_to_learn"}],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"default","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":{"input_tokens":53,"input_tokens_details":{"cached_tokens":0},"output_tokens":14,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":67},"user":null,"metadata":{}}}
+        data: {"type":"response.completed","sequence_number":6,"response":{"id":"resp_68abef2c808c8196b7d31438e656239a087e5ba4ac78125d","object":"response","created_at":1756098348,"status":"completed","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[{"id":"fc_68abef2d5f0c8196a730553050771c29087e5ba4ac78125d","type":"function_call","status":"completed","arguments":"{}","call_id":"call_wYjfMYT9L7fHWOAkJNgcBevG","name":"best_language_to_learn"}],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"default","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":{"input_tokens":53,"input_tokens_details":{"cached_tokens":0},"output_tokens":14,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":67},"user":null,"metadata":{}}}
 
-  recorded_at: Mon, 25 Aug 2025 04:27:44 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:49 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
@@ -392,7 +392,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"developer","content":"You
         must use tools whenever possible.","status":"completed"},{"type":"message","role":"user","content":"What''s
-        the best language to learn?","status":"completed"},{"type":"function_call","call_id":"fc_68abe640d4b481929c13e23dd9e4283801374ef4c4a4b83d","name":"best_language_to_learn","arguments":"{}","status":"completed"},{"type":"function_call_output","call_id":"fc_68abe640d4b481929c13e23dd9e4283801374ef4c4a4b83d","output":"Ruby","status":"completed"}],"stream":true,"tools":[{"type":"function","name":"best_language_to_learn","description":"Gets
+        the best language to learn?","status":"completed"},{"type":"function_call","call_id":"fc_68abef2d5f0c8196a730553050771c29087e5ba4ac78125d","name":"best_language_to_learn","arguments":"{}","status":"completed"},{"type":"function_call_output","call_id":"fc_68abef2d5f0c8196a730553050771c29087e5ba4ac78125d","output":"Ruby","status":"completed"}],"stream":true,"tools":[{"type":"function","name":"best_language_to_learn","description":"Gets
         the best language to learn","parameters":{"type":"object","properties":{},"required":[]}}]}'
     headers:
       User-Agent:
@@ -411,7 +411,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:27:45 GMT
+      - Mon, 25 Aug 2025 05:05:50 GMT
       Content-Type:
       - text/event-stream; charset=utf-8
       Transfer-Encoding:
@@ -427,9 +427,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '52'
+      - '70'
       X-Envoy-Upstream-Service-Time:
-      - '57'
+      - '76'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -449,78 +449,105 @@ http_interactions:
       encoding: UTF-8
       string: |+
         event: response.created
-        data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_68abe6412928819ebfedda2b5ff03c5903459722a82e14b1","object":"response","created_at":1756096065,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+        data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_68abef2dedac81a3bb4626e6dc83e63606d0a3dafa96ea37","object":"response","created_at":1756098349,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
 
         event: response.in_progress
-        data: {"type":"response.in_progress","sequence_number":1,"response":{"id":"resp_68abe6412928819ebfedda2b5ff03c5903459722a82e14b1","object":"response","created_at":1756096065,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+        data: {"type":"response.in_progress","sequence_number":1,"response":{"id":"resp_68abef2dedac81a3bb4626e6dc83e63606d0a3dafa96ea37","object":"response","created_at":1756098349,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
 
         event: response.output_item.added
-        data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","type":"message","status":"in_progress","content":[],"role":"assistant"}}
+        data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","type":"message","status":"in_progress","content":[],"role":"assistant"}}
 
         event: response.content_part.added
-        data: {"type":"response.content_part.added","sequence_number":3,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"part":{"type":"output_text","annotations":[],"logprobs":[],"text":""}}
+        data: {"type":"response.content_part.added","sequence_number":3,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"part":{"type":"output_text","annotations":[],"logprobs":[],"text":""}}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":4,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":"The","logprobs":[],"obfuscation":"LnoYQakIMy8GM"}
+        data: {"type":"response.output_text.delta","sequence_number":4,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":"The","logprobs":[],"obfuscation":"ZaVVjFT2Z7SYO"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":5,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":" best","logprobs":[],"obfuscation":"iPjDud7NIJi"}
+        data: {"type":"response.output_text.delta","sequence_number":5,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" best","logprobs":[],"obfuscation":"TR9CaBaK2Fv"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":6,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":" language","logprobs":[],"obfuscation":"GyUpEyU"}
+        data: {"type":"response.output_text.delta","sequence_number":6,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" language","logprobs":[],"obfuscation":"uGtqSsV"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":7,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":" to","logprobs":[],"obfuscation":"7SRFZjKkxgdQK"}
+        data: {"type":"response.output_text.delta","sequence_number":7,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" to","logprobs":[],"obfuscation":"mmTaqyOlD4kZ9"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":8,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":" learn","logprobs":[],"obfuscation":"8HWMyYxNQQ"}
+        data: {"type":"response.output_text.delta","sequence_number":8,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" learn","logprobs":[],"obfuscation":"zoOr9YxiFJ"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":9,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":",","logprobs":[],"obfuscation":"sAXFIZenAGj8Rri"}
+        data: {"type":"response.output_text.delta","sequence_number":9,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" is","logprobs":[],"obfuscation":"LBznC1SUWlIlc"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":10,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":" according","logprobs":[],"obfuscation":"KT2zMo"}
+        data: {"type":"response.output_text.delta","sequence_number":10,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" Ruby","logprobs":[],"obfuscation":"rlUdJuii1LL"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":11,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":" to","logprobs":[],"obfuscation":"DwQ0MUTgYITfL"}
+        data: {"type":"response.output_text.delta","sequence_number":11,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":".","logprobs":[],"obfuscation":"PydYpfsjUapEvAR"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":12,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":" the","logprobs":[],"obfuscation":"CZB80c3jDwqr"}
+        data: {"type":"response.output_text.delta","sequence_number":12,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" Would","logprobs":[],"obfuscation":"VAcL8yKZ7Q"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":13,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":" information","logprobs":[],"obfuscation":"5SsM"}
+        data: {"type":"response.output_text.delta","sequence_number":13,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" you","logprobs":[],"obfuscation":"2OTWGESA9bPZ"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":14,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":" I","logprobs":[],"obfuscation":"CeUYHZ04H3zEoG"}
+        data: {"type":"response.output_text.delta","sequence_number":14,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" like","logprobs":[],"obfuscation":"pCoydwyw5t8"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":15,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":" found","logprobs":[],"obfuscation":"qTGo0KVIy4"}
+        data: {"type":"response.output_text.delta","sequence_number":15,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" to","logprobs":[],"obfuscation":"PDPeMRanN9qEo"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":16,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":",","logprobs":[],"obfuscation":"U4UA6qB3JoRo08S"}
+        data: {"type":"response.output_text.delta","sequence_number":16,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" explore","logprobs":[],"obfuscation":"Qqmwqjke"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":17,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":" is","logprobs":[],"obfuscation":"NYkmpjdFFZMJJ"}
+        data: {"type":"response.output_text.delta","sequence_number":17,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" why","logprobs":[],"obfuscation":"RthHaAGvwiRc"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":18,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":" Ruby","logprobs":[],"obfuscation":"HuDQE1BlbUo"}
+        data: {"type":"response.output_text.delta","sequence_number":18,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" it","logprobs":[],"obfuscation":"b3eNSBQl3TQaE"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":19,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"delta":".","logprobs":[],"obfuscation":"Blxgd6dyvvxbnzN"}
+        data: {"type":"response.output_text.delta","sequence_number":19,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" is","logprobs":[],"obfuscation":"KtqxXvDWzO5wF"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":20,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" considered","logprobs":[],"obfuscation":"JobPa"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":21,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" the","logprobs":[],"obfuscation":"5qyZVWPBx4CH"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":22,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" best","logprobs":[],"obfuscation":"AiRn1q4LhGD"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":23,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" or","logprobs":[],"obfuscation":"G90n3mlTyfcCg"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":24,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" learn","logprobs":[],"obfuscation":"XoiIwzj3MX"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":25,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" about","logprobs":[],"obfuscation":"oc4r2niFyL"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":26,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" other","logprobs":[],"obfuscation":"BnroRGM8bT"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":27,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":" languages","logprobs":[],"obfuscation":"s0TjrG"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":28,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"delta":"?","logprobs":[],"obfuscation":"aGxub8XEsN3orRZ"}
 
         event: response.output_text.done
-        data: {"type":"response.output_text.done","sequence_number":20,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"text":"The best language to learn, according to the information I found, is Ruby.","logprobs":[]}
+        data: {"type":"response.output_text.done","sequence_number":29,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"text":"The best language to learn is Ruby. Would you like to explore why it is considered the best or learn about other languages?","logprobs":[]}
 
         event: response.content_part.done
-        data: {"type":"response.content_part.done","sequence_number":21,"item_id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","output_index":0,"content_index":0,"part":{"type":"output_text","annotations":[],"logprobs":[],"text":"The best language to learn, according to the information I found, is Ruby."}}
+        data: {"type":"response.content_part.done","sequence_number":30,"item_id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","output_index":0,"content_index":0,"part":{"type":"output_text","annotations":[],"logprobs":[],"text":"The best language to learn is Ruby. Would you like to explore why it is considered the best or learn about other languages?"}}
 
         event: response.output_item.done
-        data: {"type":"response.output_item.done","sequence_number":22,"output_index":0,"item":{"id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","type":"message","status":"completed","content":[{"type":"output_text","annotations":[],"logprobs":[],"text":"The best language to learn, according to the information I found, is Ruby."}],"role":"assistant"}}
+        data: {"type":"response.output_item.done","sequence_number":31,"output_index":0,"item":{"id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","type":"message","status":"completed","content":[{"type":"output_text","annotations":[],"logprobs":[],"text":"The best language to learn is Ruby. Would you like to explore why it is considered the best or learn about other languages?"}],"role":"assistant"}}
 
         event: response.completed
-        data: {"type":"response.completed","sequence_number":23,"response":{"id":"resp_68abe6412928819ebfedda2b5ff03c5903459722a82e14b1","object":"response","created_at":1756096065,"status":"completed","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[{"id":"msg_68abe6416d20819e81e2951d00c979a403459722a82e14b1","type":"message","status":"completed","content":[{"type":"output_text","annotations":[],"logprobs":[],"text":"The best language to learn, according to the information I found, is Ruby."}],"role":"assistant"}],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"default","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":{"input_tokens":76,"input_tokens_details":{"cached_tokens":0},"output_tokens":18,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":94},"user":null,"metadata":{}}}
+        data: {"type":"response.completed","sequence_number":32,"response":{"id":"resp_68abef2dedac81a3bb4626e6dc83e63606d0a3dafa96ea37","object":"response","created_at":1756098349,"status":"completed","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[{"id":"msg_68abef2e442881a3a74027106383b12606d0a3dafa96ea37","type":"message","status":"completed","content":[{"type":"output_text","annotations":[],"logprobs":[],"text":"The best language to learn is Ruby. Would you like to explore why it is considered the best or learn about other languages?"}],"role":"assistant"}],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"default","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":{"input_tokens":76,"input_tokens_details":{"cached_tokens":0},"output_tokens":27,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":103},"user":null,"metadata":{}}}
 
-  recorded_at: Mon, 25 Aug 2025 04:27:45 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:51 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
@@ -528,8 +555,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"developer","content":"You
         must use tools whenever possible.","status":"completed"},{"type":"message","role":"user","content":"What''s
-        the best language to learn?","status":"completed"},{"type":"function_call","call_id":"fc_68abe640d4b481929c13e23dd9e4283801374ef4c4a4b83d","name":"best_language_to_learn","arguments":"{}","status":"completed"},{"type":"function_call_output","call_id":"fc_68abe640d4b481929c13e23dd9e4283801374ef4c4a4b83d","output":"Ruby","status":"completed"},{"type":"message","role":"assistant","content":"The
-        best language to learn, according to the information I found, is Ruby.","status":"completed"},{"type":"message","role":"user","content":"Tell
+        the best language to learn?","status":"completed"},{"type":"function_call","call_id":"fc_68abef2d5f0c8196a730553050771c29087e5ba4ac78125d","name":"best_language_to_learn","arguments":"{}","status":"completed"},{"type":"function_call_output","call_id":"fc_68abef2d5f0c8196a730553050771c29087e5ba4ac78125d","output":"Ruby","status":"completed"},{"type":"message","role":"assistant","content":"The
+        best language to learn is Ruby. Would you like to explore why it is considered
+        the best or learn about other languages?","status":"completed"},{"type":"message","role":"user","content":"Tell
         me again: what''s the best language to learn?","status":"completed"}],"stream":true,"tools":[{"type":"function","name":"best_language_to_learn","description":"Gets
         the best language to learn","parameters":{"type":"object","properties":{},"required":[]}}]}'
     headers:
@@ -549,7 +577,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:27:46 GMT
+      - Mon, 25 Aug 2025 05:05:51 GMT
       Content-Type:
       - text/event-stream; charset=utf-8
       Transfer-Encoding:
@@ -565,9 +593,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '40'
+      - '390'
       X-Envoy-Upstream-Service-Time:
-      - '45'
+      - '491'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -587,53 +615,107 @@ http_interactions:
       encoding: UTF-8
       string: |+
         event: response.created
-        data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_68abe641ff5c819dbac0b38962914d940b79b6988b11f14f","object":"response","created_at":1756096066,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+        data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_68abef2f89f48191920404eba7ffdb6504d2f43fe0a341ff","object":"response","created_at":1756098351,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
 
         event: response.in_progress
-        data: {"type":"response.in_progress","sequence_number":1,"response":{"id":"resp_68abe641ff5c819dbac0b38962914d940b79b6988b11f14f","object":"response","created_at":1756096066,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
+        data: {"type":"response.in_progress","sequence_number":1,"response":{"id":"resp_68abef2f89f48191920404eba7ffdb6504d2f43fe0a341ff","object":"response","created_at":1756098351,"status":"in_progress","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"auto","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":null,"user":null,"metadata":{}}}
 
         event: response.output_item.added
-        data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","type":"message","status":"in_progress","content":[],"role":"assistant"}}
+        data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","type":"message","status":"in_progress","content":[],"role":"assistant"}}
 
         event: response.content_part.added
-        data: {"type":"response.content_part.added","sequence_number":3,"item_id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","output_index":0,"content_index":0,"part":{"type":"output_text","annotations":[],"logprobs":[],"text":""}}
+        data: {"type":"response.content_part.added","sequence_number":3,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"part":{"type":"output_text","annotations":[],"logprobs":[],"text":""}}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":4,"item_id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","output_index":0,"content_index":0,"delta":"The","logprobs":[],"obfuscation":"nNB8MwgqJhlFt"}
+        data: {"type":"response.output_text.delta","sequence_number":4,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":"The","logprobs":[],"obfuscation":"z4F7YBS5xd0wR"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":5,"item_id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","output_index":0,"content_index":0,"delta":" best","logprobs":[],"obfuscation":"SkYISPqtTnd"}
+        data: {"type":"response.output_text.delta","sequence_number":5,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" best","logprobs":[],"obfuscation":"T2JSXDnBCHg"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":6,"item_id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","output_index":0,"content_index":0,"delta":" language","logprobs":[],"obfuscation":"OF2zXAb"}
+        data: {"type":"response.output_text.delta","sequence_number":6,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" language","logprobs":[],"obfuscation":"RqBKkg7"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":7,"item_id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","output_index":0,"content_index":0,"delta":" to","logprobs":[],"obfuscation":"7JwDM3DFQG5yk"}
+        data: {"type":"response.output_text.delta","sequence_number":7,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" to","logprobs":[],"obfuscation":"BFi9LkQ0ZOJne"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":8,"item_id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","output_index":0,"content_index":0,"delta":" learn","logprobs":[],"obfuscation":"QRkLX2I3GR"}
+        data: {"type":"response.output_text.delta","sequence_number":8,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" learn","logprobs":[],"obfuscation":"w6BpXOhiqW"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":9,"item_id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","output_index":0,"content_index":0,"delta":" is","logprobs":[],"obfuscation":"A5msm9BfM8Ub0"}
+        data: {"type":"response.output_text.delta","sequence_number":9,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" is","logprobs":[],"obfuscation":"3f2RPE8T14RXA"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":10,"item_id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","output_index":0,"content_index":0,"delta":" Ruby","logprobs":[],"obfuscation":"diw16EDon8J"}
+        data: {"type":"response.output_text.delta","sequence_number":10,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" Ruby","logprobs":[],"obfuscation":"yvT6QSIh7dU"}
 
         event: response.output_text.delta
-        data: {"type":"response.output_text.delta","sequence_number":11,"item_id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","output_index":0,"content_index":0,"delta":".","logprobs":[],"obfuscation":"3K2scdVG106ZR0s"}
+        data: {"type":"response.output_text.delta","sequence_number":11,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":".","logprobs":[],"obfuscation":"ZTF9UaddxTHgERT"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":12,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" If","logprobs":[],"obfuscation":"GzI88XcXu3HIl"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":13,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" you're","logprobs":[],"obfuscation":"zQnV0U9tc"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":14,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" interested","logprobs":[],"obfuscation":"zRxIR"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":15,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" in","logprobs":[],"obfuscation":"MOlPwtQNt0WF4"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":16,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" exploring","logprobs":[],"obfuscation":"Ue310p"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":17,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" more","logprobs":[],"obfuscation":"1EkFUQXeL86"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":18,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" about","logprobs":[],"obfuscation":"w4QYDrJ83x"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":19,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" it","logprobs":[],"obfuscation":"JoPWhlaoc8TKP"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":20,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" or","logprobs":[],"obfuscation":"eu1Df45hqTYW3"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":21,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" considering","logprobs":[],"obfuscation":"AlLM"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":22,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" other","logprobs":[],"obfuscation":"NokYwgB3zv"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":23,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" options","logprobs":[],"obfuscation":"B4ht3MPH"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":24,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":",","logprobs":[],"obfuscation":"TqwG2CI3UzektO7"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":25,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" feel","logprobs":[],"obfuscation":"MeWbGYrd6Ru"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":26,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" free","logprobs":[],"obfuscation":"M86QmrIQADa"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":27,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" to","logprobs":[],"obfuscation":"DZcByvRiLzc2B"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":28,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":" ask","logprobs":[],"obfuscation":"x1kMfmwGWPfZ"}
+
+        event: response.output_text.delta
+        data: {"type":"response.output_text.delta","sequence_number":29,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"delta":"!","logprobs":[],"obfuscation":"F8YVJ3MIpbAPizb"}
 
         event: response.output_text.done
-        data: {"type":"response.output_text.done","sequence_number":12,"item_id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","output_index":0,"content_index":0,"text":"The best language to learn is Ruby.","logprobs":[]}
+        data: {"type":"response.output_text.done","sequence_number":30,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"text":"The best language to learn is Ruby. If you're interested in exploring more about it or considering other options, feel free to ask!","logprobs":[]}
 
         event: response.content_part.done
-        data: {"type":"response.content_part.done","sequence_number":13,"item_id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","output_index":0,"content_index":0,"part":{"type":"output_text","annotations":[],"logprobs":[],"text":"The best language to learn is Ruby."}}
+        data: {"type":"response.content_part.done","sequence_number":31,"item_id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","output_index":0,"content_index":0,"part":{"type":"output_text","annotations":[],"logprobs":[],"text":"The best language to learn is Ruby. If you're interested in exploring more about it or considering other options, feel free to ask!"}}
 
         event: response.output_item.done
-        data: {"type":"response.output_item.done","sequence_number":14,"output_index":0,"item":{"id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","type":"message","status":"completed","content":[{"type":"output_text","annotations":[],"logprobs":[],"text":"The best language to learn is Ruby."}],"role":"assistant"}}
+        data: {"type":"response.output_item.done","sequence_number":32,"output_index":0,"item":{"id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","type":"message","status":"completed","content":[{"type":"output_text","annotations":[],"logprobs":[],"text":"The best language to learn is Ruby. If you're interested in exploring more about it or considering other options, feel free to ask!"}],"role":"assistant"}}
 
         event: response.completed
-        data: {"type":"response.completed","sequence_number":15,"response":{"id":"resp_68abe641ff5c819dbac0b38962914d940b79b6988b11f14f","object":"response","created_at":1756096066,"status":"completed","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[{"id":"msg_68abe642563c819daec953047592b5450b79b6988b11f14f","type":"message","status":"completed","content":[{"type":"output_text","annotations":[],"logprobs":[],"text":"The best language to learn is Ruby."}],"role":"assistant"}],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"default","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":{"input_tokens":111,"input_tokens_details":{"cached_tokens":0},"output_tokens":10,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":121},"user":null,"metadata":{}}}
+        data: {"type":"response.completed","sequence_number":33,"response":{"id":"resp_68abef2f89f48191920404eba7ffdb6504d2f43fe0a341ff","object":"response","created_at":1756098351,"status":"completed","background":false,"error":null,"incomplete_details":null,"instructions":null,"max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-nano-2025-04-14","output":[{"id":"msg_68abef303b688191b1a046906ecc84df04d2f43fe0a341ff","type":"message","status":"completed","content":[{"type":"output_text","annotations":[],"logprobs":[],"text":"The best language to learn is Ruby. If you're interested in exploring more about it or considering other options, feel free to ask!"}],"role":"assistant"}],"parallel_tool_calls":true,"previous_response_id":null,"prompt_cache_key":null,"reasoning":{"effort":null,"summary":null},"safety_identifier":null,"service_tier":"default","store":true,"temperature":1.0,"text":{"format":{"type":"text"},"verbosity":"medium"},"tool_choice":"auto","tools":[{"type":"function","description":"Gets the best language to learn","name":"best_language_to_learn","parameters":{"type":"object","properties":{},"required":[],"additionalProperties":false},"strict":true}],"top_logprobs":0,"top_p":1.0,"truncation":"disabled","usage":{"input_tokens":120,"input_tokens_details":{"cached_tokens":0},"output_tokens":28,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":148},"user":null,"metadata":{}}}
 
-  recorded_at: Mon, 25 Aug 2025 04:27:46 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:52 GMT
 recorded_with: VCR 6.3.1
 ...

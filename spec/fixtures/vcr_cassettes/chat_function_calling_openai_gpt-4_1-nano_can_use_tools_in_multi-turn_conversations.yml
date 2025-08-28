@@ -453,7 +453,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:27:39 GMT
+      - Mon, 25 Aug 2025 05:05:42 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -481,9 +481,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '589'
+      - '709'
       X-Envoy-Upstream-Service-Time:
-      - '592'
+      - '714'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -503,9 +503,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe63a8dac819fba0c932e26ac83c800dcdb04f2a7f92e",
+          "id": "resp_68abef2607b0819ea783341ea76249420efc0af45ecb0bdc",
           "object": "response",
-          "created_at": 1756096058,
+          "created_at": 1756098342,
           "status": "completed",
           "background": false,
           "error": null,
@@ -516,11 +516,11 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "fc_68abe63ae940819f948313f371363f2f00dcdb04f2a7f92e",
+              "id": "fc_68abef268914819e94e3191ed68856270efc0af45ecb0bdc",
               "type": "function_call",
               "status": "completed",
               "arguments": "{\"latitude\":\"52.5200\",\"longitude\":\"13.4050\"}",
-              "call_id": "call_DwQSyFEq3EZHw4crJyeBEPbk",
+              "call_id": "call_gX93cEAltLtPimsZIQ0NEGxE",
               "name": "weather"
             }
           ],
@@ -585,14 +585,14 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:27:39 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:42 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
     body:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"What''s
-        the weather in Berlin? (52.5200, 13.4050)","status":"completed"},{"type":"function_call","call_id":"call_DwQSyFEq3EZHw4crJyeBEPbk","name":"weather","arguments":"{\"latitude\":\"52.5200\",\"longitude\":\"13.4050\"}","status":"completed"},{"type":"function_call_output","call_id":"call_DwQSyFEq3EZHw4crJyeBEPbk","output":"Current
+        the weather in Berlin? (52.5200, 13.4050)","status":"completed"},{"type":"function_call","call_id":"call_gX93cEAltLtPimsZIQ0NEGxE","name":"weather","arguments":"{\"latitude\":\"52.5200\",\"longitude\":\"13.4050\"}","status":"completed"},{"type":"function_call_output","call_id":"call_gX93cEAltLtPimsZIQ0NEGxE","output":"Current
         weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h","status":"completed"}],"stream":false,"tools":[{"type":"function","name":"weather","description":"Gets
         current weather for a location","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude
         (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g.,
@@ -614,7 +614,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:27:39 GMT
+      - Mon, 25 Aug 2025 05:05:43 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -642,9 +642,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '534'
+      - '485'
       X-Envoy-Upstream-Service-Time:
-      - '538'
+      - '488'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -664,9 +664,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe63b5ed081a1bda57e1fa8d52d21027a182476ed71fd",
+          "id": "resp_68abef2723088191beef6f1e9940a24a0a4d7b45326a1776",
           "object": "response",
-          "created_at": 1756096059,
+          "created_at": 1756098343,
           "status": "completed",
           "background": false,
           "error": null,
@@ -677,7 +677,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_68abe63ba14c81a1b70f6cde94273371027a182476ed71fd",
+              "id": "msg_68abef275e408191aa67e2ee05dd28aa0a4d7b45326a1776",
               "type": "message",
               "status": "completed",
               "content": [
@@ -752,14 +752,14 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:27:39 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:43 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
     body:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"What''s
-        the weather in Berlin? (52.5200, 13.4050)","status":"completed"},{"type":"function_call","call_id":"call_DwQSyFEq3EZHw4crJyeBEPbk","name":"weather","arguments":"{\"latitude\":\"52.5200\",\"longitude\":\"13.4050\"}","status":"completed"},{"type":"function_call_output","call_id":"call_DwQSyFEq3EZHw4crJyeBEPbk","output":"Current
+        the weather in Berlin? (52.5200, 13.4050)","status":"completed"},{"type":"function_call","call_id":"call_gX93cEAltLtPimsZIQ0NEGxE","name":"weather","arguments":"{\"latitude\":\"52.5200\",\"longitude\":\"13.4050\"}","status":"completed"},{"type":"function_call_output","call_id":"call_gX93cEAltLtPimsZIQ0NEGxE","output":"Current
         weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h","status":"completed"},{"type":"message","role":"assistant","content":"The
         current weather in Berlin is 15°C with a wind speed of 10 km/h.","status":"completed"},{"type":"message","role":"user","content":"What''s
         the weather in Paris? (48.8575, 2.3514)","status":"completed"}],"stream":false,"tools":[{"type":"function","name":"weather","description":"Gets
@@ -783,7 +783,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:27:41 GMT
+      - Mon, 25 Aug 2025 05:05:44 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -811,9 +811,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '661'
+      - '461'
       X-Envoy-Upstream-Service-Time:
-      - '665'
+      - '465'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -833,9 +833,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe63c6d18819288f8d36ad744dab3001a47731302b335",
+          "id": "resp_68abef280c28819e862b9358b310dc600712b0f3a4d01c2a",
           "object": "response",
-          "created_at": 1756096060,
+          "created_at": 1756098344,
           "status": "completed",
           "background": false,
           "error": null,
@@ -846,11 +846,11 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "fc_68abe63cd3408192bc7579955b212684001a47731302b335",
+              "id": "fc_68abef2856c4819e9c7273e0b1de0b6d0712b0f3a4d01c2a",
               "type": "function_call",
               "status": "completed",
               "arguments": "{\"latitude\":\"48.8575\",\"longitude\":\"2.3514\"}",
-              "call_id": "call_aAiXosfqBhj4Cn6x2GsvRJpq",
+              "call_id": "call_iq1qaN71h66JZCHRlsDAfuwY",
               "name": "weather"
             }
           ],
@@ -915,17 +915,17 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:27:41 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:44 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
     body:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"What''s
-        the weather in Berlin? (52.5200, 13.4050)","status":"completed"},{"type":"function_call","call_id":"call_DwQSyFEq3EZHw4crJyeBEPbk","name":"weather","arguments":"{\"latitude\":\"52.5200\",\"longitude\":\"13.4050\"}","status":"completed"},{"type":"function_call_output","call_id":"call_DwQSyFEq3EZHw4crJyeBEPbk","output":"Current
+        the weather in Berlin? (52.5200, 13.4050)","status":"completed"},{"type":"function_call","call_id":"call_gX93cEAltLtPimsZIQ0NEGxE","name":"weather","arguments":"{\"latitude\":\"52.5200\",\"longitude\":\"13.4050\"}","status":"completed"},{"type":"function_call_output","call_id":"call_gX93cEAltLtPimsZIQ0NEGxE","output":"Current
         weather at 52.5200, 13.4050: 15°C, Wind: 10 km/h","status":"completed"},{"type":"message","role":"assistant","content":"The
         current weather in Berlin is 15°C with a wind speed of 10 km/h.","status":"completed"},{"type":"message","role":"user","content":"What''s
-        the weather in Paris? (48.8575, 2.3514)","status":"completed"},{"type":"function_call","call_id":"call_aAiXosfqBhj4Cn6x2GsvRJpq","name":"weather","arguments":"{\"latitude\":\"48.8575\",\"longitude\":\"2.3514\"}","status":"completed"},{"type":"function_call_output","call_id":"call_aAiXosfqBhj4Cn6x2GsvRJpq","output":"Current
+        the weather in Paris? (48.8575, 2.3514)","status":"completed"},{"type":"function_call","call_id":"call_iq1qaN71h66JZCHRlsDAfuwY","name":"weather","arguments":"{\"latitude\":\"48.8575\",\"longitude\":\"2.3514\"}","status":"completed"},{"type":"function_call_output","call_id":"call_iq1qaN71h66JZCHRlsDAfuwY","output":"Current
         weather at 48.8575, 2.3514: 15°C, Wind: 10 km/h","status":"completed"}],"stream":false,"tools":[{"type":"function","name":"weather","description":"Gets
         current weather for a location","parameters":{"type":"object","properties":{"latitude":{"type":"string","description":"Latitude
         (e.g., 52.5200)"},"longitude":{"type":"string","description":"Longitude (e.g.,
@@ -947,7 +947,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 25 Aug 2025 04:27:42 GMT
+      - Mon, 25 Aug 2025 05:05:45 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -975,9 +975,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '599'
+      - '627'
       X-Envoy-Upstream-Service-Time:
-      - '604'
+      - '630'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -997,9 +997,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_68abe63d735c81a2ba0547e5e4f469c702cb4698972e9247",
+          "id": "resp_68abef28e0cc8191946700cfc95659c0055a91a7a73f8fa0",
           "object": "response",
-          "created_at": 1756096061,
+          "created_at": 1756098344,
           "status": "completed",
           "background": false,
           "error": null,
@@ -1010,7 +1010,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_68abe63dc58481a2869898f90b07de4302cb4698972e9247",
+              "id": "msg_68abef293190819180166ea05e1c311a055a91a7a73f8fa0",
               "type": "message",
               "status": "completed",
               "content": [
@@ -1085,5 +1085,5 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Mon, 25 Aug 2025 04:27:42 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:45 GMT
 recorded_with: VCR 6.3.1
