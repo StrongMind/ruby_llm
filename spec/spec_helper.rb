@@ -249,6 +249,10 @@ EMBEDDING_MODELS = [
   { provider: :vertexai, model: 'text-embedding-004' }
 ].freeze
 
+IMAGE_CHAT_MODELS = [
+  { provider: :gemini, model: 'gemini-2.0-flash-preview-image-generation' }
+].freeze
+
 # Models that require prompt caching configuration
 CACHING_MODELS = [
   { provider: :anthropic, model: 'claude-3-5-haiku-20241022' },
@@ -260,3 +264,22 @@ CACHED_MODELS = [
   { provider: :gemini, model: 'gemini-2.5-flash' },
   { provider: :openai, model: 'gpt-4.1-nano' }
 ].freeze
+
+def save_and_verify_image(image)
+  # Create a temp file to save to
+  temp_file = Tempfile.new(['image', '.png'])
+  temp_path = temp_file.path
+  temp_file.close
+
+  begin
+    saved_path = image.save(temp_path)
+    expect(saved_path).to eq(temp_path)
+    expect(File.exist?(temp_path)).to be true
+
+    file_size = File.size(temp_path)
+    expect(file_size).to be > 1000 # Any real image should be larger than 1KB
+  ensure
+    # Clean up
+    File.delete(temp_path)
+  end
+end
