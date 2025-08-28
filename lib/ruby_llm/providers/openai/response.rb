@@ -93,13 +93,54 @@ module RubyLLM
 
           Message.new(
             role: :assistant,
-            content: all_output_text(outputs),
+            content: all_output_content(outputs),
             tool_calls: parse_response_tool_calls(outputs),
             input_tokens: data['usage']['input_tokens'],
             output_tokens: data['usage']['output_tokens'],
             cached_tokens: data.dig('usage', 'input_tokens_details', 'cached_tokens'),
             model_id: data['model'],
             raw: response
+          )
+        end
+
+        def all_output_content(outputs)
+          text_content = extract_text_content(outputs)
+          image_outputs = outputs.select { |o| o['type'] == 'image_generation_call' }
+
+          return text_content unless image_outputs.any?
+
+          build_content_with_images(text_content, image_outputs)
+        end
+
+        private
+
+        def extract_text_content(outputs)
+          outputs.select { |o| o['type'] == 'message' }.flat_map do |o|
+            o['content'].filter_map do |c|
+              c['type'] == 'output_text' && c['text']
+            end
+          end.join("\n")
+        end
+
+        def build_content_with_images(text_content, image_outputs)
+          content = RubyLLM::Content.new(text_content)
+          image_outputs.each do |output|
+            attach_image_to_content(content, output)
+          end
+          content
+        end
+
+        def attach_image_to_content(content, output)
+          image_data = output['result']
+          output_format = output['output_format'] || 'png'
+          mime_type = "image/#{output_format}"
+
+          content.attach(
+            RubyLLM::ImageAttachment.new(
+              data: image_data,
+              mime_type: mime_type,
+              model_id: nil
+            )
           )
         end
 
