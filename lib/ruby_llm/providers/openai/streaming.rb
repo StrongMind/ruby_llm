@@ -37,6 +37,8 @@ module RubyLLM
             )
           when 'response.function_call_arguments.delta'
             build_tool_call_delta_chunk(data)
+          when 'response.image_generation_call.partial_image'
+            build_partial_image_chunk(data)
           when 'response.output_item.added'
             if data.dig('item', 'type') == 'function_call'
               build_tool_call_start_chunk(data)
@@ -46,6 +48,8 @@ module RubyLLM
           when 'response.output_item.done'
             if data.dig('item', 'type') == 'function_call'
               build_tool_call_complete_chunk(data)
+            elsif data.dig('item', 'type') == 'image_generation_call'
+              build_completed_image_chunk(data)
             else
               build_empty_chunk(data)
             end
@@ -143,6 +147,51 @@ module RubyLLM
             input_tokens: nil,
             output_tokens: nil
           )
+        end
+
+        def build_partial_image_chunk(data)
+          content = build_image_content(data['partial_image_b64'], 'image/png', nil, nil)
+
+          Chunk.new(
+            role: :assistant,
+            model_id: nil,
+            content: content,
+            tool_calls: nil,
+            input_tokens: nil,
+            output_tokens: nil
+          )
+        end
+
+        def build_completed_image_chunk(data)
+          item = data['item']
+          image_data = item['result']
+          output_format = item['output_format'] || 'png'
+          mime_type = "image/#{output_format}"
+          revised_prompt = item['revised_prompt']
+
+          content = build_image_content(image_data, mime_type, nil, revised_prompt)
+
+          Chunk.new(
+            role: :assistant,
+            model_id: nil,
+            content: content,
+            tool_calls: nil,
+            input_tokens: nil,
+            output_tokens: nil
+          )
+        end
+
+        def build_image_content(base64_data, mime_type, model_id, revised_prompt = nil)
+          text_content = revised_prompt || ''
+          content = RubyLLM::Content.new(text_content)
+          content.attach(
+            RubyLLM::ImageAttachment.new(
+              data: base64_data,
+              mime_type: mime_type,
+              model_id: model_id
+            )
+          )
+          content
         end
 
         def create_streaming_tool_call(tool_call_data)
