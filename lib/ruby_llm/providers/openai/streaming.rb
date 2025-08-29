@@ -27,46 +27,62 @@ module RubyLLM
         def build_responses_chunk(data)
           case data['type']
           when 'response.output_text.delta'
-            Chunk.new(
-              role: :assistant,
-              model_id: nil,
-              content: data['delta'],
-              tool_calls: nil,
-              input_tokens: nil,
-              output_tokens: nil
-            )
+            build_text_delta_chunk(data)
           when 'response.function_call_arguments.delta'
             build_tool_call_delta_chunk(data)
           when 'response.image_generation_call.partial_image'
             build_partial_image_chunk(data)
           when 'response.output_item.added'
-            if data.dig('item', 'type') == 'function_call'
-              build_tool_call_start_chunk(data)
-            elsif data.dig('item', 'type') == 'reasoning'
-              build_reasoning_chunk(data)
-            else
-              build_empty_chunk(data)
-            end
+            handle_output_item_added(data)
           when 'response.output_item.done'
-            if data.dig('item', 'type') == 'function_call'
-              build_tool_call_complete_chunk(data)
-            elsif data.dig('item', 'type') == 'image_generation_call'
-              build_completed_image_chunk(data)
-            else
-              build_empty_chunk(data)
-            end
+            handle_output_item_done(data)
           when 'response.completed'
-            Chunk.new(
-              role: :assistant,
-              model_id: data.dig('response', 'model'),
-              content: nil,
-              tool_calls: nil,
-              input_tokens: data.dig('response', 'usage', 'input_tokens'),
-              output_tokens: data.dig('response', 'usage', 'output_tokens')
-            )
+            build_completion_chunk(data)
           else
             build_empty_chunk(data)
           end
+        end
+
+        def build_text_delta_chunk(data)
+          Chunk.new(
+            role: :assistant,
+            model_id: nil,
+            content: data['delta'],
+            tool_calls: nil,
+            input_tokens: nil,
+            output_tokens: nil
+          )
+        end
+
+        def handle_output_item_added(data)
+          if data.dig('item', 'type') == 'function_call'
+            build_tool_call_start_chunk(data)
+          elsif data.dig('item', 'type') == 'reasoning'
+            build_reasoning_chunk(data)
+          else
+            build_empty_chunk(data)
+          end
+        end
+
+        def handle_output_item_done(data)
+          if data.dig('item', 'type') == 'function_call'
+            build_tool_call_complete_chunk(data)
+          elsif data.dig('item', 'type') == 'image_generation_call'
+            build_completed_image_chunk(data)
+          else
+            build_empty_chunk(data)
+          end
+        end
+
+        def build_completion_chunk(data)
+          Chunk.new(
+            role: :assistant,
+            model_id: data.dig('response', 'model'),
+            content: nil,
+            tool_calls: nil,
+            input_tokens: data.dig('response', 'usage', 'input_tokens'),
+            output_tokens: data.dig('response', 'usage', 'output_tokens')
+          )
         end
 
         def build_chat_completions_chunk(data)

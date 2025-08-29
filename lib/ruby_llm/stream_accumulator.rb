@@ -33,27 +33,34 @@ module RubyLLM
 
     def to_message(response)
       content = final_content
-      # Associate reasoning_id with image attachments if present
-      if @reasoning_id && content.is_a?(Content) && content.attachments.any?
-        content.attachments.each do |attachment|
-          attachment.instance_variable_set(:@reasoning_id, @reasoning_id) if attachment.is_a?(ImageAttachment)
-        end
-      end
+      associate_reasoning_with_images(content)
 
       Message.new(
         role: :assistant,
         content: content,
         model_id: model_id,
         tool_calls: tool_calls_from_stream,
-        input_tokens: @input_tokens.positive? ? @input_tokens : nil,
-        output_tokens: @output_tokens.positive? ? @output_tokens : nil,
-        cached_tokens: @cached_tokens.positive? ? @cached_tokens : nil,
-        cache_creation_tokens: @cache_creation_tokens.positive? ? @cache_creation_tokens : nil,
+        input_tokens: positive_or_nil(@input_tokens),
+        output_tokens: positive_or_nil(@output_tokens),
+        cached_tokens: positive_or_nil(@cached_tokens),
+        cache_creation_tokens: positive_or_nil(@cache_creation_tokens),
         raw: response
       )
     end
 
     private
+
+    def associate_reasoning_with_images(content)
+      return unless @reasoning_id && content.is_a?(Content) && content.attachments.any?
+
+      content.attachments.each do |attachment|
+        attachment.instance_variable_set(:@reasoning_id, @reasoning_id) if attachment.is_a?(ImageAttachment)
+      end
+    end
+
+    def positive_or_nil(value)
+      value.positive? ? value : nil
+    end
 
     def accumulate_content(new_content)
       return unless new_content

@@ -40,52 +40,70 @@ module RubyLLM
           payload
         end
 
-        def format_input(messages) # rubocop:disable Metrics/PerceivedComplexity
+        def format_input(messages)
           all_tool_calls = messages.flat_map do |m|
             m.tool_calls&.values || []
           end
-          messages.flat_map do |msg|
-            if msg.tool_call?
-              msg.tool_calls.map do |_, tc|
-                {
-                  type: 'function_call',
-                  call_id: tc.id,
-                  name: tc.name,
-                  arguments: JSON.generate(tc.arguments),
-                  status: 'completed'
-                }
-              end
-            elsif msg.role == :tool
-              {
-                type: 'function_call_output',
-                call_id: all_tool_calls.detect { |tc| tc.id == msg.tool_call_id }&.id,
-                output: msg.content,
-                status: 'completed'
-              }
-            elsif assistant_message_with_image_attachment?(msg)
-              items = []
-              image_attachment = msg.content.attachments.first
-              if image_attachment.reasoning_id
-                items << {
-                  type: 'reasoning',
-                  id: image_attachment.reasoning_id,
-                  summary: []
-                }
-              end
-              items << {
-                type: 'image_generation_call',
-                id: image_attachment.id
-              }
-              items
-            else
-              {
-                type: 'message',
-                role: format_role(msg.role),
-                content: ResponseMedia.format_content(msg.content),
-                status: 'completed'
-              }.compact
-            end
-          end.flatten
+          messages.flat_map { |msg| format_message_input(msg, all_tool_calls) }.flatten
+        end
+
+        def format_message_input(msg, all_tool_calls)
+          if msg.tool_call?
+            format_tool_call_message(msg)
+          elsif msg.role == :tool
+            format_tool_response_message(msg, all_tool_calls)
+          elsif assistant_message_with_image_attachment?(msg)
+            format_image_generation_message(msg)
+          else
+            format_regular_message(msg)
+          end
+        end
+
+        def format_tool_call_message(msg)
+          msg.tool_calls.map do |_, tc|
+            {
+              type: 'function_call',
+              call_id: tc.id,
+              name: tc.name,
+              arguments: JSON.generate(tc.arguments),
+              status: 'completed'
+            }
+          end
+        end
+
+        def format_tool_response_message(msg, all_tool_calls)
+          {
+            type: 'function_call_output',
+            call_id: all_tool_calls.detect { |tc| tc.id == msg.tool_call_id }&.id,
+            output: msg.content,
+            status: 'completed'
+          }
+        end
+
+        def format_image_generation_message(msg)
+          items = []
+          image_attachment = msg.content.attachments.first
+          if image_attachment.reasoning_id
+            items << {
+              type: 'reasoning',
+              id: image_attachment.reasoning_id,
+              summary: []
+            }
+          end
+          items << {
+            type: 'image_generation_call',
+            id: image_attachment.id
+          }
+          items
+        end
+
+        def format_regular_message(msg)
+          {
+            type: 'message',
+            role: format_role(msg.role),
+            content: ResponseMedia.format_content(msg.content),
+            status: 'completed'
+          }.compact
         end
 
         def format_role(role)
