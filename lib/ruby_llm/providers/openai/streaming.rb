@@ -26,58 +26,63 @@ module RubyLLM
 
         def build_responses_chunk(data)
           case data['type']
-          when 'response.text.delta'
-            # Text content delta - deprecated format
-            Chunk.new(
-              role: :assistant,
-              model_id: data.dig('response', 'model'),
-              content: data['delta'],
-              tool_calls: nil,
-              input_tokens: nil,
-              output_tokens: nil
-            )
           when 'response.output_text.delta'
-            # Text content delta - new format
-            Chunk.new(
-              role: :assistant,
-              model_id: nil, # Model is in the completion event
-              content: data['delta'],
-              tool_calls: nil,
-              input_tokens: nil,
-              output_tokens: nil
-            )
+            build_text_delta_chunk(data)
           when 'response.function_call_arguments.delta'
-            # Tool call arguments delta - handled by accumulator
-            # We need to track these deltas to build up the complete tool call
             build_tool_call_delta_chunk(data)
+          when 'response.image_generation_call.partial_image'
+            build_partial_image_chunk(data)
           when 'response.output_item.added'
-            # New tool call or message starting
-            if data.dig('item', 'type') == 'function_call'
-              build_tool_call_start_chunk(data)
-            else
-              build_empty_chunk(data)
-            end
+            handle_output_item_added(data)
           when 'response.output_item.done'
-            # Tool call or message completed
-            if data.dig('item', 'type') == 'function_call'
-              build_tool_call_complete_chunk(data)
-            else
-              build_empty_chunk(data)
-            end
+            handle_output_item_done(data)
           when 'response.completed'
-            # Final response with usage stats
-            Chunk.new(
-              role: :assistant,
-              model_id: data.dig('response', 'model'),
-              content: nil,
-              tool_calls: nil,
-              input_tokens: data.dig('response', 'usage', 'input_tokens'),
-              output_tokens: data.dig('response', 'usage', 'output_tokens')
-            )
+            build_completion_chunk(data)
           else
-            # Other event types (response.created, response.in_progress, etc.)
             build_empty_chunk(data)
           end
+        end
+
+        def build_text_delta_chunk(data)
+          Chunk.new(
+            role: :assistant,
+            model_id: nil,
+            content: data['delta'],
+            tool_calls: nil,
+            input_tokens: nil,
+            output_tokens: nil
+          )
+        end
+
+        def handle_output_item_added(data)
+          if data.dig('item', 'type') == 'function_call'
+            build_tool_call_start_chunk(data)
+          elsif data.dig('item', 'type') == 'reasoning'
+            build_reasoning_chunk(data)
+          else
+            build_empty_chunk(data)
+          end
+        end
+
+        def handle_output_item_done(data)
+          if data.dig('item', 'type') == 'function_call'
+            build_tool_call_complete_chunk(data)
+          elsif data.dig('item', 'type') == 'image_generation_call'
+            build_completed_image_chunk(data)
+          else
+            build_empty_chunk(data)
+          end
+        end
+
+        def build_completion_chunk(data)
+          Chunk.new(
+            role: :assistant,
+            model_id: data.dig('response', 'model'),
+            content: nil,
+            tool_calls: nil,
+            input_tokens: data.dig('response', 'usage', 'input_tokens'),
+            output_tokens: data.dig('response', 'usage', 'output_tokens')
+          )
         end
 
         def build_chat_completions_chunk(data)
@@ -93,8 +98,6 @@ module RubyLLM
         end
 
         def build_tool_call_delta_chunk(data)
-          # For tool call argument deltas, we need to create a partial tool call
-          # The accumulator will handle building up the complete arguments
           tool_call_data = {
             'id' => data['item_id'],
             'function' => {
@@ -153,15 +156,72 @@ module RubyLLM
           )
         end
 
-        def build_empty_chunk(data)
+        def build_empty_chunk(_data)
           Chunk.new(
             role: :assistant,
-            model_id: data.dig('response', 'model'),
+            model_id: nil,
             content: nil,
             tool_calls: nil,
             input_tokens: nil,
             output_tokens: nil
           )
+        end
+
+        def build_partial_image_chunk(data)
+          content = build_image_content(data['partial_image_b64'], 'image/png', nil, nil)
+
+          Chunk.new(
+            role: :assistant,
+            model_id: nil,
+            content: content,
+            tool_calls: nil,
+            input_tokens: nil,
+            output_tokens: nil
+          )
+        end
+
+        def build_completed_image_chunk(data)
+          item = data['item']
+          image_data = item['result']
+          output_format = item['output_format'] || 'png'
+          mime_type = "image/#{output_format}"
+          revised_prompt = item['revised_prompt']
+
+          content = build_image_content(image_data, mime_type, nil, revised_prompt)
+
+          Chunk.new(
+            role: :assistant,
+            model_id: nil,
+            content: content,
+            tool_calls: nil,
+            input_tokens: nil,
+            output_tokens: nil
+          )
+        end
+
+        def build_reasoning_chunk(data)
+          Chunk.new(
+            role: :assistant,
+            model_id: nil,
+            content: nil,
+            tool_calls: nil,
+            input_tokens: nil,
+            output_tokens: nil,
+            reasoning_id: data.dig('item', 'id')
+          )
+        end
+
+        def build_image_content(base64_data, mime_type, model_id, revised_prompt = nil)
+          text_content = revised_prompt || ''
+          content = RubyLLM::Content.new(text_content)
+          content.attach(
+            RubyLLM::ImageAttachment.new(
+              data: base64_data,
+              mime_type: mime_type,
+              model_id: model_id
+            )
+          )
+          content
         end
 
         def create_streaming_tool_call(tool_call_data)

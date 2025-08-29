@@ -11,7 +11,6 @@ module RubyLLM
           signature = sign_request("#{connection.connection.url_prefix}#{completion_url}", payload:)
           response = connection.post completion_url, payload do |req|
             req.headers.merge! build_headers(signature.headers, streaming: block_given?)
-            # Merge additional headers, with existing headers taking precedence
             req.headers = additional_headers.merge(req.headers) unless additional_headers.empty?
           end
           Anthropic::Chat.parse_completion_response response
@@ -42,8 +41,7 @@ module RubyLLM
 
         def render_payload(messages, tools:, temperature:, model:, stream: false, schema: nil, # rubocop:disable Lint/UnusedMethodArgument,Metrics/ParameterLists
                            cache_prompts: { system: false, user: false, tools: false })
-          # Hold model_id in instance variable for use in completion_url and stream_url
-          @model_id = model
+          @model_id = model.id
 
           system_messages, chat_messages = Anthropic::Chat.separate_messages(messages)
           system_content = Anthropic::Chat.build_system_content(system_messages, cache: cache_prompts[:system])
@@ -67,7 +65,7 @@ module RubyLLM
           {
             anthropic_version: 'bedrock-2023-05-31',
             messages: messages,
-            max_tokens: RubyLLM.models.find(model)&.max_tokens || 4096
+            max_tokens: model.max_tokens || 4096
           }
         end
       end

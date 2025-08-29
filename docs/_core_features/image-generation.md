@@ -24,12 +24,14 @@ redirect_from:
 After reading this guide, you will know:
 
 *   How to generate images from text prompts.
+*   How to edit existing images with AI (local files and remote URLs).
+*   How to refine images through multi-turn conversations.
 *   How to select different image generation models.
 *   How to specify image sizes (for supported models).
 *   How to access and save generated image data (URL or Base64).
 *   How to integrate image generation with Rails Active Storage.
 *   Tips for writing effective image prompts.
-*   How to handle errors during image generation.
+*   How to handle errors during image generation and editing.
 
 ## Basic Image Generation
 
@@ -61,6 +63,86 @@ puts "Model Used: #{image.model_id}"
 ```
 
 The `paint` method abstracts the differences between provider APIs.
+
+## Image Editing
+
+RubyLLM supports editing existing images using AI models like OpenAI's `gpt-image-1`. You can provide either local image files or remote URLs as the source image to edit.
+
+### Editing Local Images
+
+To edit a local image file, use the `with:` parameter to specify the path to your image:
+
+```ruby
+# Edit a local PNG file
+image = RubyLLM.paint(
+  "turn the logo to green", 
+  with: "path/to/your/image.png",
+  model: "gpt-image-1"
+)
+
+puts "Edited image generated!"
+puts "MIME Type: #{image.mime_type}"
+```
+
+**Important Requirements for Local Images:**
+- Only PNG, WEBP, or JPG files are supported for editing with gpt-image-1
+- The file must exist and be readable
+
+### Editing Remote Images
+
+You can also edit images from remote URLs:
+
+```ruby
+# Edit an image from a remote URL
+image = RubyLLM.paint(
+  "make the background more vibrant",
+  with: "https://example.com/image.png",
+  model: "gpt-image-1"
+)
+```
+
+**Requirements for Remote URLs:**
+- The URL must return a PNG, WEBP, or JPG image
+- The server must respond with a valid content type
+- 404 errors will raise a `Faraday::ResourceNotFound` error
+- Invalid content types will raise a `RubyLLM::BadRequestError`
+
+### Editing Multiple Images
+
+You can edit multiple images at once by providing an array of file paths or URLs:
+
+```ruby
+# Edit multiple images simultaneously
+image = RubyLLM.paint(
+  "apply a vintage filter to all images",
+  with: [
+    "path/to/first_image.png",
+    "path/to/second_image.png"
+  ],
+  model: "gpt-image-1"
+)
+```
+
+### Customizing Edit Parameters
+
+The `params:` option allows you to customize the editing process:
+
+```ruby
+# Customize the editing output
+image = RubyLLM.paint(
+  "enhance the colors and add dramatic lighting",
+  with: "path/to/image.png",
+  model: "gpt-image-1",
+  params: {
+    size: "1024x1024",    # Output image size
+    quality: "low"        # Quality setting (low, standard, hd)
+  }
+)
+
+# Check usage information
+puts "Output tokens: #{image.usage['output_tokens']}"
+puts "Total cost: $#{image.total_cost}"
+```
 
 ## Choosing Models
 
@@ -98,6 +180,75 @@ end
 
 Refer to the [Working with Models Guide]({% link _advanced/models.md %}) and the [Available Models Guide]({% link _reference/available-models.md %}) to find image models.
 
+## Image Editing & Modification
+
+Beyond generating images from text prompts, you can also edit and modify existing images using capable models like `gemini-2.0-flash-preview-image-generation`. This approach uses the chat interface rather than the `paint` method.
+
+### Basic Image Editing
+
+Use the chat interface with image generation models to edit existing images:
+
+```ruby
+# Start a chat with an image generation model
+chat = RubyLLM.chat(model: 'gemini-2.0-flash-preview-image-generation')
+
+# Edit an existing image
+response = chat.ask('put this in a ring', with: 'path/to/ruby.png')
+
+# Access the generated image from the response
+image = response.content.attachments.first.image
+
+# Check image properties
+puts "Generated image: #{image.mime_type}"
+puts "Base64 encoded: #{image.base64?}"
+puts "Data size: ~#{image.data.length} bytes" if image.base64?
+
+# Save the edited image
+saved_path = image.save('ruby_with_ring.png')
+puts "Saved to: #{saved_path}"
+```
+
+### Multi-turn Image Refinement
+
+One of the powerful features of using the chat interface is the ability to refine generated images through conversation:
+
+```ruby
+chat = RubyLLM.chat(model: 'gemini-2.0-flash-preview-image-generation')
+
+# First edit - add a ring to the ruby image
+chat.ask('put this in a ring', with: 'path/to/ruby.png')
+
+# Refine the result in the same conversation
+response = chat.ask('change the background to blue')
+
+# The model will modify the previously generated image
+refined_image = response.content.attachments.first.image
+refined_image.save('ruby_ring_blue_background.png')
+
+# Continue refining
+response = chat.ask('make the ring more ornate and golden')
+final_image = response.content.attachments.first.image
+final_image.save('ruby_ornate_golden_ring.png')
+```
+
+### Chat vs Paint Methods
+
+RubyLLM provides two approaches for image generation:
+
+- **`RubyLLM.paint`**: Best for simple text-to-image generation from scratch
+- **`RubyLLM.chat` with image models**: Best for image editing, refinement, and complex workflows
+
+Use the chat interface for:
+- Editing existing images
+- Multi-turn image refinement and iteration
+- Complex image generation workflows
+- When you need conversation context and memory
+
+Use the paint method for:
+- Simple text-to-image generation
+- One-off image creation
+- When you don't need conversation context
+
 ## Image Sizes
 
 Some models, like DALL-E 3, allow you to specify the desired image dimensions via the `size:` argument.
@@ -124,7 +275,7 @@ image_portrait = RubyLLM.paint(
 
 ## Working with Generated Images
 
-The `RubyLLM::Image` object provides access to the generated image data and metadata.
+The `RubyLLM::Image` object provides access to the generated image data and metadata, whether the image was created using `RubyLLM.paint` or retrieved from a chat response.
 
 ### Accessing Image Data
 
@@ -138,10 +289,15 @@ The `RubyLLM::Image` object provides access to the generated image data and meta
 The `save` method works regardless of whether the image was delivered via URL or Base64. It fetches the data if necessary and writes it to the specified file path.
 
 ```ruby
-# Generate an image
+# Generate an image using paint method
 image = RubyLLM.paint("A steampunk mechanical owl")
 
-# Save the image to a local file
+# Or get an image from a chat response
+# chat = RubyLLM.chat(model: 'gemini-2.0-flash-preview-image-generation')
+# response = chat.ask("Create a steampunk mechanical owl")
+# image = response.content.attachments.first.image
+
+# Save the image to a local file (works the same for both methods)
 begin
   saved_path = image.save("steampunk_owl.png")
   puts "Image saved to #{saved_path}"
@@ -258,23 +414,28 @@ See the [Error Handling Guide]({% link _advanced/error-handling.md %}) for compr
 
 ## Content Safety
 
-AI image generation services have content safety filters. Prompts requesting harmful, explicit, or otherwise prohibited content will usually result in a `BadRequestError`. Avoid generating:
+AI image generation and editing services have content safety filters. Prompts requesting harmful, explicit, or otherwise prohibited content will usually result in a `BadRequestError`. Avoid generating or editing:
 
 *   Violent or hateful imagery.
 *   Sexually explicit content.
 *   Images of real people (especially public figures without consent, though policies vary).
 *   Direct copies of copyrighted characters or artwork.
 
+**Additional considerations for image editing:**
+*   Be mindful of editing copyrighted images without permission.
+*   Some providers may have stricter policies for editing existing images versus generating new ones.
+
 ## Performance Considerations
 
-Image generation can take several seconds (typically 5-20 seconds depending on the model and load).
+Image generation and editing can take several seconds (typically 5-20 seconds depending on the model and load).
 
-*   **Use Background Jobs:** In web applications, always perform image generation in a background job (like Sidekiq or GoodJob) to avoid blocking web requests.
+*   **Use Background Jobs:** In web applications, always perform image generation and editing in a background job (like Sidekiq or GoodJob) to avoid blocking web requests.
 *   **Timeouts:** Configure appropriate network timeouts in RubyLLM (see [Configuration Guide]({% link _getting_started/configuration.md %})).
-*   **Caching:** Store generated images (e.g., using Active Storage, cloud storage) rather than regenerating them frequently if the prompt is the same.
+*   **Caching:** Store generated and edited images (e.g., using Active Storage, cloud storage) rather than regenerating them frequently if the prompt is the same.
+*   **Image Editing Considerations:** When editing remote images, factor in additional time for downloading the source image before processing begins.
 
 ## Next Steps
 
-*   [Chatting with AI Models]({% link _core_features/chat.md %}): Learn about conversational AI.
+*   [Chatting with AI Models]({% link _core_features/chat.md %}): Learn about conversational AI and using chat for advanced image workflows.
 *   [Embeddings]({% link _core_features/embeddings.md %}): Explore text vector representations.
 *   [Error Handling]({% link _advanced/error-handling.md %}): Master handling API errors.

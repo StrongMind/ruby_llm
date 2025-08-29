@@ -2,29 +2,29 @@
 
 module RubyLLM
   # Assembles streaming responses from LLMs into complete messages.
-  # Handles the complexities of accumulating content and tool calls
-  # from partial chunks while tracking token usage.
   class StreamAccumulator
     attr_reader :content, :model_id, :tool_calls
 
     def initialize
-      @content = +''
+      @content = nil
       @tool_calls = {}
       @input_tokens = 0
       @output_tokens = 0
       @cached_tokens = 0
       @cache_creation_tokens = 0
       @latest_tool_call_id = nil
+      @reasoning_id = nil
     end
 
     def add(chunk)
       RubyLLM.logger.debug chunk.inspect if RubyLLM.config.log_stream_debug
       @model_id ||= chunk.model_id
+      @reasoning_id ||= chunk.reasoning_id
 
       if chunk.tool_call?
         accumulate_tool_calls chunk.tool_calls
       else
-        @content << (chunk.content || '')
+        accumulate_content(chunk.content)
       end
 
       count_tokens chunk
@@ -32,27 +32,89 @@ module RubyLLM
     end
 
     def to_message(response)
+      content = final_content
+      associate_reasoning_with_images(content)
+
       Message.new(
         role: :assistant,
-        content: content.empty? ? nil : content,
+        content: content,
         model_id: model_id,
         tool_calls: tool_calls_from_stream,
-        input_tokens: @input_tokens.positive? ? @input_tokens : nil,
-        output_tokens: @output_tokens.positive? ? @output_tokens : nil,
-        cached_tokens: @cached_tokens.positive? ? @cached_tokens : nil,
-        cache_creation_tokens: @cache_creation_tokens.positive? ? @cache_creation_tokens : nil,
+        input_tokens: positive_or_nil(@input_tokens),
+        output_tokens: positive_or_nil(@output_tokens),
+        cached_tokens: positive_or_nil(@cached_tokens),
+        cache_creation_tokens: positive_or_nil(@cache_creation_tokens),
         raw: response
       )
     end
 
     private
 
+    def associate_reasoning_with_images(content)
+      return unless @reasoning_id && content.is_a?(Content) && content.attachments.any?
+
+      content.attachments.each do |attachment|
+        attachment.instance_variable_set(:@reasoning_id, @reasoning_id) if attachment.is_a?(ImageAttachment)
+      end
+    end
+
+    def positive_or_nil(value)
+      value.positive? ? value : nil
+    end
+
+    def accumulate_content(new_content)
+      return unless new_content
+
+      if @content.nil?
+        @content = new_content.is_a?(String) ? +new_content : new_content
+      else
+        case [@content.class, new_content.class]
+        when [String, String]
+          @content << new_content
+        when [String, Content]
+          # Convert accumulated string to Content and merge
+          @content = Content.new(@content)
+          merge_content(new_content)
+        when [Content, String]
+          # Append string to existing Content's text
+          @content.instance_variable_set(:@text, (@content.text || '') + new_content)
+        when [Content, Content]
+          merge_content(new_content)
+        end
+      end
+    end
+
+    def merge_content(new_content)
+      # Merge text
+      current_text = @content.text || ''
+      new_text = new_content.text || ''
+      @content.instance_variable_set(:@text, current_text + new_text)
+
+      # Merge attachments
+      new_content.attachments.each do |attachment|
+        @content.attach(attachment)
+      end
+    end
+
+    def final_content
+      case @content
+      when nil
+        nil
+      when String
+        @content.empty? ? nil : @content
+      when Content
+        @content.text.nil? && @content.attachments.empty? ? nil : @content
+      else
+        @content
+      end
+    end
+
     def tool_calls_from_stream
       tool_calls.transform_values do |tc|
         arguments = if tc.arguments.is_a?(String) && !tc.arguments.empty?
                       JSON.parse(tc.arguments)
                     elsif tc.arguments.is_a?(String)
-                      {} # Return empty hash for empty string arguments
+                      {}
                     else
                       tc.arguments
                     end

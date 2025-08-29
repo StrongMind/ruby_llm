@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
 module RubyLLM
-  # Base class for LLM providers like OpenAI and Anthropic.
-  # Handles the complexities of API communication, streaming responses,
-  # and error handling so individual providers can focus on their unique features.
-  # Encapsulates configuration and connection to eliminate parameter threading.
+  # Base class for LLM providers.
   class Provider
     include Streaming
 
@@ -45,7 +42,6 @@ module RubyLLM
       normalized_temperature = maybe_normalize_temperature(temperature, model)
 
       payload = Utils.deep_merge(
-        params,
         render_payload(
           messages,
           tools: tools,
@@ -54,7 +50,8 @@ module RubyLLM
           cache_prompts: cache_prompts,
           stream: block_given?,
           schema: schema
-        )
+        ),
+        params
       )
 
       if block_given?
@@ -75,8 +72,8 @@ module RubyLLM
       parse_embedding_response(response, model:, text:)
     end
 
-    def paint(prompt, model:, size:)
-      payload = render_image_payload(prompt, model:, size:)
+    def paint(prompt, model:, size:, with:, params:)
+      payload = render_image_payload(prompt, model:, size:, with:, params:)
       response = @connection.post images_url, payload
       parse_image_response(response, model:)
     end
@@ -124,6 +121,10 @@ module RubyLLM
 
     def parse_tool_calls(_tool_calls)
       nil
+    end
+
+    def connection_multipart(config)
+      @connection_multipart ||= ConnectionMultipart.new(self, config)
     end
 
     class << self
@@ -206,13 +207,12 @@ module RubyLLM
       raise ConfigurationError, "Missing configuration for #{name}: #{missing.join(', ')}"
     end
 
-    def maybe_normalize_temperature(temperature, _model_id)
+    def maybe_normalize_temperature(temperature, _model)
       temperature
     end
 
     def sync_response(connection, payload, additional_headers = {})
       response = connection.post completion_url, payload do |req|
-        # Merge additional headers, with existing headers taking precedence
         req.headers = additional_headers.merge(req.headers) unless additional_headers.empty?
       end
       parse_completion_response response

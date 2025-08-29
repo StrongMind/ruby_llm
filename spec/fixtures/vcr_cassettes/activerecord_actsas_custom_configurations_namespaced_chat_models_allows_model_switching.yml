@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/chat/completions
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-4.1-nano","messages":[{"role":"user","content":"Hello"}],"stream":false,"temperature":0.7}'
+      string: '{"model":"gpt-4.1-nano","messages":[{"role":"user","content":"Hello"}],"stream":false}'
     headers:
       User-Agent:
       - Faraday v2.13.4
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 10 Aug 2025 13:26:06 GMT
+      - Tue, 26 Aug 2025 18:12:45 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,13 +35,13 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Processing-Ms:
-      - '271'
+      - '306'
       Openai-Project:
-      - proj_KyS64Yhsc9qhhwjNcgkOa88E
+      - "<OPENAI_PROJECT>"
       Openai-Version:
       - '2020-10-01'
       X-Envoy-Upstream-Service-Time:
-      - '295'
+      - '324'
       X-Ratelimit-Limit-Requests:
       - '500'
       X-Ratelimit-Limit-Tokens:
@@ -75,9 +75,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-C30LmBZK16mEoEQr0wOctwqAjyJAD",
+          "id": "chatcmpl-C8sRwiIRfhrPrEYI31Kgvj3OdsGPT",
           "object": "chat.completion",
-          "created": 1754832366,
+          "created": 1756231964,
           "model": "gpt-4.1-nano-2025-04-14",
           "choices": [
             {
@@ -108,18 +108,18 @@ http_interactions:
             }
           },
           "service_tier": "default",
-          "system_fingerprint": "fp_f12167b370"
+          "system_fingerprint": "fp_c4c155951e"
         }
-  recorded_at: Sun, 10 Aug 2025 13:26:06 GMT
+  recorded_at: Wed, 20 Aug 2025 17:01:54 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"Hello","status":"completed"}],"stream":false,"temperature":0.7}'
+      string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"Hello","status":"completed"}],"stream":false}'
     headers:
       User-Agent:
-      - Faraday v2.12.2
+      - Faraday v2.13.4
       Authorization:
       - Bearer <OPENAI_API_KEY>
       Content-Type:
@@ -134,7 +134,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Aug 2025 03:58:57 GMT
+      - Mon, 25 Aug 2025 05:05:00 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -148,7 +148,7 @@ http_interactions:
       X-Ratelimit-Remaining-Requests:
       - '29999'
       X-Ratelimit-Remaining-Tokens:
-      - '149999975'
+      - '149999972'
       X-Ratelimit-Reset-Requests:
       - 2ms
       X-Ratelimit-Reset-Tokens:
@@ -158,13 +158,13 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Project:
-      - proj_j3YWwie2yjmMHTGYtUxoTOJ7
+      - "<OPENAI_PROJECT>"
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '801'
+      - '602'
       X-Envoy-Upstream-Service-Time:
-      - '810'
+      - '605'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -184,9 +184,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_6892d300a1288191bde9c4631605b2e4098b2e370204711e",
+          "id": "resp_68abeefc22ac81a39d5a887c257f63110fea606cc8950df9",
           "object": "response",
-          "created_at": 1754452736,
+          "created_at": 1756098300,
           "status": "completed",
           "background": false,
           "error": null,
@@ -197,7 +197,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_6892d30121f481918a5049c66408a11e098b2e370204711e",
+              "id": "msg_68abeefc8c6881a3928282d26e41a38f0fea606cc8950df9",
               "type": "message",
               "status": "completed",
               "content": [
@@ -221,11 +221,12 @@ http_interactions:
           "safety_identifier": null,
           "service_tier": "default",
           "store": true,
-          "temperature": 0.7,
+          "temperature": 1.0,
           "text": {
             "format": {
               "type": "text"
-            }
+            },
+            "verbosity": "medium"
           },
           "tool_choice": "auto",
           "tools": [],
@@ -246,5 +247,5 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Wed, 06 Aug 2025 03:58:57 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:00 GMT
 recorded_with: VCR 6.3.1

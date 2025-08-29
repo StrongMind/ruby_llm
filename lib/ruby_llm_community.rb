@@ -4,6 +4,8 @@ require 'base64'
 require 'event_stream_parser'
 require 'faraday'
 require 'faraday/retry'
+require 'faraday/multipart'
+
 require 'json'
 require 'logger'
 require 'securerandom'
@@ -23,7 +25,8 @@ loader.inflector.inflect(
   'gpustack' => 'GPUStack',
   'mistral' => 'Mistral',
   'pdf' => 'PDF',
-  'version' => 'VERSION'
+  'version' => 'VERSION',
+  'vertexai' => 'VertexAI'
 )
 loader.ignore("#{__dir__}/shims")
 loader.ignore("#{__dir__}/tasks")
@@ -37,8 +40,6 @@ module RubyLlmCommunity
 end
 
 # A delightful Ruby interface to modern AI language models.
-# Provides a unified way to interact with models from OpenAI, Anthropic and others
-# with a focus on developer happiness and convention over configuration.
 module RubyLLM
   class Error < StandardError; end
 
@@ -97,6 +98,7 @@ RubyLLM::Provider.register :ollama, RubyLLM::Providers::Ollama
 RubyLLM::Provider.register :openai, RubyLLM::Providers::OpenAI
 RubyLLM::Provider.register :openrouter, RubyLLM::Providers::OpenRouter
 RubyLLM::Provider.register :perplexity, RubyLLM::Providers::Perplexity
+RubyLLM::Provider.register :vertexai, RubyLLM::Providers::VertexAI
 
 if defined?(Rails::Railtie)
   require 'ruby_llm/railtie'

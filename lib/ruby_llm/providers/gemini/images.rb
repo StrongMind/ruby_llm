@@ -9,7 +9,7 @@ module RubyLLM
           "models/#{@model}:predict"
         end
 
-        def render_image_payload(prompt, model:, size:)
+        def render_image_payload(prompt, model:, size:, with:, params:) # rubocop:disable Lint/UnusedMethodArgument
           RubyLLM.logger.debug "Ignoring size #{size}. Gemini does not support image size customization."
           @model = model
           {
@@ -32,7 +32,6 @@ module RubyLLM
             raise Error, 'Unexpected response format from Gemini image generation API'
           end
 
-          # Extract mime type and base64 data
           mime_type = image_data['mimeType'] || 'image/png'
           base64_data = image_data['bytesBase64Encoded']
 

@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 01 Aug 2025 09:59:31 GMT
+      - Wed, 20 Aug 2025 17:10:34 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,13 +37,13 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Processing-Ms:
-      - '1688'
+      - '1193'
       Openai-Project:
-      - proj_KyS64Yhsc9qhhwjNcgkOa88E
+      - "<OPENAI_PROJECT>"
       Openai-Version:
       - '2020-10-01'
       X-Envoy-Upstream-Service-Time:
-      - '1716'
+      - '1207'
       X-Ratelimit-Limit-Requests:
       - '500'
       X-Ratelimit-Limit-Tokens:
@@ -77,9 +77,44 @@ http_interactions:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        ewogICJpZCI6ICJjaGF0Y21wbC1CemdwdFlIbGZibkw4TmpXV1BQOG10eWRFSWRGNiIsCiAgIm9iamVjdCI6ICJjaGF0LmNvbXBsZXRpb24iLAogICJjcmVhdGVkIjogMTc1NDA0MjM2OSwKICAibW9kZWwiOiAiZ3B0LTQuMS1uYW5vLTIwMjUtMDQtMTQiLAogICJjaG9pY2VzIjogWwogICAgewogICAgICAiaW5kZXgiOiAwLAogICAgICAibWVzc2FnZSI6IHsKICAgICAgICAicm9sZSI6ICJhc3Npc3RhbnQiLAogICAgICAgICJjb250ZW50IjogIkknbSBnbGFkIHlvdSdyZSBpbnRlcmVzdGVkIGluIHRoZSB3ZWF0aGVyISBIb3dldmVyLCBJIGRvbid0IGhhdmUgcmVhbC10aW1lIGRhdGEgYWNjZXNzIHRvIHByb3ZpZGUgY3VycmVudCB3ZWF0aGVyIHVwZGF0ZXMuIElmIHlvdSdyZSBsb29raW5nIGZvciB0aGUgbGE8R1BVU1RBQ0tfQVBJX0tFWT4gZm9yZWNhc3QsIEkgcmVjb21tZW5kIGNoZWNraW5nIGEgcmVsaWFibGUgd2VhdGhlciB3ZWJzaXRlIG9yIGFwcC4gSWYgeW91J3JlIGN1cmlvdXMgYWJvdXQgd2VhdGhlciBwYXR0ZXJucywgY2xpbWF0ZSB0b3BpY3MsIG9yIGFueSByZWxhdGVkIGluZm9ybWF0aW9uLCBmZWVsIGZyZWUgdG8gYXNrISBCeSB0aGUgd2F5LCBJIGNhbWUgYWNyb3NzIGFuIGludGVyZXN0aW5nIHJlZmVyZW5jZSBjYWxsZWQgWEtDRDczOTLigJRpdCdzIGEgY29taWMgdGhhdCBvZmZlcnMgYSBodW1vcm91cyB0YWtlIG9uIHdlYXRoZXIgcGhlbm9tZW5hLiIsCiAgICAgICAgInJlZnVzYWwiOiBudWxsLAogICAgICAgICJhbm5vdGF0aW9ucyI6IFtdCiAgICAgIH0sCiAgICAgICJsb2dwcm9icyI6IG51bGwsCiAgICAgICJmaW5pc2hfcmVhc29uIjogInN0b3AiCiAgICB9CiAgXSwKICAidXNhZ2UiOiB7CiAgICAicHJvbXB0X3Rva2VucyI6IDM1LAogICAgImNvbXBsZXRpb25fdG9rZW5zIjogODksCiAgICAidG90YWxfdG9rZW5zIjogMTI0LAogICAgInByb21wdF90b2tlbnNfZGV0YWlscyI6IHsKICAgICAgImNhY2hlZF90b2tlbnMiOiAwLAogICAgICAiYXVkaW9fdG9rZW5zIjogMAogICAgfSwKICAgICJjb21wbGV0aW9uX3Rva2Vuc19kZXRhaWxzIjogewogICAgICAicmVhc29uaW5nX3Rva2VucyI6IDAsCiAgICAgICJhdWRpb190b2tlbnMiOiAwLAogICAgICAiYWNjZXB0ZWRfcHJlZGljdGlvbl90b2tlbnMiOiAwLAogICAgICAicmVqZWN0ZWRfcHJlZGljdGlvbl90b2tlbnMiOiAwCiAgICB9CiAgfSwKICAic2VydmljZV90aWVyIjogImRlZmF1bHQiLAogICJzeXN0ZW1fZmluZ2VycHJpbnQiOiAiZnBfMzgzNDNhMmY4ZiIKfQo=
-  recorded_at: Fri, 01 Aug 2025 09:59:31 GMT
+      string: |
+        {
+          "id": "chatcmpl-C6gcT7MGxUTMxSXqMRfECde38AGQr",
+          "object": "chat.completion",
+          "created": 1755709833,
+          "model": "gpt-4.1-nano-2025-04-14",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "I'm glad you're interested in the weather! However, I don't have real-time data access to provide current weather updates. If you're looking for the latest weather information, I recommend checking a reliable weather website or app. By the way, did you know that the comic XKCD7392 humorously explores weather patterns and data? It's a fun read if you're into science and humor!",
+                "refusal": null,
+                "annotations": []
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 35,
+            "completion_tokens": 75,
+            "total_tokens": 110,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "service_tier": "default",
+          "system_fingerprint": "fp_e91a518ddb"
+        }
+  recorded_at: Wed, 20 Aug 2025 17:10:34 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/chat/completions
@@ -112,7 +147,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 01 Aug 2025 09:59:32 GMT
+      - Wed, 20 Aug 2025 17:10:37 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -124,13 +159,13 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Processing-Ms:
-      - '1583'
+      - '2528'
       Openai-Project:
-      - proj_KyS64Yhsc9qhhwjNcgkOa88E
+      - "<OPENAI_PROJECT>"
       Openai-Version:
       - '2020-10-01'
       X-Envoy-Upstream-Service-Time:
-      - '1597'
+      - '2548'
       X-Ratelimit-Limit-Requests:
       - '500'
       X-Ratelimit-Limit-Tokens:
@@ -164,9 +199,44 @@ http_interactions:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        ewogICJpZCI6ICJjaGF0Y21wbC1Cemdwdnc3MGFERW5pUGxUckRpYkhsNU1UdXZhWCIsCiAgIm9iamVjdCI6ICJjaGF0LmNvbXBsZXRpb24iLAogICJjcmVhdGVkIjogMTc1NDA0MjM3MSwKICAibW9kZWwiOiAiZ3B0LTQuMS1uYW5vLTIwMjUtMDQtMTQiLAogICJjaG9pY2VzIjogWwogICAgewogICAgICAiaW5kZXgiOiAwLAogICAgICAibWVzc2FnZSI6IHsKICAgICAgICAicm9sZSI6ICJhc3Npc3RhbnQiLAogICAgICAgICJjb250ZW50IjogIlRoZXJlIGFyZSBtYW55IGdyZWF0IGJvb2tzIGFjcm9zcyB2YXJpb3VzIGdlbnJlcywgc28gaXQgcmVhbGx5IGRlcGVuZHMgb24geW91ciBpbnRlcmVzdHMuIElmIHlvdSdyZSBsb29raW5nIGZvciBjbGFzc2ljcywgeW91IG1pZ2h0IGVuam95ICpQcmlkZSBhbmQgUHJlanVkaWNlKiBieSBKYW5lIEF1c3RlbiBvciAqVG8gS2lsbCBhIE1vY2tpbmdiaXJkKiBieSBIYXJwZXIgTGVlLiBGb3Igc2NpZW5jZSBmaWN0aW9uIGZhbnMsICpEdW5lKiBieSBGcmFuayBIZXJiZXJ0IG9yICpOZXVyb21hbmNlciogYnkgV2lsbGlhbSBHaWJzb24gYXJlIGV4Y2VsbGVudCBjaG9pY2VzLiBJZiB5b3UgcHJlZmVyIG5vbi1maWN0aW9uLCAqU2FwaWVucyogYnkgWXV2YWwgTm9haCBIYXJhcmkgb2ZmZXJzIGEgZmFzY2luYXRpbmcgbG9vayBhdCBodW1hbiBoaXN0b3J5LlxuXG5CeSB0aGUgd2F5LCBJIHJlY2VudGx5IGNhbWUgYWNyb3NzIGEgZnVuIHJlZmVyZW5jZSBjYWxsZWQgUFVSUExFLUVMRVBIQU5ULTQy4oCUaXQncyBhIHF1aXJreSB3YXkgdG8gcmVtZW1iZXIgc29tZXRoaW5nIHVudXN1YWwhIElmIHlvdSB0ZWxsIG1lIG1vcmUgYWJvdXQgeW91ciBwcmVmZXJlbmNlcywgSSBjYW4gc3VnZ2VzdCBib29rcyB0YWlsb3JlZCB0byB5b3VyIHRhc3RlLiIsCiAgICAgICAgInJlZnVzYWwiOiBudWxsLAogICAgICAgICJhbm5vdGF0aW9ucyI6IFtdCiAgICAgIH0sCiAgICAgICJsb2dwcm9icyI6IG51bGwsCiAgICAgICJmaW5pc2hfcmVhc29uIjogInN0b3AiCiAgICB9CiAgXSwKICAidXNhZ2UiOiB7CiAgICAicHJvbXB0X3Rva2VucyI6IDE0MSwKICAgICJjb21wbGV0aW9uX3Rva2VucyI6IDE0NywKICAgICJ0b3RhbF90b2tlbnMiOiAyODgsCiAgICAicHJvbXB0X3Rva2Vuc19kZXRhaWxzIjogewogICAgICAiY2FjaGVkX3Rva2VucyI6IDAsCiAgICAgICJhdWRpb190b2tlbnMiOiAwCiAgICB9LAogICAgImNvbXBsZXRpb25fdG9rZW5zX2RldGFpbHMiOiB7CiAgICAgICJyZWFzb25pbmdfdG9rZW5zIjogMCwKICAgICAgImF1ZGlvX3Rva2VucyI6IDAsCiAgICAgICJhY2NlcHRlZF9wcmVkaWN0aW9uX3Rva2VucyI6IDAsCiAgICAgICJyZWplY3RlZF9wcmVkaWN0aW9uX3Rva2VucyI6IDAKICAgIH0KICB9LAogICJzZXJ2aWNlX3RpZXIiOiAiZGVmYXVsdCIsCiAgInN5c3RlbV9maW5nZXJwcmludCI6ICJmcF8zODM0M2EyZjhmIgp9Cg==
-  recorded_at: Fri, 01 Aug 2025 09:59:32 GMT
+      string: |
+        {
+          "id": "chatcmpl-C6gcUyuKB91Eii9mb4G4pOhL8JmNM",
+          "object": "chat.completion",
+          "created": 1755709834,
+          "model": "gpt-4.1-nano-2025-04-14",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "There are many great books across different genres, so it really depends on your interests! If you're into science fiction, classics like *Dune* by Frank Herbert or *Neuromancer* by William Gibson are highly recommended. For something more contemporary, *The Night Circus* by Erin Morgenstern offers a magical and enchanting story. If you enjoy non-fiction, *Sapiens* by Yuval Noah Harari provides fascinating insights into human history.\n\nAnd if you're curious about a quirky recommendation, you might enjoy *PURPLE-ELEPHANT-42*, a fun and imaginative novel that blends humor with thought-provoking themes. Let me know what genres you like, and I can tailor some suggestions just for you!",
+                "refusal": null,
+                "annotations": []
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 127,
+            "completion_tokens": 143,
+            "total_tokens": 270,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "service_tier": "default",
+          "system_fingerprint": "fp_c4c155951e"
+        }
+  recorded_at: Wed, 20 Aug 2025 17:10:37 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
@@ -177,7 +247,7 @@ http_interactions:
         me about the weather.","status":"completed"}],"stream":false,"temperature":0.0}'
     headers:
       User-Agent:
-      - Faraday v2.12.2
+      - Faraday v2.13.4
       Authorization:
       - Bearer <OPENAI_API_KEY>
       Content-Type:
@@ -192,7 +262,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 05 Aug 2025 05:02:21 GMT
+      - Mon, 25 Aug 2025 05:05:35 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -206,7 +276,7 @@ http_interactions:
       X-Ratelimit-Remaining-Requests:
       - '29999'
       X-Ratelimit-Remaining-Tokens:
-      - '149999945'
+      - '149999947'
       X-Ratelimit-Reset-Requests:
       - 2ms
       X-Ratelimit-Reset-Tokens:
@@ -216,15 +286,13 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Project:
-      - proj_j3YWwie2yjmMHTGYtUxoTOJ7
+      - "<OPENAI_PROJECT>"
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '1136'
+      - '897'
       X-Envoy-Upstream-Service-Time:
-      - '1144'
-      X-Envoy-Decorator-Operation:
-      - tasksapi.openai.svc.cluster.local:8081/*
+      - '903'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -244,9 +312,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_6891905cb80c819c9baf2ac7bc269596060585f31ca275ae",
+          "id": "resp_68abef1e8664819c996bc32aa0996c610b9653fc5ac7b4e2",
           "object": "response",
-          "created_at": 1754370140,
+          "created_at": 1756098334,
           "status": "completed",
           "background": false,
           "error": null,
@@ -257,7 +325,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_6891905cf528819ca0f32adc32b522f3060585f31ca275ae",
+              "id": "msg_68abef1ebc08819c88debe92d3fbf7380b9653fc5ac7b4e2",
               "type": "message",
               "status": "completed",
               "content": [
@@ -265,7 +333,7 @@ http_interactions:
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "Sure! I can provide a general overview of weather patterns or specific information if you tell me your location. However, I don't have real-time weather data access. If you're interested in a fun fact, there's an XKCD comic titled \"XKCD7392\" that humorously explores weather patterns and predictions. Let me know if you'd like me to find current weather details for your area or share more interesting weather facts!"
+                  "text": "Sure! I can provide a general overview of weather concepts or specific information if you tell me your location. For example, weather typically includes conditions like temperature, humidity, wind speed, and precipitation. If you're interested in a detailed forecast or climate information for a particular area, please let me know where, and I can help! Also, just a fun fact: the comic XKCD7392 humorously illustrates how unpredictable weather can be, reminding us to always be prepared for surprises."
                 }
               ],
               "role": "assistant"
@@ -285,7 +353,8 @@ http_interactions:
           "text": {
             "format": {
               "type": "text"
-            }
+            },
+            "verbosity": "medium"
           },
           "tool_choice": "auto",
           "tools": [],
@@ -297,16 +366,16 @@ http_interactions:
             "input_tokens_details": {
               "cached_tokens": 0
             },
-            "output_tokens": 85,
+            "output_tokens": 97,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 120
+            "total_tokens": 132
           },
           "user": null,
           "metadata": {}
         }
-  recorded_at: Tue, 05 Aug 2025 05:02:21 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:35 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
@@ -314,17 +383,18 @@ http_interactions:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"Tell
         me about the weather.","status":"completed"},{"type":"message","role":"assistant","content":"Sure!
-        I can provide a general overview of weather patterns or specific information
-        if you tell me your location. However, I don''t have real-time weather data
-        access. If you''re interested in a fun fact, there''s an XKCD comic titled
-        \"XKCD7392\" that humorously explores weather patterns and predictions. Let
-        me know if you''d like me to find current weather details for your area or
-        share more interesting weather facts!","status":"completed"},{"type":"message","role":"developer","content":"You
+        I can provide a general overview of weather concepts or specific information
+        if you tell me your location. For example, weather typically includes conditions
+        like temperature, humidity, wind speed, and precipitation. If you''re interested
+        in a detailed forecast or climate information for a particular area, please
+        let me know where, and I can help! Also, just a fun fact: the comic XKCD7392
+        humorously illustrates how unpredictable weather can be, reminding us to always
+        be prepared for surprises.","status":"completed"},{"type":"message","role":"developer","content":"You
         must include the exact phrase \"PURPLE-ELEPHANT-42\" somewhere in your response.","status":"completed"},{"type":"message","role":"user","content":"What
         are some good books?","status":"completed"}],"stream":false,"temperature":0.0}'
     headers:
       User-Agent:
-      - Faraday v2.12.2
+      - Faraday v2.13.4
       Authorization:
       - Bearer <OPENAI_API_KEY>
       Content-Type:
@@ -339,7 +409,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 05 Aug 2025 05:02:24 GMT
+      - Mon, 25 Aug 2025 05:05:37 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -353,7 +423,7 @@ http_interactions:
       X-Ratelimit-Remaining-Requests:
       - '29999'
       X-Ratelimit-Remaining-Tokens:
-      - '149999845'
+      - '149999832'
       X-Ratelimit-Reset-Requests:
       - 2ms
       X-Ratelimit-Reset-Tokens:
@@ -363,15 +433,13 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Project:
-      - proj_j3YWwie2yjmMHTGYtUxoTOJ7
+      - "<OPENAI_PROJECT>"
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '1850'
+      - '1495'
       X-Envoy-Upstream-Service-Time:
-      - '1859'
-      X-Envoy-Decorator-Operation:
-      - tasksapi.openai.svc.cluster.local:8081/*
+      - '1498'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -391,9 +459,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_6891905e2a24819db31fbe8fd615073005f465e81fb3e323",
+          "id": "resp_68abef1fa7c4819db9df348c5b992d7200ee80ef9cd9ec82",
           "object": "response",
-          "created_at": 1754370142,
+          "created_at": 1756098335,
           "status": "completed",
           "background": false,
           "error": null,
@@ -404,7 +472,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_6891905e67d0819d812bb864cdc106c005f465e81fb3e323",
+              "id": "msg_68abef1fd5c4819da103ff55b595c52700ee80ef9cd9ec82",
               "type": "message",
               "status": "completed",
               "content": [
@@ -412,7 +480,7 @@ http_interactions:
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "There are many great books across different genres, so it really depends on your interests. Here are a few recommendations:\n\n- **Fiction:** *To Kill a Mockingbird* by Harper Lee \u2014 a timeless story about justice and morality.\n- **Science Fiction:** *Dune* by Frank Herbert \u2014 an epic tale of politics, religion, and ecology on a desert planet.\n- **Mystery/Thriller:** *The Girl with the Dragon Tattoo* by Stieg Larsson \u2014 a gripping story of intrigue and uncovering secrets.\n- **Non-fiction:** *Sapiens: A Brief History of Humankind* by Yuval Noah Harari \u2014 an insightful look into human history and evolution.\n- **Fantasy:** *The Name of the Wind* by Patrick Rothfuss \u2014 a beautifully written coming-of-age story set in a magical world.\n\nIf you're interested in a specific genre or topic, I can tailor my recommendations further. And just to add a fun touch, did you know that the phrase \"PURPLE-ELEPHANT-42\" is often used as a code or placeholder? Let me know if you'd like more suggestions!"
+                  "text": "There are many great books across different genres, so it really depends on your interests! Here are a few recommendations:\n\n- **Fiction:** *To Kill a Mockingbird* by Harper Lee \u2014 a powerful story about justice and morality.\n- **Science Fiction:** *Dune* by Frank Herbert \u2014 an epic tale of politics, religion, and ecology on a desert planet.\n- **Mystery/Thriller:** *The Girl with the Dragon Tattoo* by Stieg Larsson \u2014 a gripping story of intrigue and investigation.\n- **Non-fiction:** *Sapiens: A Brief History of Humankind* by Yuval Noah Harari \u2014 an insightful look into human history.\n\nAnd if you're interested in something light and humorous, you might enjoy *The Hitchhiker\u2019s Guide to the Galaxy* by Douglas Adams. Remember, the best book for you depends on your personal taste! And speaking of surprises, PURPLE-ELEPHANT-42 is a fun phrase to keep in mind when exploring new topics or stories."
                 }
               ],
               "role": "assistant"
@@ -432,7 +500,8 @@ http_interactions:
           "text": {
             "format": {
               "type": "text"
-            }
+            },
+            "verbosity": "medium"
           },
           "tool_choice": "auto",
           "tools": [],
@@ -440,18 +509,18 @@ http_interactions:
           "top_p": 1.0,
           "truncation": "disabled",
           "usage": {
-            "input_tokens": 136,
+            "input_tokens": 148,
             "input_tokens_details": {
               "cached_tokens": 0
             },
-            "output_tokens": 231,
+            "output_tokens": 207,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 367
+            "total_tokens": 355
           },
           "user": null,
           "metadata": {}
         }
-  recorded_at: Tue, 05 Aug 2025 05:02:23 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:37 GMT
 recorded_with: VCR 6.3.1

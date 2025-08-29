@@ -116,7 +116,7 @@ jobs:
         fi
         echo "Local version: $VERSION"
 
-        GEM_NAME="ruby_llm"
+        GEM_NAME="ruby_llm_community"
         echo "Fetching published versions for '$GEM_NAME'..."
 
         # Combine results from --all and --prerelease, extract, clean, unique sort

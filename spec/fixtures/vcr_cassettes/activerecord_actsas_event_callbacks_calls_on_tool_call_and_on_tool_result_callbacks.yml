@@ -6,9 +6,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","messages":[{"role":"user","content":"What
-        is 2 + 2?"}],"stream":false,"temperature":0.7,"tools":[{"type":"function","function":{"name":"calculator","description":"Performs
+        is 2 + 2?"}],"stream":false,"tools":[{"type":"function","function":{"name":"calculator","description":"Performs
         basic arithmetic","parameters":{"type":"object","properties":{"expression":{"type":"string","description":"Math
-        expression to evaluate"}},"required":["expression"]}}}],"tool_choice":"auto"}'
+        expression to evaluate"}},"required":["expression"]}}}]}'
     headers:
       User-Agent:
       - Faraday v2.13.4
@@ -26,7 +26,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Aug 2025 12:46:46 GMT
+      - Tue, 26 Aug 2025 18:12:46 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,13 +38,13 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Processing-Ms:
-      - '298'
+      - '362'
       Openai-Project:
       - "<OPENAI_PROJECT>"
       Openai-Version:
       - '2020-10-01'
       X-Envoy-Upstream-Service-Time:
-      - '404'
+      - '384'
       X-Ratelimit-Limit-Requests:
       - '500'
       X-Ratelimit-Limit-Tokens:
@@ -78,9 +78,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-C1XpWYHLU9amXzMI91xBNUrNqyauf",
+          "id": "chatcmpl-C8sRxH5H7CJc6pj2AwOlhOqqe9Vur",
           "object": "chat.completion",
-          "created": 1754484406,
+          "created": 1756231965,
           "model": "gpt-4.1-nano-2025-04-14",
           "choices": [
             {
@@ -90,7 +90,7 @@ http_interactions:
                 "content": null,
                 "tool_calls": [
                   {
-                    "id": "call_JOspIxXpPWVearkVH6idVtdQ",
+                    "id": "call_wDfwRkoVgPIpT4yQsuKOnlXz",
                     "type": "function",
                     "function": {
                       "name": "calculator",
@@ -121,18 +121,18 @@ http_interactions:
             }
           },
           "service_tier": "default",
-          "system_fingerprint": "fp_38343a2f8f"
+          "system_fingerprint": "fp_c4c155951e"
         }
-  recorded_at: Wed, 06 Aug 2025 12:46:46 GMT
+  recorded_at: Tue, 26 Aug 2025 18:12:46 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/chat/completions
     body:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","messages":[{"role":"user","content":"What
-        is 2 + 2?"},{"role":"assistant","tool_calls":[{"id":"call_JOspIxXpPWVearkVH6idVtdQ","type":"function","function":{"name":"calculator","arguments":"{\"expression\":\"2+2\"}"}}]},{"role":"tool","content":"4","tool_call_id":"call_JOspIxXpPWVearkVH6idVtdQ"}],"stream":false,"temperature":0.7,"tools":[{"type":"function","function":{"name":"calculator","description":"Performs
+        is 2 + 2?"},{"role":"assistant","tool_calls":[{"id":"call_wDfwRkoVgPIpT4yQsuKOnlXz","type":"function","function":{"name":"calculator","arguments":"{\"expression\":\"2+2\"}"}}]},{"role":"tool","content":"4","tool_call_id":"call_wDfwRkoVgPIpT4yQsuKOnlXz"}],"stream":false,"tools":[{"type":"function","function":{"name":"calculator","description":"Performs
         basic arithmetic","parameters":{"type":"object","properties":{"expression":{"type":"string","description":"Math
-        expression to evaluate"}},"required":["expression"]}}}],"tool_choice":"auto"}'
+        expression to evaluate"}},"required":["expression"]}}}]}'
     headers:
       User-Agent:
       - Faraday v2.13.4
@@ -150,7 +150,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Aug 2025 12:46:47 GMT
+      - Tue, 26 Aug 2025 18:12:46 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -162,13 +162,13 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Processing-Ms:
-      - '307'
+      - '418'
       Openai-Project:
       - "<OPENAI_PROJECT>"
       Openai-Version:
       - '2020-10-01'
       X-Envoy-Upstream-Service-Time:
-      - '335'
+      - '443'
       X-Ratelimit-Limit-Requests:
       - '500'
       X-Ratelimit-Limit-Tokens:
@@ -202,9 +202,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-C1XpW80sR43opPvcODnCy7AzFQJXL",
+          "id": "chatcmpl-C8sRyCLZM2zzwOCLSuxZPkCw3MOlB",
           "object": "chat.completion",
-          "created": 1754484406,
+          "created": 1756231966,
           "model": "gpt-4.1-nano-2025-04-14",
           "choices": [
             {
@@ -235,21 +235,21 @@ http_interactions:
             }
           },
           "service_tier": "default",
-          "system_fingerprint": "fp_38343a2f8f"
+          "system_fingerprint": "fp_c4c155951e"
         }
-  recorded_at: Wed, 06 Aug 2025 12:46:47 GMT
+  recorded_at: Wed, 20 Aug 2025 15:48:40 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
     body:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"What
-        is 2 + 2?","status":"completed"}],"stream":false,"temperature":0.7,"tools":[{"type":"function","name":"calculator","description":"Performs
+        is 2 + 2?","status":"completed"}],"stream":false,"tools":[{"type":"function","name":"calculator","description":"Performs
         basic arithmetic","parameters":{"type":"object","properties":{"expression":{"type":"string","description":"Math
-        expression to evaluate"}},"required":["expression"]}}],"tool_choice":"auto"}'
+        expression to evaluate"}},"required":["expression"]}}]}'
     headers:
       User-Agent:
-      - Faraday v2.12.2
+      - Faraday v2.13.4
       Authorization:
       - Bearer <OPENAI_API_KEY>
       Content-Type:
@@ -264,7 +264,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 07 Aug 2025 03:54:00 GMT
+      - Mon, 25 Aug 2025 05:05:02 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -292,9 +292,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '703'
+      - '631'
       X-Envoy-Upstream-Service-Time:
-      - '710'
+      - '633'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -314,9 +314,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_689423577940819ca555c3d2ca30a4e10e811bc52e7a2e0d",
+          "id": "resp_68abeefe38c08197aa1017eef3c36bde00e4c3317a259a80",
           "object": "response",
-          "created_at": 1754538839,
+          "created_at": 1756098302,
           "status": "completed",
           "background": false,
           "error": null,
@@ -327,11 +327,11 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "fc_68942357f97c819c96b64e65d924359a0e811bc52e7a2e0d",
+              "id": "fc_68abeefea63c8197827064bd840f60ff00e4c3317a259a80",
               "type": "function_call",
               "status": "completed",
               "arguments": "{\"expression\":\"2 + 2\"}",
-              "call_id": "call_EBIIjOIe4JhdJSNgoMLgNLEh",
+              "call_id": "call_cIrcaN989gGoO1btnT7IJQLi",
               "name": "calculator"
             }
           ],
@@ -345,11 +345,12 @@ http_interactions:
           "safety_identifier": null,
           "service_tier": "default",
           "store": true,
-          "temperature": 0.7,
+          "temperature": 1.0,
           "text": {
             "format": {
               "type": "text"
-            }
+            },
+            "verbosity": "medium"
           },
           "tool_choice": "auto",
           "tools": [
@@ -381,29 +382,29 @@ http_interactions:
             "input_tokens_details": {
               "cached_tokens": 0
             },
-            "output_tokens": 18,
+            "output_tokens": 17,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 66
+            "total_tokens": 65
           },
           "user": null,
           "metadata": {}
         }
-  recorded_at: Thu, 07 Aug 2025 03:54:00 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:02 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
     body:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"What
-        is 2 + 2?","status":"completed"},{"type":"function_call","call_id":"call_EBIIjOIe4JhdJSNgoMLgNLEh","name":"calculator","arguments":"{\"expression\":\"2
-        + 2\"}","status":"completed"},{"type":"function_call_output","call_id":"call_EBIIjOIe4JhdJSNgoMLgNLEh","output":"4","status":"completed"}],"stream":false,"temperature":0.7,"tools":[{"type":"function","name":"calculator","description":"Performs
+        is 2 + 2?","status":"completed"},{"type":"function_call","call_id":"call_cIrcaN989gGoO1btnT7IJQLi","name":"calculator","arguments":"{\"expression\":\"2
+        + 2\"}","status":"completed"},{"type":"function_call_output","call_id":"call_cIrcaN989gGoO1btnT7IJQLi","output":"4","status":"completed"}],"stream":false,"tools":[{"type":"function","name":"calculator","description":"Performs
         basic arithmetic","parameters":{"type":"object","properties":{"expression":{"type":"string","description":"Math
-        expression to evaluate"}},"required":["expression"]}}],"tool_choice":"auto"}'
+        expression to evaluate"}},"required":["expression"]}}]}'
     headers:
       User-Agent:
-      - Faraday v2.12.2
+      - Faraday v2.13.4
       Authorization:
       - Bearer <OPENAI_API_KEY>
       Content-Type:
@@ -418,7 +419,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 07 Aug 2025 03:54:00 GMT
+      - Mon, 25 Aug 2025 05:05:03 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -432,7 +433,7 @@ http_interactions:
       X-Ratelimit-Remaining-Requests:
       - '29999'
       X-Ratelimit-Remaining-Tokens:
-      - '149999710'
+      - '149999712'
       X-Ratelimit-Reset-Requests:
       - 2ms
       X-Ratelimit-Reset-Tokens:
@@ -446,9 +447,9 @@ http_interactions:
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '389'
+      - '504'
       X-Envoy-Upstream-Service-Time:
-      - '395'
+      - '508'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -468,9 +469,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_6894235866f4819cbcdd1dc26462e73605d8a876fd7a4c5b",
+          "id": "resp_68abeeff12dc81a0be6e850f4591d07900c6aae46b44a839",
           "object": "response",
-          "created_at": 1754538840,
+          "created_at": 1756098303,
           "status": "completed",
           "background": false,
           "error": null,
@@ -481,7 +482,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_689423589a40819ca2b9e51335c0e31605d8a876fd7a4c5b",
+              "id": "msg_68abeeff664481a09631672d98e5d3c400c6aae46b44a839",
               "type": "message",
               "status": "completed",
               "content": [
@@ -489,7 +490,7 @@ http_interactions:
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "The answer is 4."
+                  "text": "2 + 2 equals 4."
                 }
               ],
               "role": "assistant"
@@ -505,11 +506,12 @@ http_interactions:
           "safety_identifier": null,
           "service_tier": "default",
           "store": true,
-          "temperature": 0.7,
+          "temperature": 1.0,
           "text": {
             "format": {
               "type": "text"
-            }
+            },
+            "verbosity": "medium"
           },
           "tool_choice": "auto",
           "tools": [
@@ -537,18 +539,18 @@ http_interactions:
           "top_p": 1.0,
           "truncation": "disabled",
           "usage": {
-            "input_tokens": 72,
+            "input_tokens": 71,
             "input_tokens_details": {
               "cached_tokens": 0
             },
-            "output_tokens": 8,
+            "output_tokens": 10,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 80
+            "total_tokens": 82
           },
           "user": null,
           "metadata": {}
         }
-  recorded_at: Thu, 07 Aug 2025 03:54:00 GMT
+  recorded_at: Mon, 25 Aug 2025 05:05:03 GMT
 recorded_with: VCR 6.3.1

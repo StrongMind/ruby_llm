@@ -6,10 +6,10 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"Generate
-        a person named Bob","status":"completed"}],"stream":false,"temperature":0.7,"text":{"format":{"type":"json_schema","name":"response","schema":{"type":"object","properties":{"name":{"type":"string"},"age":{"type":"integer"}},"required":["name","age"],"additionalProperties":false},"strict":true}}}'
+        a person named Bob","status":"completed"}],"stream":false,"text":{"format":{"type":"json_schema","name":"response","schema":{"type":"object","properties":{"name":{"type":"string"},"age":{"type":"integer"}},"required":["name","age"],"additionalProperties":false},"strict":true}}}'
     headers:
       User-Agent:
-      - Faraday v2.12.2
+      - Faraday v2.13.4
       Authorization:
       - Bearer <OPENAI_API_KEY>
       Content-Type:
@@ -24,7 +24,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Aug 2025 04:18:26 GMT
+      - Mon, 25 Aug 2025 05:06:50 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -48,13 +48,13 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Project:
-      - proj_j3YWwie2yjmMHTGYtUxoTOJ7
+      - "<OPENAI_PROJECT>"
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '522'
+      - '346'
       X-Envoy-Upstream-Service-Time:
-      - '530'
+      - '347'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -74,9 +74,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_6892d7923340819285e2d49bc48b0e550b9d53e1a1247b55",
+          "id": "resp_68abef69d93c8191b1bc8f239112d5e20dbd8f4c187f4db0",
           "object": "response",
-          "created_at": 1754453906,
+          "created_at": 1756098409,
           "status": "completed",
           "background": false,
           "error": null,
@@ -87,7 +87,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_6892d7927ccc8192864353f37e6aed9e0b9d53e1a1247b55",
+              "id": "msg_68abef6a14f88191b0023b6196ed45940dbd8f4c187f4db0",
               "type": "message",
               "status": "completed",
               "content": [
@@ -111,7 +111,7 @@ http_interactions:
           "safety_identifier": null,
           "service_tier": "default",
           "store": true,
-          "temperature": 0.7,
+          "temperature": 1.0,
           "text": {
             "format": {
               "type": "json_schema",
@@ -134,7 +134,8 @@ http_interactions:
                 "additionalProperties": false
               },
               "strict": true
-            }
+            },
+            "verbosity": "medium"
           },
           "tool_choice": "auto",
           "tools": [],
@@ -155,7 +156,7 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Wed, 06 Aug 2025 04:18:26 GMT
+  recorded_at: Mon, 25 Aug 2025 05:06:50 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/responses
@@ -163,10 +164,10 @@ http_interactions:
       encoding: UTF-8
       string: '{"model":"gpt-4.1-nano","input":[{"type":"message","role":"user","content":"Generate
         a person named Bob","status":"completed"},{"type":"message","role":"assistant","content":"{\"name\":\"Bob\",\"age\":30}","status":"completed"},{"type":"message","role":"user","content":"Now
-        just tell me about Ruby","status":"completed"}],"stream":false,"temperature":0.7}'
+        just tell me about Ruby","status":"completed"}],"stream":false}'
     headers:
       User-Agent:
-      - Faraday v2.12.2
+      - Faraday v2.13.4
       Authorization:
       - Bearer <OPENAI_API_KEY>
       Content-Type:
@@ -181,7 +182,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Aug 2025 04:18:29 GMT
+      - Mon, 25 Aug 2025 05:06:51 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -205,13 +206,13 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Project:
-      - proj_j3YWwie2yjmMHTGYtUxoTOJ7
+      - "<OPENAI_PROJECT>"
       X-Request-Id:
       - "<X_REQUEST_ID>"
       Openai-Processing-Ms:
-      - '2466'
+      - '426'
       X-Envoy-Upstream-Service-Time:
-      - '2475'
+      - '429'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
@@ -231,9 +232,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_6892d793310481a29768052e613a842004fe68ea18936eb5",
+          "id": "resp_68abef6aa538819e988d3a54fc2a850a09e7a347f028b06d",
           "object": "response",
-          "created_at": 1754453907,
+          "created_at": 1756098410,
           "status": "completed",
           "background": false,
           "error": null,
@@ -244,7 +245,7 @@ http_interactions:
           "model": "gpt-4.1-nano-2025-04-14",
           "output": [
             {
-              "id": "msg_6892d793725081a2873dbfbcd1275aeb04fe68ea18936eb5",
+              "id": "msg_68abef6ad4bc819e8afcabc8f32e256c09e7a347f028b06d",
               "type": "message",
               "status": "completed",
               "content": [
@@ -252,7 +253,7 @@ http_interactions:
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "Certainly! Here's some general information about Ruby:\n\nRuby is a dynamic, open-source programming language known for its simplicity and productivity. It was created by Yukihiro Matsumoto (often called Matz) in the mid-1990s with the goal of making programming more enjoyable and natural. Ruby emphasizes human-friendly syntax, making it easy to read and write.\n\nRuby is widely used for web development, especially with the Ruby on Rails framework, which has contributed to its popularity. Besides web development, Ruby is also used for scripting, automation, and data processing.\n\nIf you were referring to a person named Ruby, please let me know, and I can provide more specific information!"
+                  "text": "Could you please specify what you'd like to know about Ruby? Are you referring to the programming language, the gemstone, or something else?"
                 }
               ],
               "role": "assistant"
@@ -268,11 +269,12 @@ http_interactions:
           "safety_identifier": null,
           "service_tier": "default",
           "store": true,
-          "temperature": 0.7,
+          "temperature": 1.0,
           "text": {
             "format": {
               "type": "text"
-            }
+            },
+            "verbosity": "medium"
           },
           "tool_choice": "auto",
           "tools": [],
@@ -284,14 +286,14 @@ http_interactions:
             "input_tokens_details": {
               "cached_tokens": 0
             },
-            "output_tokens": 137,
+            "output_tokens": 28,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 172
+            "total_tokens": 63
           },
           "user": null,
           "metadata": {}
         }
-  recorded_at: Wed, 06 Aug 2025 04:18:29 GMT
+  recorded_at: Mon, 25 Aug 2025 05:06:51 GMT
 recorded_with: VCR 6.3.1
