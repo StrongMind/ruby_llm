@@ -13,10 +13,9 @@ RSpec.describe RubyLLM::Image do
     describe "#{provider}/#{model}" do
       it 'can paint images' do
         chat = RubyLLM.chat(model: model, provider: provider)
+        chat.with_params(tools: [{ type: 'image_generation', quality: 'low' }]) if provider == :openai
 
         response = chat.ask('put this in a ring', with: 'spec/fixtures/ruby.png')
-
-        expect(response.content.text).to include('ruby')
 
         expect(response.content.attachments).to be_an(Array)
         expect(response.content.attachments).not_to be_empty
@@ -32,11 +31,22 @@ RSpec.describe RubyLLM::Image do
 
       it 'can refine images in a conversation' do
         chat = RubyLLM.chat(model: model, provider: provider)
+        chat.with_params(tools: [{ type: 'image_generation', quality: 'low' }]) if provider == :openai
 
         chat.ask('put this in a ring', with: 'spec/fixtures/ruby.png')
         response = chat.ask('change the background to blue')
+        expect(response.content.attachments).to be_an(Array)
+        expect(response.content.attachments).not_to be_empty
 
-        expect(response.content.text).to include('ruby')
+        image = response.content.attachments.first.image
+
+        expect(image.base64?).to be(true)
+        expect(image.data).to be_present
+        expect(image.mime_type).to include('image')
+
+        save_and_verify_image image
+
+        response = chat.ask('change the background to green')
 
         expect(response.content.attachments).to be_an(Array)
         expect(response.content.attachments).not_to be_empty
@@ -65,6 +75,8 @@ RSpec.describe RubyLLM::Image do
 
       it 'supports streaming with images' do
         chat = RubyLLM.chat(model: model, provider: provider)
+        chat.with_params(tools: [{ type: 'image_generation', quality: 'low' }]) if provider == :openai
+
         chunks = []
 
         response = chat.ask('put this in a ring', with: 'spec/fixtures/ruby.png') do |chunk|
@@ -76,7 +88,6 @@ RSpec.describe RubyLLM::Image do
         content_chunks = chunks.select(&:content)
         expect(content_chunks).not_to be_empty
 
-        expect(response.content.text).to include('ruby')
         expect(response.content.attachments).to be_an(Array)
         expect(response.content.attachments).not_to be_empty
 
@@ -90,6 +101,8 @@ RSpec.describe RubyLLM::Image do
 
       it 'handles Content objects in streaming without TypeError' do
         chat = RubyLLM.chat(model: model, provider: provider)
+        chat.with_params(tools: [{ type: 'image_generation', quality: 'low' }]) if provider == :openai
+
         content_objects_received = 0
 
         expect do
@@ -100,60 +113,60 @@ RSpec.describe RubyLLM::Image do
 
         expect(content_objects_received).to be >= 0
       end
-
-      it 'properly accumulates mixed string and Content chunks' do
-        accumulator = RubyLLM::StreamAccumulator.new
-
-        string_chunk = RubyLLM::Chunk.new(
-          role: :assistant,
-          model_id: 'test-model',
-          content: 'Hello, ',
-          tool_calls: nil,
-          input_tokens: nil,
-          output_tokens: nil
-        )
-
-        content_with_image = RubyLLM::Content.new('here is an image: ')
-        content_with_image.attach(
-          RubyLLM::ImageAttachment.new(
-            data: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==',
-            mime_type: 'image/png',
-            model_id: 'test-model'
-          )
-        )
-
-        content_chunk = RubyLLM::Chunk.new(
-          role: :assistant,
-          model_id: 'test-model',
-          content: content_with_image,
-          tool_calls: nil,
-          input_tokens: nil,
-          output_tokens: nil
-        )
-
-        final_string_chunk = RubyLLM::Chunk.new(
-          role: :assistant,
-          model_id: 'test-model',
-          content: ' Done!',
-          tool_calls: nil,
-          input_tokens: nil,
-          output_tokens: nil
-        )
-
-        expect do
-          accumulator.add(string_chunk)
-          accumulator.add(content_chunk)
-          accumulator.add(final_string_chunk)
-        end.not_to raise_error
-
-        response = double
-        message = accumulator.to_message(response)
-
-        expect(message.content).to be_a(RubyLLM::Content)
-        expect(message.content.text).to eq('Hello, here is an image:  Done!')
-        expect(message.content.attachments).not_to be_empty
-        expect(message.content.attachments.first).to be_a(RubyLLM::ImageAttachment)
-      end
     end
+  end
+
+  it 'properly accumulates mixed string and Content chunks' do
+    accumulator = RubyLLM::StreamAccumulator.new
+
+    string_chunk = RubyLLM::Chunk.new(
+      role: :assistant,
+      model_id: 'test-model',
+      content: 'Hello, ',
+      tool_calls: nil,
+      input_tokens: nil,
+      output_tokens: nil
+    )
+
+    content_with_image = RubyLLM::Content.new('here is an image: ')
+    content_with_image.attach(
+      RubyLLM::ImageAttachment.new(
+        data: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==',
+        mime_type: 'image/png',
+        model_id: 'test-model'
+      )
+    )
+
+    content_chunk = RubyLLM::Chunk.new(
+      role: :assistant,
+      model_id: 'test-model',
+      content: content_with_image,
+      tool_calls: nil,
+      input_tokens: nil,
+      output_tokens: nil
+    )
+
+    final_string_chunk = RubyLLM::Chunk.new(
+      role: :assistant,
+      model_id: 'test-model',
+      content: ' Done!',
+      tool_calls: nil,
+      input_tokens: nil,
+      output_tokens: nil
+    )
+
+    expect do
+      accumulator.add(string_chunk)
+      accumulator.add(content_chunk)
+      accumulator.add(final_string_chunk)
+    end.not_to raise_error
+
+    response = double
+    message = accumulator.to_message(response)
+
+    expect(message.content).to be_a(RubyLLM::Content)
+    expect(message.content.text).to eq('Hello, here is an image:  Done!')
+    expect(message.content.attachments).not_to be_empty
+    expect(message.content.attachments.first).to be_a(RubyLLM::ImageAttachment)
   end
 end

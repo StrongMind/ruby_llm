@@ -7,12 +7,12 @@ module RubyLLM
       module ResponseMedia
         module_function
 
-        def format_content(content)
+        def format_content(content) # rubocop:disable Metrics/PerceivedComplexity
           return content.to_json if content.is_a?(Hash) || content.is_a?(Array)
           return content unless content.is_a?(Content)
 
           parts = []
-          parts << format_text(content.text) if content.text
+          parts << format_text(content.text) if content.text && !content.text.empty?
 
           content.attachments.each do |attachment|
             case attachment.type

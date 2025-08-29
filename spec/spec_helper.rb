@@ -250,7 +250,8 @@ EMBEDDING_MODELS = [
 ].freeze
 
 IMAGE_CHAT_MODELS = [
-  { provider: :gemini, model: 'gemini-2.0-flash-preview-image-generation' }
+  { provider: :gemini, model: 'gemini-2.0-flash-preview-image-generation' },
+  { provider: :openai, model: 'gpt-5' }
 ].freeze
 
 # Models that require prompt caching configuration
