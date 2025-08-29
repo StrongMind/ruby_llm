@@ -182,7 +182,7 @@ Refer to the [Working with Models Guide]({% link _advanced/models.md %}) and the
 
 ## Image Editing & Modification
 
-Beyond generating images from text prompts, you can also edit and modify existing images using capable models like `gemini-2.0-flash-preview-image-generation`. This approach uses the chat interface rather than the `paint` method.
+Beyond generating images from text prompts, you can also edit and modify existing images using capable models like `gemini-2.0-flash-preview-image-generation`, `gpt-5`, and even `gpt-4.1-nano`. This approach uses the chat interface rather than the `paint` method.
 
 ### Basic Image Editing
 

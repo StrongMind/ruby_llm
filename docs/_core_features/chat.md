@@ -152,7 +152,7 @@ RubyLLM automatically handles image encoding and formatting for each provider's 
 
 ### Image Generation with Chat
 
-While most vision models analyze images, some specialized models can generate and edit images through the chat interface. This approach is ideal for image editing workflows and iterative refinement:
+While most vision models analyze images, some models can generate and edit images through the chat interface. This approach is ideal for image editing workflows and iterative refinement:
 
 ```ruby
 # Use a model capable of image generation
