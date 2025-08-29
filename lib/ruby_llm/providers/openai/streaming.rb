@@ -42,6 +42,8 @@ module RubyLLM
           when 'response.output_item.added'
             if data.dig('item', 'type') == 'function_call'
               build_tool_call_start_chunk(data)
+            elsif data.dig('item', 'type') == 'reasoning'
+              build_reasoning_chunk(data)
             else
               build_empty_chunk(data)
             end
@@ -178,6 +180,18 @@ module RubyLLM
             tool_calls: nil,
             input_tokens: nil,
             output_tokens: nil
+          )
+        end
+
+        def build_reasoning_chunk(data)
+          Chunk.new(
+            role: :assistant,
+            model_id: nil,
+            content: nil,
+            tool_calls: nil,
+            input_tokens: nil,
+            output_tokens: nil,
+            reasoning_id: data.dig('item', 'id')
           )
         end
 

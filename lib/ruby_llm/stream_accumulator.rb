@@ -13,11 +13,13 @@ module RubyLLM
       @cached_tokens = 0
       @cache_creation_tokens = 0
       @latest_tool_call_id = nil
+      @reasoning_id = nil
     end
 
     def add(chunk)
       RubyLLM.logger.debug chunk.inspect if RubyLLM.config.log_stream_debug
       @model_id ||= chunk.model_id
+      @reasoning_id ||= chunk.reasoning_id
 
       if chunk.tool_call?
         accumulate_tool_calls chunk.tool_calls
@@ -30,9 +32,17 @@ module RubyLLM
     end
 
     def to_message(response)
+      content = final_content
+      # Associate reasoning_id with image attachments if present
+      if @reasoning_id && content.is_a?(Content) && content.attachments.any?
+        content.attachments.each do |attachment|
+          attachment.instance_variable_set(:@reasoning_id, @reasoning_id) if attachment.is_a?(ImageAttachment)
+        end
+      end
+
       Message.new(
         role: :assistant,
-        content: final_content,
+        content: content,
         model_id: model_id,
         tool_calls: tool_calls_from_stream,
         input_tokens: @input_tokens.positive? ? @input_tokens : nil,

@@ -44,7 +44,7 @@ module RubyLLM
           all_tool_calls = messages.flat_map do |m|
             m.tool_calls&.values || []
           end
-          messages.flat_map do |msg|
+          result = messages.flat_map do |msg|
             if msg.tool_call?
               msg.tool_calls.map do |_, tc|
                 {
@@ -62,6 +62,21 @@ module RubyLLM
                 output: msg.content,
                 status: 'completed'
               }
+            elsif assistant_message_with_image_attachment?(msg)
+              items = []
+              image_attachment = msg.content.attachments.first
+              if image_attachment.reasoning_id
+                items << {
+                  type: 'reasoning',
+                  id: image_attachment.reasoning_id,
+                  summary: []
+                }
+              end
+              items << {
+                type: 'image_generation_call',
+                id: image_attachment.id
+              }
+              items
             else
               {
                 type: 'message',
@@ -70,7 +85,7 @@ module RubyLLM
                 status: 'completed'
               }.compact
             end
-          end
+          end.flatten
         end
 
         def format_role(role)
@@ -99,11 +114,13 @@ module RubyLLM
             output_tokens: data['usage']['output_tokens'],
             cached_tokens: data.dig('usage', 'input_tokens_details', 'cached_tokens'),
             model_id: data['model'],
+            reasoning_id: extract_reasoning_id(outputs),
             raw: response
           )
         end
 
         def all_output_content(outputs)
+          @current_outputs = outputs
           text_content = extract_text_content(outputs)
           image_outputs = outputs.select { |o| o['type'] == 'image_generation_call' }
 
@@ -124,13 +141,14 @@ module RubyLLM
 
         def build_content_with_images(text_content, image_outputs)
           content = RubyLLM::Content.new(text_content)
+          reasoning_id = extract_reasoning_id(@current_outputs)
           image_outputs.each do |output|
-            attach_image_to_content(content, output)
+            attach_image_to_content(content, output, reasoning_id)
           end
           content
         end
 
-        def attach_image_to_content(content, output)
+        def attach_image_to_content(content, output, reasoning_id)
           image_data = output['result']
           output_format = output['output_format'] || 'png'
           mime_type = "image/#{output_format}"
@@ -139,7 +157,9 @@ module RubyLLM
             RubyLLM::ImageAttachment.new(
               data: image_data,
               mime_type: mime_type,
-              model_id: nil
+              model_id: nil,
+              id: output['id'],
+              reasoning_id: reasoning_id
             )
           )
         end
@@ -150,6 +170,18 @@ module RubyLLM
               c['type'] == 'output_text' && c['text']
             end
           end.join("\n")
+        end
+
+        def assistant_message_with_image_attachment?(msg)
+          msg.role == :assistant &&
+            msg.content.is_a?(RubyLLM::Content) &&
+            msg.content.attachments.any? &&
+            msg.content.attachments.first.is_a?(RubyLLM::ImageAttachment)
+        end
+
+        def extract_reasoning_id(outputs)
+          reasoning_item = outputs.find { |o| o['type'] == 'reasoning' }
+          reasoning_item&.dig('id')
         end
       end
     end
