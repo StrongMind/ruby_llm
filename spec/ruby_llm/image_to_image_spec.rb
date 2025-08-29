@@ -35,6 +35,18 @@ RSpec.describe RubyLLM::Image do
 
         chat.ask('put this in a ring', with: 'spec/fixtures/ruby.png')
         response = chat.ask('change the background to blue')
+        expect(response.content.attachments).to be_an(Array)
+        expect(response.content.attachments).not_to be_empty
+
+        image = response.content.attachments.first.image
+
+        expect(image.base64?).to be(true)
+        expect(image.data).to be_present
+        expect(image.mime_type).to include('image')
+
+        save_and_verify_image image
+
+        response = chat.ask('change the background to green')
 
         expect(response.content.attachments).to be_an(Array)
         expect(response.content.attachments).not_to be_empty
