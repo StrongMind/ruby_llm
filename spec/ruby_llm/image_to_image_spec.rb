@@ -114,7 +114,6 @@ RSpec.describe RubyLLM::Image do
         expect(content_objects_received).to be >= 0
       end
     end
-
   end
 
   it 'properly accumulates mixed string and Content chunks' do

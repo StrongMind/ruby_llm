@@ -44,7 +44,7 @@ module RubyLLM
           all_tool_calls = messages.flat_map do |m|
             m.tool_calls&.values || []
           end
-          result = messages.flat_map do |msg|
+          messages.flat_map do |msg|
             if msg.tool_call?
               msg.tool_calls.map do |_, tc|
                 {
