@@ -144,7 +144,7 @@ module RubyLLM
 
           return text_content unless image_outputs.any?
 
-          build_content_with_images(text_content, image_outputs)
+          build_content_with_images(image_outputs)
         end
 
         private
@@ -157,9 +157,10 @@ module RubyLLM
           end.join("\n")
         end
 
-        def build_content_with_images(text_content, image_outputs)
-          content = RubyLLM::Content.new(text_content)
+        def build_content_with_images(image_outputs)
           reasoning_id = extract_reasoning_id(@current_outputs)
+          revised_prompt = image_outputs.first['revised_prompt']
+          content = RubyLLM::Content.new(revised_prompt)
           image_outputs.each do |output|
             attach_image_to_content(content, output, reasoning_id)
           end
