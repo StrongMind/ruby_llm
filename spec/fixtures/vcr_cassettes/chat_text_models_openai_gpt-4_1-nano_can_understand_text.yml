@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 20 Aug 2025 17:02:45 GMT
+      - Wed, 03 Sep 2025 14:54:20 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,13 +37,13 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Processing-Ms:
-      - '424'
+      - '1529'
       Openai-Project:
       - "<OPENAI_PROJECT>"
       Openai-Version:
       - '2020-10-01'
       X-Envoy-Upstream-Service-Time:
-      - '442'
+      - '1534'
       X-Ratelimit-Limit-Requests:
       - '500'
       X-Ratelimit-Limit-Tokens:
@@ -79,9 +79,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-C6gUvZ9fvDPzfd2btVkqHajANpNlD",
+          "id": "chatcmpl-CBjAImcAED7isBwTA21ZWNpA4D8J2",
           "object": "chat.completion",
-          "created": 1755709365,
+          "created": 1756911258,
           "model": "gpt-4.1-nano-2025-04-14",
           "choices": [
             {
@@ -112,9 +112,9 @@ http_interactions:
             }
           },
           "service_tier": "default",
-          "system_fingerprint": "fp_c4c155951e"
+          "system_fingerprint": "fp_04d3664870"
         }
-  recorded_at: Wed, 20 Aug 2025 17:02:45 GMT
+  recorded_at: Wed, 03 Sep 2025 14:54:20 GMT
 - request:
     method: post
     uri: https://api.openai.com/v1/chat/completions
@@ -143,7 +143,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 20 Aug 2025 17:02:46 GMT
+      - Wed, 03 Sep 2025 14:54:23 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -155,13 +155,13 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_ORGANIZATION>"
       Openai-Processing-Ms:
-      - '608'
+      - '2322'
       Openai-Project:
       - "<OPENAI_PROJECT>"
       Openai-Version:
       - '2020-10-01'
       X-Envoy-Upstream-Service-Time:
-      - '687'
+      - '2351'
       X-Ratelimit-Limit-Requests:
       - '500'
       X-Ratelimit-Limit-Tokens:
@@ -197,16 +197,16 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-C6gUwxvNf6tLVmjiKW4nIZzvzQRyA",
+          "id": "chatcmpl-CBjALDwK59xcLtnGvHzVhU5hGicV8",
           "object": "chat.completion",
-          "created": 1755709366,
+          "created": 1756911261,
           "model": "gpt-4.1-nano-2025-04-14",
           "choices": [
             {
               "index": 0,
               "message": {
                 "role": "assistant",
-                "content": "The file \"ruby.xml\" contains the following XML content:\n\n```xml\n<truism>Ruby is the best</truism>\n```",
+                "content": "The file \"ruby.xml\" contains an XML document with a truism stating: \"Ruby is the best.\"",
                 "refusal": null,
                 "annotations": []
               },
@@ -216,8 +216,8 @@ http_interactions:
           ],
           "usage": {
             "prompt_tokens": 85,
-            "completion_tokens": 28,
-            "total_tokens": 113,
+            "completion_tokens": 22,
+            "total_tokens": 107,
             "prompt_tokens_details": {
               "cached_tokens": 0,
               "audio_tokens": 0
@@ -230,7 +230,7 @@ http_interactions:
             }
           },
           "service_tier": "default",
-          "system_fingerprint": "fp_c4c155951e"
+          "system_fingerprint": "fp_7c233bf9d1"
         }
   recorded_at: Wed, 20 Aug 2025 17:02:46 GMT
 - request:

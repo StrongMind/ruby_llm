@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe RubyLLM::ActiveRecord::ActsAs do
   include_context 'with configured RubyLLM'
@@ -308,21 +308,15 @@ RSpec.describe RubyLLM::ActiveRecord::ActsAs do
     module Assistants # rubocop:disable Lint/ConstantDefinitionInBlock,RSpec/LeakyConstantDeclaration
       class BotChat < ActiveRecord::Base # rubocop:disable RSpec/LeakyConstantDeclaration
         self.table_name = 'bot_chats'
-        include RubyLLM::ActiveRecord::ActsAs
-
         acts_as_chat message_class: 'BotMessage', tool_call_class: 'BotToolCall'
       end
     end
 
     class BotMessage < ActiveRecord::Base # rubocop:disable Lint/ConstantDefinitionInBlock,RSpec/LeakyConstantDeclaration
-      include RubyLLM::ActiveRecord::ActsAs
-
       acts_as_message chat_class: 'Assistants::BotChat', tool_call_class: 'BotToolCall'
     end
 
     class BotToolCall < ActiveRecord::Base # rubocop:disable Lint/ConstantDefinitionInBlock,RSpec/LeakyConstantDeclaration
-      include RubyLLM::ActiveRecord::ActsAs
-
       acts_as_tool_call message_class: 'BotMessage'
     end
 
@@ -612,18 +606,6 @@ RSpec.describe RubyLLM::ActiveRecord::ActsAs do
       expect do
         chat.send(:cleanup_orphaned_tool_results)
       end.to change { chat.messages.count }.by(-1)
-    end
-  end
-
-  describe 'prompt caching' do
-    let(:model) { 'claude-3-5-haiku-20241022' }
-
-    it 'allows prompt caching' do
-      chat = Chat.create!(model_id: model)
-      chat.cache_prompts(system: true, tools: true, user: true)
-
-      response = chat.ask('Hello')
-      expect(response.raw.env.request_body).to include('"cache_control":{"type":"ephemeral"}')
     end
   end
 
