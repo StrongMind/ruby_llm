@@ -20,5 +20,9 @@ module RubyLLM
     def encoded
       image.data
     end
+
+    def to_h
+      { type: :image, source: "data:#{image.mime_type};base64,#{image.encoded}" }
+    end
   end
 end
