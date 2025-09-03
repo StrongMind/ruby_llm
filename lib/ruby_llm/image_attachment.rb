@@ -23,7 +23,7 @@ module RubyLLM
     end
 
     def to_h
-      { type: :image, source: "data:#{image.mime_type};base64,#{image.encoded}" }
+      { type: :image, source: "data:#{image.mime_type};base64,#{encoded}" }
     end
   end
 end
