@@ -82,7 +82,7 @@ module RubyLLM
 
         def format_image_generation_message(msg)
           items = []
-          image_attachment = msg.content.attachments.first
+          image_attachment = msg.content.attachments.last
           if image_attachment.reasoning_id
             items << {
               type: 'reasoning',
@@ -195,7 +195,7 @@ module RubyLLM
           msg.role == :assistant &&
             msg.content.is_a?(RubyLLM::Content) &&
             msg.content.attachments.any? &&
-            msg.content.attachments.first.is_a?(RubyLLM::ImageAttachment)
+            msg.content.attachments.last.is_a?(RubyLLM::ImageAttachment)
         end
 
         def extract_reasoning_id(outputs)
