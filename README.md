@@ -17,6 +17,9 @@ Battle tested at [<picture><source media="(prefers-color-scheme: dark)" srcset="
 <a href="https://trendshift.io/repositories/13640" target="_blank"><img src="https://trendshift.io/api/badge/repositories/13640" alt="crmne%2Fruby_llm | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </div>
 
+> [!NOTE]
+> Using RubyLLM in production? [Share your story](https://tally.so/r/3Na02p)! Takes 5 minutes.
+
 ---
 
 Build chatbots, AI agents, RAG applications. Works with OpenAI, Anthropic, Google, AWS, local models, and any OpenAI-compatible API.
@@ -26,6 +29,20 @@ Build chatbots, AI agents, RAG applications. Works with OpenAI, Anthropic, Googl
 Every AI provider ships their own bloated client. Different APIs. Different response formats. Different conventions. It's exhausting.
 
 RubyLLM gives you one beautiful API for all of them. Same interface whether you're using GPT, Claude, or your local Ollama. Just three dependencies: [Faraday](https://github.com/lostisland/faraday), [Zeitwerk](https://github.com/fxn/zeitwerk), and [Marcel](https://github.com/rails/marcel). That's it.
+
+## How does RubyLLM Community differ?
+
+Use this gem to get early access to features currently in PR at the main gem. 
+
+Initial examples --
+
+- Prompt caching for Anthropic 
+- Image editing for Gemini and OpenAI 
+- Responses API for OpenAI
+
+This project is intended to be compatible with RubyLLM. I will attempt to keep it up to date as Carmine pushes commits often.
+
+I may have to bump the major version if I have to break compatibility due to a change in direction on one of the PRs. I will provide instructions on how to upgrade in the release notes.
 
 ## Show me the code
 
