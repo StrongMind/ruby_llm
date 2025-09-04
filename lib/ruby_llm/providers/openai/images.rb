@@ -43,7 +43,7 @@ module RubyLLM
           if generating?
             render_generation_payload(prompt, model:, size:)
           else
-            render_edit_payload(prompt, model:, with:, params:)
+            render_edit_payload(prompt, model:, size:, with:, params:)
           end
         end
 
@@ -56,7 +56,7 @@ module RubyLLM
           }
         end
 
-        def render_edit_payload(prompt, model:, with:, params:)
+        def render_edit_payload(prompt, model:, size:, with:, params:)
           content = Content.new(prompt, with)
           params[:image] = []
           content.attachments.each do |attachment|
@@ -66,7 +66,8 @@ module RubyLLM
           params.merge({
                          model:,
                          prompt: content.text,
-                         n: 1
+                         n: 1,
+                         size:
                        })
         end
 
