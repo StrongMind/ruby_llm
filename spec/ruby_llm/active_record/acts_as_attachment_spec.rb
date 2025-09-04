@@ -4,7 +4,6 @@ require 'rails_helper'
 
 RSpec.describe RubyLLM::ActiveRecord::ActsAs do
   include_context 'with configured RubyLLM'
-  include_context 'with database setup'
 
   let(:image_path) { File.expand_path('../../fixtures/ruby.png', __dir__) }
   let(:pdf_path) { File.expand_path('../../fixtures/sample.pdf', __dir__) }

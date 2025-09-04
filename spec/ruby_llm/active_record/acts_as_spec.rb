@@ -4,7 +4,6 @@ require 'rails_helper'
 
 RSpec.describe RubyLLM::ActiveRecord::ActsAs do
   include_context 'with configured RubyLLM'
-  include_context 'with database setup'
 
   let(:model) { 'gpt-4.1-nano' }
 

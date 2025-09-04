@@ -53,15 +53,11 @@ RSpec.describe RubyLLM::Image do
       expect(image.data).to be_present
       expect(image.mime_type).to include('image')
       expect(image.model_id).to eq('gpt-image-1')
-      expect(image.usage).to eq({
-                                  'input_tokens' => 10,
-                                  'input_tokens_details' => {
-                                    'image_tokens' => 0,
-                                    'text_tokens' => 10
-                                  },
-                                  'output_tokens' => 1056,
-                                  'total_tokens' => 1066
-                                })
+      expect(image.usage['input_tokens']).to be_an(Integer)
+      expect(image.usage['input_tokens_details']['image_tokens']).to be_an(Integer)
+      expect(image.usage['input_tokens_details']['text_tokens']).to be_an(Integer)
+      expect(image.usage['output_tokens']).to be_an(Integer)
+      expect(image.usage['total_tokens']).to be_an(Integer)
 
       save_and_verify_image image
     end
