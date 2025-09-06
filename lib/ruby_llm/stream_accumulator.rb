@@ -87,9 +87,8 @@ module RubyLLM
       new_text = new_content.text || ''
       @content.instance_variable_set(:@text, current_text + new_text)
 
-      existing_encoded = @content.attachments.map(&:encoded)
       new_content.attachments.each do |attachment|
-        @content.attach(attachment) unless existing_encoded.include?(attachment.encoded)
+        @content.attach(attachment)
       end
     end
 

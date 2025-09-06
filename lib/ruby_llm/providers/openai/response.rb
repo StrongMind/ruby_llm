@@ -82,7 +82,7 @@ module RubyLLM
 
         def format_image_generation_message(msg)
           items = []
-          image_attachment = msg.content.attachments.first
+          image_attachment = msg.content.attachments.last
           if image_attachment.reasoning_id
             items << {
               type: 'reasoning',
@@ -144,7 +144,7 @@ module RubyLLM
 
           return text_content unless image_outputs.any?
 
-          build_content_with_images(image_outputs)
+          build_content_with_images(image_outputs, text_content)
         end
 
         private
@@ -157,10 +157,9 @@ module RubyLLM
           end.join("\n")
         end
 
-        def build_content_with_images(image_outputs)
+        def build_content_with_images(image_outputs, text_content)
           reasoning_id = extract_reasoning_id(@current_outputs)
-          revised_prompt = image_outputs.first['revised_prompt']
-          content = RubyLLM::Content.new(revised_prompt)
+          content = RubyLLM::Content.new(text_content)
           image_outputs.each do |output|
             attach_image_to_content(content, output, reasoning_id)
           end
@@ -178,7 +177,8 @@ module RubyLLM
               mime_type: mime_type,
               model_id: nil,
               id: output['id'],
-              reasoning_id: reasoning_id
+              reasoning_id: reasoning_id,
+              revised_prompt: output['revised_prompt']
             )
           )
         end
@@ -195,7 +195,7 @@ module RubyLLM
           msg.role == :assistant &&
             msg.content.is_a?(RubyLLM::Content) &&
             msg.content.attachments.any? &&
-            msg.content.attachments.first.is_a?(RubyLLM::ImageAttachment)
+            msg.content.attachments.last.is_a?(RubyLLM::ImageAttachment)
         end
 
         def extract_reasoning_id(outputs)

@@ -62,6 +62,8 @@ module RubyLLM
     end
 
     def encoded
+      return nil if content.nil?
+
       Base64.strict_encode64(content)
     end
 
