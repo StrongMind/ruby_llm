@@ -75,7 +75,7 @@ To edit a local image file, use the `with:` parameter to specify the path to you
 ```ruby
 # Edit a local PNG file
 image = RubyLLM.paint(
-  "turn the logo to green", 
+  "turn the logo to green",
   with: "path/to/your/image.png",
   model: "gpt-image-1"
 )

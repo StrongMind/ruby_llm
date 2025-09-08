@@ -165,7 +165,7 @@ response = chat.ask('make this look more futuristic', with: 'current_design.png'
 if response.content.attachments.any?
   generated_image = response.content.attachments.first.image
   puts "Generated image: #{generated_image.mime_type}"
-  
+
   # Save the generated image
   generated_image.save('futuristic_design.png')
 end
@@ -547,7 +547,7 @@ chat.cache_prompts(
 ```
 
 ### Checking cached token counts
-For Anthropic, OpenAI, and Gemini, you can see the number of tokens read from cache by looking at the `cached_tokens` property on the output messages. 
+For Anthropic, OpenAI, and Gemini, you can see the number of tokens read from cache by looking at the `cached_tokens` property on the output messages.
 
 For Anthropic, you can see the tokens written to cache by looking at the `cache_creation_tokens` property.
 
