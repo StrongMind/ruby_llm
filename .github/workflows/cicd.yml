@@ -24,6 +24,7 @@ on:
       - 'ruby_llm.gemspec'
       - '.github/workflows/cicd.yml'
   workflow_call:
+  workflow_dispatch:
 
 # Define default permissions for this workflow
 permissions:
