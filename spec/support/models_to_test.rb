@@ -36,7 +36,8 @@ VISION_MODELS = [
 ].freeze
 
 AUDIO_MODELS = [
-  { provider: :openai, model: 'gpt-4o-mini-audio-preview' }
+  { provider: :openai, model: 'gpt-4o-mini-audio-preview' },
+  { provider: :gemini, model: 'gemini-2.5-flash' }
 ].freeze
 
 EMBEDDING_MODELS = [
