@@ -168,7 +168,7 @@ module RubyLLM
         end
 
         def build_partial_image_chunk(data)
-          content = build_image_content(data['partial_image_b64'], 'image/png', nil, nil)
+          content = build_image_content(item: data, text_content: nil, revised_prompt: nil, partial: true)
 
           Chunk.new(
             role: :assistant,
@@ -182,12 +182,10 @@ module RubyLLM
 
         def build_completed_image_chunk(data)
           item = data['item']
-          image_data = item['result']
-          output_format = item['output_format'] || 'png'
-          mime_type = "image/#{output_format}"
+          text_content = item['delta'] || ''
           revised_prompt = item['revised_prompt']
 
-          content = build_image_content(image_data, mime_type, nil, revised_prompt)
+          content = build_image_content(item:, text_content:, revised_prompt:, partial: false)
 
           Chunk.new(
             role: :assistant,
@@ -211,14 +209,19 @@ module RubyLLM
           )
         end
 
-        def build_image_content(base64_data, mime_type, model_id, revised_prompt = nil)
-          text_content = revised_prompt || ''
-          content = RubyLLM::Content.new(text_content)
+        def build_image_content(item:, text_content:, revised_prompt: nil, partial: false)
+          content = RubyLLM::Content.new(text_content || '')
+          output_format = item['output_format'] || 'png'
+          mime_type = "image/#{output_format}"
+
           content.attach(
             RubyLLM::ImageAttachment.new(
-              data: base64_data,
-              mime_type: mime_type,
-              model_id: model_id
+              data: item['result'] || item['partial_image_b64'],
+              mime_type:,
+              model_id: item['model_id'],
+              id: item['id'],
+              revised_prompt:,
+              partial:
             )
           )
           content

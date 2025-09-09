@@ -32,12 +32,12 @@ RubyLLM gives you one beautiful API for all of them. Same interface whether you'
 
 ## How does RubyLLM Community differ?
 
-Use this gem to get early access to features currently in PR at the main gem. 
+Use this gem to get early access to features currently in PR at the main gem.
 
 Initial examples --
 
-- Prompt caching for Anthropic 
-- Image editing for Gemini and OpenAI 
+- Prompt caching for Anthropic
+- Image editing for Gemini and OpenAI
 - Responses API for OpenAI
 
 This project is intended to be compatible with RubyLLM. I will attempt to keep it up to date as Carmine pushes commits often.

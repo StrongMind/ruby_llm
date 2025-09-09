@@ -1,12 +1,6 @@
 name: Deploy docs
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'docs/**'
-      - 'lib/tasks/models_docs.rake'
-      - '.github/workflows/docs.yml'
   workflow_dispatch:
 
 permissions:
@@ -24,6 +18,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: true
 
       - name: Setup Ruby for models guide generation (root Gemfile)
         uses: ruby/setup-ruby@v1
