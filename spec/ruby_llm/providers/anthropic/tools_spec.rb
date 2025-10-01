@@ -7,7 +7,7 @@ RSpec.describe RubyLLM::Providers::Anthropic::Tools do
 
   describe '.format_tool_call' do
     let(:msg) do
-      instance_double(Message,
+      instance_double(RubyLLM::Message,
                       content: 'Some content',
                       tool_calls: {
                         'tool_123' => instance_double(RubyLLM::ToolCall,
@@ -36,7 +36,7 @@ RSpec.describe RubyLLM::Providers::Anthropic::Tools do
 
     context 'when message has no content' do
       let(:msg) do
-        instance_double(Message,
+        instance_double(RubyLLM::Message,
                         content: nil,
                         tool_calls: {
                           'tool_123' => instance_double(RubyLLM::ToolCall,
@@ -65,7 +65,7 @@ RSpec.describe RubyLLM::Providers::Anthropic::Tools do
 
     context 'when message has empty content' do
       let(:msg) do
-        instance_double(Message,
+        instance_double(RubyLLM::Message,
                         content: '',
                         tool_calls: {
                           'tool_123' => instance_double(RubyLLM::ToolCall,
@@ -196,6 +196,94 @@ RSpec.describe RubyLLM::Providers::Anthropic::Tools do
     it 'returns nil for empty or nil input' do
       expect(described_class.parse_tool_calls(nil)).to be_nil
       expect(described_class.parse_tool_calls([])).to be_nil
+    end
+
+    it 'ignores server_tool_use blocks (like web search)' do
+      content_blocks = [
+        { 'type' => 'text', 'text' => 'Searching...' },
+        { 'type' => 'server_tool_use', 'id' => 'search_1', 'name' => 'web_search', 'input' => { 'query' => 'test' } },
+        { 'type' => 'tool_use', 'id' => 'tool_1', 'name' => 'custom_tool', 'input' => {} }
+      ]
+
+      tool_calls = described_class.parse_tool_calls(content_blocks)
+
+      # Should only include the regular tool_use, not server_tool_use
+      expect(tool_calls).to be_a(Hash)
+      expect(tool_calls.size).to eq(1)
+      expect(tool_calls['tool_1'].name).to eq('custom_tool')
+    end
+  end
+
+  describe '.find_tool_uses' do
+    it 'finds only tool_use blocks, not server_tool_use blocks' do
+      content_blocks = [
+        { 'type' => 'text', 'text' => 'Some text' },
+        { 'type' => 'server_tool_use', 'id' => 'search_1', 'name' => 'web_search', 'input' => {} },
+        { 'type' => 'tool_use', 'id' => 'tool_1', 'name' => 'custom_tool', 'input' => {} },
+        { 'type' => 'web_search_tool_result', 'tool_use_id' => 'search_1', 'content' => [] }
+      ]
+
+      tool_uses = described_class.find_tool_uses(content_blocks)
+
+      expect(tool_uses.size).to eq(1)
+      expect(tool_uses[0]['type']).to eq('tool_use')
+      expect(tool_uses[0]['name']).to eq('custom_tool')
+    end
+  end
+
+  describe '.function_for' do
+    it 'formats a regular tool definition' do
+      tool = instance_double(RubyLLM::Tool,
+                             name: 'test_tool',
+                             description: 'A test tool',
+                             parameters: {
+                               query: instance_double(RubyLLM::Parameter,
+                                                      type: 'string',
+                                                      description: 'Search query',
+                                                      required: true,
+                                                      items: nil,
+                                                      properties: nil)
+                             })
+
+      result = described_class.function_for(tool)
+
+      expect(result).to eq({
+                             name: 'test_tool',
+                             description: 'A test tool',
+                             input_schema: {
+                               type: 'object',
+                               properties: {
+                                 query: {
+                                   type: 'string',
+                                   description: 'Search query'
+                                 }
+                               },
+                               required: [:query]
+                             }
+                           })
+    end
+
+    it 'formats WebSearch tool definition' do
+      web_search = RubyLLM::Providers::Anthropic::WebSearch.new(max_uses: 5)
+
+      result = described_class.function_for(web_search)
+
+      expect(result).to eq({
+                             type: 'web_search_20250305',
+                             name: 'web_search',
+                             max_uses: 5
+                           })
+    end
+
+    it 'formats WebSearch tool definition without max_uses' do
+      web_search = RubyLLM::Providers::Anthropic::WebSearch.new
+
+      result = described_class.function_for(web_search)
+
+      expect(result).to eq({
+                             type: 'web_search_20250305',
+                             name: 'web_search'
+                           })
     end
   end
 end

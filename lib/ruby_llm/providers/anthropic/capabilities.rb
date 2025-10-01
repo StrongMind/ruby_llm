@@ -99,7 +99,13 @@ module RubyLLM
 
           capabilities << 'reasoning' if model_id.match?(/claude-3-7|-4/)
           capabilities << 'citations' if model_id.match?(/claude-3\.5|claude-3-7/)
+          capabilities << 'web_search' if supports_web_search?(model_id)
           capabilities
+        end
+
+        def supports_web_search?(model_id)
+          # Web search is available for Claude 3.5 and newer models
+          model_id.match?(/claude-3\.5|claude-3-7|claude-4/)
         end
 
         def pricing_for(model_id)

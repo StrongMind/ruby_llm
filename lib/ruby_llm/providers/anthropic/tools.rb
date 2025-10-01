@@ -8,6 +8,9 @@ module RubyLLM
         module_function
 
         def find_tool_uses(blocks)
+          # Only include 'tool_use' blocks that require local execution
+          # 'server_tool_use' blocks (like web_search) are executed server-side
+          # and their results are already included in the response
           blocks.select { |c| c['type'] == 'tool_use' }
         end
 
@@ -51,6 +54,17 @@ module RubyLLM
         end
 
         def function_for(tool)
+          # Handle Anthropic's built-in web search tool
+          if tool.is_a?(WebSearch)
+            definition = {
+              type: 'web_search_20250305',
+              name: 'web_search'
+            }
+            definition[:max_uses] = tool.max_uses if tool.max_uses
+            return definition
+          end
+
+          # Regular user-defined tools
           {
             name: tool.name,
             description: tool.description,
@@ -77,6 +91,8 @@ module RubyLLM
 
           tool_calls = {}
           content_blocks.each do |block|
+            # Only parse 'tool_use' blocks that require local execution
+            # Skip 'server_tool_use' blocks as they're handled server-side
             next unless block && block['type'] == 'tool_use'
 
             tool_calls[block['id']] = ToolCall.new(
