@@ -61,7 +61,7 @@ module RubyLLM
     def setup_logging(faraday)
       faraday.response :logger,
                        RubyLLM.logger,
-                       bodies: true,
+                       bodies: false,
                        response: true,
                        errors: true,
                        headers: false,

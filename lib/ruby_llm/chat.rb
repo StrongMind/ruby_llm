@@ -97,6 +97,11 @@ module RubyLLM
       self
     end
 
+    def cache_prompts(system: false, user: false, tools: false)
+      # No-op for compatibility with ruby_conversations gem
+      self
+    end
+
     def on_new_message(&block)
       @on[:new_message] = block
       self
