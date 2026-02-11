@@ -68,19 +68,6 @@ module RubyLLM
         )
       end
 
-      def build_guardrail_headers
-        headers = {}
-        guardrail_id = @config.bedrock_guardrail_identifier
-        guardrail_version = @config.bedrock_guardrail_version || 'DRAFT'
-
-        if guardrail_id.present?
-          headers['X-Amzn-Bedrock-GuardrailIdentifier'] = guardrail_id
-          headers['X-Amzn-Bedrock-GuardrailVersion'] = guardrail_version
-          Rails.logger.info "[GUARDRAILS] Adding headers: #{headers.inspect}" if defined?(Rails)
-        end
-        headers
-      end
-
       class << self
         def capabilities
           Bedrock::Capabilities
