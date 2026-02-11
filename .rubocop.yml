@@ -35,5 +35,7 @@ Performance/UnfreezeString:
     - spec/**/*
 RSpec/ExampleLength:
   Enabled: false
+RSpec/LeakyLocalVariable:
+  Enabled: false
 RSpec/MultipleExpectations:
   Enabled: false
