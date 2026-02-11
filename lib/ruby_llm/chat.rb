@@ -97,8 +97,10 @@ module RubyLLM
       self
     end
 
-    def cache_prompts(system: false, user: false, tools: false)
-      # No-op for compatibility with ruby_conversations gem
+    def cache_prompts(**)
+      # No-op: Bedrock does not support prompt caching. This allows
+      # ruby_conversations (and other callers) to call cache_prompts
+      # without needing to know which provider is in use.
       self
     end
 
