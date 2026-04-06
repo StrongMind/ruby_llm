@@ -10,8 +10,57 @@ module RubyLLM
       @type = options.fetch(:type, 'string')
       @description = options.fetch(:desc, nil)
       @required = options.fetch(:required, true)
-      @items = options[:items]&.transform_values { |v| Parameter.new(v[:name], **v) }
-      @properties = options[:properties]&.transform_values { |v| Parameter.new(v[:name], **v) }
+      @items = normalize_schema(options[:items])
+      @properties = normalize_properties(options[:properties])
+    end
+
+    def to_schema
+      {
+        type: type,
+        description: description,
+        items: items,
+        properties: properties
+      }.compact
+    end
+
+    private
+
+    def normalize_schema(schema)
+      return if schema.nil?
+
+      schema = symbolize_keys(schema)
+
+      if shorthand_object_definition?(schema)
+        {
+          type: 'object',
+          properties: normalize_properties(schema)
+        }
+      else
+        {
+          type: schema[:type],
+          description: schema[:desc] || schema[:description],
+          items: normalize_schema(schema[:items]),
+          properties: normalize_properties(schema[:properties])
+        }.compact
+      end
+    end
+
+    def normalize_properties(properties)
+      return if properties.nil?
+
+      symbolize_keys(properties).each_with_object({}) do |(key, value), normalized|
+        normalized[key] = normalize_schema(value)
+      end
+    end
+
+    def shorthand_object_definition?(schema)
+      schema.keys.none? { |key| %i[type items properties description desc].include?(key) }
+    end
+
+    def symbolize_keys(hash)
+      hash.each_with_object({}) do |(key, value), normalized|
+        normalized[key.to_sym] = value
+      end
     end
   end
 

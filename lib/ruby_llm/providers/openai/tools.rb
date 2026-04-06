@@ -28,14 +28,13 @@ module RubyLLM
         end
 
         def param_schema(param)
+          schema = param.respond_to?(:to_schema) ? param.to_schema : param
+
           {
-            type: param.type,
-            description: param.description,
-            items: param.items && {
-              type: 'object',
-              properties: param.items.transform_values { |p| param_schema(p) }
-            },
-            properties: param.properties&.transform_values { |p| param_schema(p) }
+            type: schema[:type],
+            description: schema[:description],
+            items: schema[:items] && param_schema(schema[:items]),
+            properties: schema[:properties]&.transform_values { |property| param_schema(property) }
           }.compact
         end
 
