@@ -5,6 +5,19 @@ module RubyLLM
   class Parameter
     attr_reader :name, :type, :description, :required, :items, :properties
 
+    class << self
+      def serialize_schema(schema, &type_mapper)
+        type_mapper ||= ->(type) { type }
+
+        {
+          type: schema[:type] && type_mapper.call(schema[:type]),
+          description: schema[:description],
+          items: schema[:items] && serialize_schema(schema[:items], &type_mapper),
+          properties: schema[:properties]&.transform_values { |property| serialize_schema(property, &type_mapper) }
+        }.compact
+      end
+    end
+
     def initialize(name, **options)
       @name = name
       @type = options.fetch(:type, 'string')
