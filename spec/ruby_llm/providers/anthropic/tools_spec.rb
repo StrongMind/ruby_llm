@@ -166,6 +166,98 @@ RSpec.describe RubyLLM::Providers::Anthropic::Tools do
     end
   end
 
+  describe '.function_for' do
+    class AnthropicArrayTool < RubyLLM::Tool # rubocop:disable Lint/ConstantDefinitionInBlock,RSpec/LeakyConstantDeclaration
+      description 'Tool with array items'
+
+      param :items,
+            type: 'array',
+            desc: 'List of items',
+            items: {
+              name: { type: 'string', desc: 'Item name' },
+              quantity: { type: 'number', desc: 'Item count' }
+            }
+
+      def execute(...) = nil
+    end
+
+    class AnthropicScalarArrayTool < RubyLLM::Tool # rubocop:disable Lint/ConstantDefinitionInBlock,RSpec/LeakyConstantDeclaration
+      description 'Tool with scalar array items'
+
+      param :tags,
+            type: 'array',
+            desc: 'List of tags',
+            items: { type: 'string' }
+
+      def execute(...) = nil
+    end
+
+    class AnthropicNestedObjectTool < RubyLLM::Tool # rubocop:disable Lint/ConstantDefinitionInBlock,RSpec/LeakyConstantDeclaration
+      description 'Tool with nested object properties'
+
+      param :contact,
+            type: 'object',
+            desc: 'Contact info',
+            properties: {
+              name: { type: 'string', desc: 'Full name' },
+              address: {
+                type: 'object',
+                desc: 'Address',
+                properties: {
+                  city: { type: 'string', desc: 'City name' }
+                }
+              }
+            }
+
+      def execute(...) = nil
+    end
+
+    it 'serializes shorthand object items in arrays' do
+      result = tools.function_for(AnthropicArrayTool.new)
+
+      expect(result[:input_schema][:properties][:items]).to eq(
+        type: 'array',
+        description: 'List of items',
+        items: {
+          type: 'object',
+          properties: {
+            name: { type: 'string', description: 'Item name' },
+            quantity: { type: 'number', description: 'Item count' }
+          }
+        }
+      )
+    end
+
+    it 'serializes scalar array items' do
+      result = tools.function_for(AnthropicScalarArrayTool.new)
+
+      expect(result[:input_schema][:properties][:tags]).to eq(
+        type: 'array',
+        description: 'List of tags',
+        items: { type: 'string' }
+      )
+    end
+
+    it 'serializes nested object properties' do
+      result = tools.function_for(AnthropicNestedObjectTool.new)
+
+      expect(result[:input_schema][:properties][:contact]).to eq(
+        type: 'object',
+        description: 'Contact info',
+        properties: {
+          name: { type: 'string', description: 'Full name' },
+          address: {
+            type: 'object',
+            description: 'Address',
+            properties: {
+              city: { type: 'string', description: 'City name' }
+            }
+          }
+        }
+      )
+    end
+  end
+
   describe '.parse_tool_calls' do
     it 'parses multiple tool calls from content blocks' do
       content_blocks = [

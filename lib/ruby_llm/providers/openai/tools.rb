@@ -28,14 +28,7 @@ module RubyLLM
         end
 
         def param_schema(param)
-          schema = param.respond_to?(:to_schema) ? param.to_schema : param
-
-          {
-            type: schema[:type],
-            description: schema[:description],
-            items: schema[:items] && param_schema(schema[:items]),
-            properties: schema[:properties]&.transform_values { |property| param_schema(property) }
-          }.compact
+          Parameter.serialize_schema(param.to_schema)
         end
 
         def tool_parameters_for(tool)
