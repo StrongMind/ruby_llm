@@ -61,12 +61,11 @@ RSpec.describe RubyLLM::Providers::Gemini::Tools do # rubocop:disable RSpec/Spec
     end
   end
 
-  describe '#format_parameter' do
+  describe '#format_parameters' do
     it 'serializes shorthand object items in arrays' do
-      param = GeminiArrayTool.parameters[:items]
-      result = test_obj.send(:format_parameter, param)
+      result = test_obj.send(:format_parameters, GeminiArrayTool.parameters)
 
-      expect(result).to eq(
+      expect(result[:properties][:items]).to eq(
         type: 'ARRAY',
         description: 'List of items',
         items: {
@@ -80,10 +79,9 @@ RSpec.describe RubyLLM::Providers::Gemini::Tools do # rubocop:disable RSpec/Spec
     end
 
     it 'serializes scalar array items' do
-      param = GeminiScalarArrayTool.parameters[:tags]
-      result = test_obj.send(:format_parameter, param)
+      result = test_obj.send(:format_parameters, GeminiScalarArrayTool.parameters)
 
-      expect(result).to eq(
+      expect(result[:properties][:tags]).to eq(
         type: 'ARRAY',
         description: 'List of tags',
         items: { type: 'STRING' }
@@ -91,10 +89,9 @@ RSpec.describe RubyLLM::Providers::Gemini::Tools do # rubocop:disable RSpec/Spec
     end
 
     it 'serializes nested array items' do
-      param = GeminiScalarArrayTool.parameters[:nested_arrays]
-      result = test_obj.send(:format_parameter, param)
+      result = test_obj.send(:format_parameters, GeminiScalarArrayTool.parameters)
 
-      expect(result).to eq(
+      expect(result[:properties][:nested_arrays]).to eq(
         type: 'ARRAY',
         description: 'Nested arrays',
         items: {
@@ -105,10 +102,9 @@ RSpec.describe RubyLLM::Providers::Gemini::Tools do # rubocop:disable RSpec/Spec
     end
 
     it 'serializes nested object properties' do
-      param = GeminiNestedObjectTool.parameters[:contact]
-      result = test_obj.send(:format_parameter, param)
+      result = test_obj.send(:format_parameters, GeminiNestedObjectTool.parameters)
 
-      expect(result).to eq(
+      expect(result[:properties][:contact]).to eq(
         type: 'OBJECT',
         description: 'Contact info',
         properties: {
