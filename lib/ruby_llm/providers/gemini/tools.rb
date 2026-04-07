@@ -5,6 +5,16 @@ module RubyLLM
     class Gemini
       # Tools methods for the Gemini API implementation
       module Tools
+        PARAM_TYPE_MAP = {
+          'integer' => 'NUMBER',
+          'number' => 'NUMBER',
+          'float' => 'NUMBER',
+          'boolean' => 'BOOLEAN',
+          'array' => 'ARRAY',
+          'object' => 'OBJECT',
+          'string' => 'STRING'
+        }.freeze
+
         def format_tools(tools)
           return [] if tools.empty?
 
@@ -52,40 +62,17 @@ module RubyLLM
         def format_parameters(parameters)
           {
             type: 'OBJECT',
-            properties: parameters.transform_values { |param| format_parameter(param) },
+            properties: parameters.transform_values do |param|
+              Parameter.serialize_schema(param.to_schema) { |type| param_type_for_gemini(type) }
+            end,
             required: parameters.select { |_, p| p.required }.keys.map(&:to_s)
           }
         end
 
-        def format_parameter(param)
-          {
-            type: param_type_for_gemini(param.type),
-            description: param.description,
-            items: param.items && {
-              type: 'OBJECT',
-              properties: format_nested_parameters(param.items)
-            },
-            properties: param.properties && format_nested_parameters(param.properties)
-          }.compact
-        end
-
-        def format_nested_parameters(parameters)
-          parameters.transform_values do |param|
-            {
-              type: param_type_for_gemini(param.type),
-              description: param.description
-            }.compact
-          end
-        end
-
         # Convert RubyLLM param types to Gemini API types
         def param_type_for_gemini(type)
-          case type.to_s.downcase
-          when 'integer', 'number', 'float' then 'NUMBER'
-          when 'boolean' then 'BOOLEAN'
-          when 'array' then 'ARRAY'
-          when 'object' then 'OBJECT'
-          else 'STRING'
+          PARAM_TYPE_MAP.fetch(type.to_s.downcase) do
+            raise KeyError, "Unsupported Gemini parameter type: #{type.inspect}"
           end
         end
       end

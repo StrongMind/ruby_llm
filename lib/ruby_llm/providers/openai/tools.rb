@@ -28,15 +28,7 @@ module RubyLLM
         end
 
         def param_schema(param)
-          {
-            type: param.type,
-            description: param.description,
-            items: param.items && {
-              type: 'object',
-              properties: param.items.transform_values { |p| param_schema(p) }
-            },
-            properties: param.properties&.transform_values { |p| param_schema(p) }
-          }.compact
+          Parameter.serialize_schema(param.to_schema)
         end
 
         def tool_parameters_for(tool)

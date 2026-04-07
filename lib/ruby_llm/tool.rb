@@ -5,13 +5,75 @@ module RubyLLM
   class Parameter
     attr_reader :name, :type, :description, :required, :items, :properties
 
+    class << self
+      def serialize_schema(schema, &type_mapper)
+        type_mapper ||= ->(type) { type }
+
+        {
+          type: schema[:type] && type_mapper.call(schema[:type]),
+          description: schema[:description],
+          items: schema[:items] && serialize_schema(schema[:items], &type_mapper),
+          properties: schema[:properties]&.transform_values { |property| serialize_schema(property, &type_mapper) }
+        }.compact
+      end
+    end
+
     def initialize(name, **options)
       @name = name
       @type = options.fetch(:type, 'string')
       @description = options.fetch(:desc, nil)
       @required = options.fetch(:required, true)
-      @items = options[:items]&.transform_values { |v| Parameter.new(v[:name], **v) }
-      @properties = options[:properties]&.transform_values { |v| Parameter.new(v[:name], **v) }
+      @items = normalize_schema(options[:items])
+      @properties = normalize_properties(options[:properties])
+    end
+
+    def to_schema
+      {
+        type: type,
+        description: description,
+        items: items,
+        properties: properties
+      }.compact
+    end
+
+    private
+
+    def normalize_schema(schema)
+      return if schema.nil?
+
+      schema = symbolize_keys(schema)
+
+      if shorthand_object_definition?(schema)
+        {
+          type: 'object',
+          properties: normalize_properties(schema)
+        }
+      else
+        {
+          type: schema[:type],
+          description: schema[:desc] || schema[:description],
+          items: normalize_schema(schema[:items]),
+          properties: normalize_properties(schema[:properties])
+        }.compact
+      end
+    end
+
+    def normalize_properties(properties)
+      return if properties.nil?
+
+      symbolize_keys(properties).each_with_object({}) do |(key, value), normalized|
+        normalized[key] = normalize_schema(value)
+      end
+    end
+
+    def shorthand_object_definition?(schema)
+      schema.keys.none? { |key| %i[type items properties description desc].include?(key) }
+    end
+
+    def symbolize_keys(hash)
+      hash.each_with_object({}) do |(key, value), normalized|
+        normalized[key.to_sym] = value
+      end
     end
   end
 

@@ -91,20 +91,8 @@ module RubyLLM
 
         def clean_parameters(parameters)
           parameters.transform_values do |param|
-            clean_parameter(param)
+            Parameter.serialize_schema(param.to_schema)
           end
-        end
-
-        def clean_parameter(param)
-          {
-            type: param.type,
-            description: param.description,
-            items: param.items && {
-              type: 'object',
-              properties: clean_parameters(param.items)
-            },
-            properties: param.properties && clean_parameters(param.properties)
-          }.compact
         end
 
         def required_parameters(parameters)
